@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       get :download
     end
 
-    resources :crates, only: [:create]
+    resources :crates, only: [:create, :show]
     resources :song_crates, only: [:create]
   end
 

@@ -3,3 +3,4 @@ class AddNameToUsers < ActiveRecord::Migration[7.0]
     add_column :users, :name, :string
   end
 end
+
