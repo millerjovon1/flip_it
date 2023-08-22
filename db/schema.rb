@@ -10,9 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_21_082852) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_21_091841) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "crate_songs", force: :cascade do |t|
+    t.bigint "song_id", null: false
+    t.bigint "crate_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["crate_id"], name: "index_crate_songs_on_crate_id"
+    t.index ["song_id"], name: "index_crate_songs_on_song_id"
+  end
+
+  create_table "crates", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_crates_on_user_id"
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.string "title"
+    t.string "genre"
+    t.integer "bpm"
+    t.string "instruments"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_songs_on_user_id"
+  end
+
+  create_table "sources", force: :cascade do |t|
+    t.bigint "remix_id"
+    t.bigint "source_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["remix_id"], name: "index_sources_on_remix_id"
+    t.index ["source_id"], name: "index_sources_on_source_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,8 +58,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_082852) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "artist_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "crate_songs", "crates"
+  add_foreign_key "crate_songs", "songs"
+  add_foreign_key "crates", "users"
+  add_foreign_key "songs", "users"
+  add_foreign_key "sources", "songs", column: "remix_id"
+  add_foreign_key "sources", "songs", column: "source_id"
 end
