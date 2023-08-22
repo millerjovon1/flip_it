@@ -12,27 +12,23 @@ class SongsController < ApplicationController
   end
 
   def create
-    @restaurant = Restaurant.new(restaurant_params)
-    @restaurant.user = current_user
-
-    authorize @restaurant
-    if @restaurant.save
-      respond_to do |format|
-        format.html { redirect_to restaurants_path }
-        format.json { render json: {
-          item_html: render_to_string(partial: 'restaurants/card', formats: :html, locals: { restaurant: @restaurant }),
-          form_html: render_to_string(partial: 'restaurants/form', formats: :html, locals: { restaurant: Restaurant.new })
-        } }
-      end
+    @song = Song.find(params[:song_id])
+    @song = song.new(song_params)
+    @song.user = current_user
+    authorize @song
+    if @song.save
+      redirect_to songs_path
     else
-      respond_to do |format|
-        format.html {render :new, status: :unprocessable_entity }
-        format.json { render json: {
-          form_html: render_to_string(partial: 'restaurants/form', formats: :html, locals: { restaurant: @restaurant })
-        } }
-      end
+      render "song/new", status: :unprocessable_entity
     end
+
+
   end
 
 
+private
+
+def song_params
+    params.require(:song).permit(:title, :genre, :bpm, :instruments, :audio_file)
+  end
 end
