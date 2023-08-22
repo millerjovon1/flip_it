@@ -4,5 +4,5 @@ class Song < ApplicationRecord
   validates :genre, presence: true
   validates :bpm, presence: true, numericality: { only_integer: true }
   validates :instruments, presence: true
-  # has_one_attached :audio_file
+  has_one_attached :audio_file
 end
