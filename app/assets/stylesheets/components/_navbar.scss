@@ -1,6 +1,18 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgba(43,11,83, 0.7);
+  color: white;
+  height:90px;
+  // position:fixed;
+}
+
+.item {
+  flex-grow: 1;
+}
+
+.flexbox {
+  display: flex;
+  align-items: center;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +21,31 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.card-category-link {
+ color: rgb(4, 57, 38);
+ text-decoration: none;
+}
+
+.nav-bar-link {
+  color: white;
+  text-decoration: none;
+  padding-right: 10px;
+  padding-left:10px ;
+  font-weight: bold;
+  filter: drop-shadow(0 0 0.1rem grey);
+}
+
+.nav-bar-link-logo {
+  font-size: 50px;
+  color:white;
+  text-decoration: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+a:hover, a:active {
+  color: grey;
+  transition: 0.7s;
 }
