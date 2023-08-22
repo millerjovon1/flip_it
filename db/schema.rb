@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_21_091841) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_22_024251) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,11 +43,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_091841) do
 
   create_table "sources", force: :cascade do |t|
     t.bigint "remix_id"
-    t.bigint "source_id"
+    t.bigint "base_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["base_id"], name: "index_sources_on_base_id"
     t.index ["remix_id"], name: "index_sources_on_remix_id"
-    t.index ["source_id"], name: "index_sources_on_source_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_091841) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "artist_name"
+    t.text "bio"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -68,6 +69,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_21_091841) do
   add_foreign_key "crate_songs", "songs"
   add_foreign_key "crates", "users"
   add_foreign_key "songs", "users"
+  add_foreign_key "sources", "songs", column: "base_id"
   add_foreign_key "sources", "songs", column: "remix_id"
-  add_foreign_key "sources", "songs", column: "source_id"
 end

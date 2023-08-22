@@ -1,8 +1,15 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :songs, only: [ :index, :new, :create] do
+    member do
+      get :download
+    end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+    resources :crates, only: [:create]
+    resources :song_crates, only: [:create]
+  end
+
+  resources :crates, only: [:update, :edit]
+  resources :user, only: [:show, :edit, :update]
 end
