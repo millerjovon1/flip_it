@@ -2,6 +2,7 @@ class CratesController < ApplicationController
 
   def show
     @crate = Crate.find(params[:id])
+    @crate_songs = Crate.song.all
   end
 
 
@@ -10,7 +11,7 @@ class CratesController < ApplicationController
     @crate = Crate.new(crate_params)
     @crate.song = @song
     if @crate.save
-      redirect_to
+      redirect_to user_path
     end
   end
 
@@ -27,5 +28,6 @@ class CratesController < ApplicationController
   def crate_params
     params.require(:crate).permit(:name)
   end
+
 
 end

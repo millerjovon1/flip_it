@@ -5,9 +5,6 @@
 #
 require "yaml"
 
-
-
-
 User.destroy_all
 Song.destroy_all
 Crate.destroy_all
@@ -65,10 +62,10 @@ sample_artists.each do |artist_name|
 end
 
 puts "Creating us..."
- devi = User.create(name: "Devi Putri", artist_name: "DJ Navi", email:"devi.putri@live.com", password: "123123", bio: "...")
- jovon = User.create(name: "Jovon Miller", artist_name: "Monsieur Jovoni", email:"millerjovon1@gmail.com", password: "123123", bio: "...")
- gabi = User.create(name: "Gabi Smer", artist_name: "Gabigabou", email:"gabriellesmer@gmail.com",password:"123123", bio: "...")
- lili = User.create(name: "Lili Banks", artist_name: "Busy Banks", email:"lili88banks@icloud.com", password:"123123", bio: "..." )
+devi = User.create(name: "Devi Putri", artist_name: "DJ Navi", email:"devi.putri@live.com", password: "123123", bio: "...")
+jovon = User.create(name: "Jovon Miller", artist_name: "Monsieur Jovoni", email:"millerjovon1@gmail.com", password: "123123", bio: "...")
+gabi = User.create(name: "Gabi Smer", artist_name: "Gabigabou", email:"gabriellesmer@gmail.com",password:"123123", bio: "...")
+lili = User.create(name: "Lili Banks", artist_name: "Busy Banks", email:"lili88banks@icloud.com", password:"123123", bio: "..." )
 
 puts "Creating songs..."
 30.times do
