@@ -4,10 +4,14 @@
 # Examples:
 #
 require "yaml"
-
-User.destroy_all
-Song.destroy_all
+puts "destorying cratesong"
+CrateSong.destroy_all
+puts "destorying CRATE"
 Crate.destroy_all
+puts "destorying song"
+Song.destroy_all
+puts "destorying USER"
+User.destroy_all
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
@@ -35,8 +39,7 @@ sample_artists = ["ElectroBeetle",
   "Neon Serenade",
   "Lunar Groove",
   "Synthwave Voyager",
-  "Dreambound Echo",
-]
+  "Dreambound Echo"]
 
 sample_bio = [
   "Hey there! I'm all about those cosmic vibes and electric beats. When I'm not lost in space, you'll find me creating music that'll make you groove. Retro meets futuristic in my tunes, and I'm here to take your ears on a wild ride through the stars.",
@@ -54,7 +57,7 @@ puts "Creating users..."
 sample_artists.each do |artist_name|
   User.create!(
     email: Faker::Internet.email,
-    password:"123123",
+    password: "123123",
     name: Faker::Name.first_name,
     artist_name: artist_name,
     bio: sample_bio.sample
@@ -74,7 +77,7 @@ puts "Creating songs..."
     genre: Faker::Music.genre,
     bpm: rand(50..200),
     instruments: Faker::Music.instrument,
-    user: User.all.sample,
+    user: User.all.sample
   )
 end
 
@@ -89,6 +92,6 @@ end
 300.times do
   CrateSong.create!(
     crate: Crate.all.sample,
-    song: Song.all.sample,
+    song: Song.all.sample
   )
 end
