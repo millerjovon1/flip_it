@@ -5,11 +5,10 @@ Rails.application.routes.draw do
     member do
       get :download
     end
-
-    resources :crates, only: [:create, :show]
-    resources :song_crates, only: [:create]
+    resources :crate_songs, only: [:create]
   end
 
-  resources :crates, only: [:update, :edit]
   resources :users, only: [:show, :edit, :update]
+  resources :crates, only: [:new, :create, :show, :update, :edit]
+
 end

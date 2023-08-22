@@ -1,0 +1,8 @@
+<%= simple_form_for [@song] do |f| %>
+  <%= f.input :title, as: :string %>
+  <%= f.input :genre, as: :string %>
+  <%= f.input :bpm, as: :integer %>
+  <%= f.input :instruments, as: :string %>
+  <%= f.input :audio_file, as: :file %>
+  <%= f.submit class: 'btn btn-primary mt-2' %>
+<% end %>
