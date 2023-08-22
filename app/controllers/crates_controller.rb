@@ -1,27 +1,28 @@
 class CratesController < ApplicationController
 
+  def index
+    @crates = Crate.all
+  end
+
   def show
     @crate = Crate.find(params[:id])
-    @crate_songs = Crate.song.all
+    authorize @crate
   end
 
+  def new
+    @crate = Crate.new(crate_params)
+  end
 
   def create
-    @song = Song.find(params[:id])
+    # A song ID can be passed in the body of the POST request
+    # This song ID can be used to create a CrateSong,
+    # associated to the newly created crate
     @crate = Crate.new(crate_params)
-    @crate.song = @song
-    if @crate.save
-      redirect_to user_path
-    end
+    @crate.user = current_user
+      if @crate.save
+        redirect_to crates_path
+      end
   end
-
-
-  def update
-    @crate = Crate.find(params[:id])
-    @crate.update(crate_params)
-    redirect_to crates_path
-  end
-
 
   private
 
