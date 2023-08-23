@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    authorize @user
   end
 
   def update
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
+
 
   private
 

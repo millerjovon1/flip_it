@@ -17,4 +17,8 @@ class SongPolicy < ApplicationPolicy
   def show?
     true
   end
+
+  def download_audio?
+    true
+  end
 end

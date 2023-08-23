@@ -11,6 +11,7 @@ class User < ApplicationRecord
   def remixes
     self.songs.select { |song| song.remix? }
   end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

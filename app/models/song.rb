@@ -11,4 +11,9 @@ class Song < ApplicationRecord
   def remix?
     Source.where(remix: self).any?
   end
+
+  include PgSearch::Model
+  multisearchable against: [:title, :genre, :instruments]
+  has_one_attached :photo
+
 end

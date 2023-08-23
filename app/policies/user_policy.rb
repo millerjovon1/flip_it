@@ -6,6 +6,11 @@ class UserPolicy < ApplicationPolicy
     # end
   end
 
+  def initialize(user, record)
+    @user = user
+    @record = record
+  end
+
   def show?
     true
   end
@@ -15,7 +20,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def user_is_owner?
-    record.user == user
+    record == user
   end
 
   def user_is_admin?
