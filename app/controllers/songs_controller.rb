@@ -25,8 +25,15 @@ class SongsController < ApplicationController
     else
       render "song/new", status: :unprocessable_entity
     end
+  end
 
-
+  def download_audio
+    audio = Audio.find(params[:id])
+    if audio.audio_file.attached?
+      send_data audio.audio_file.download, filename: audio.audio_file.filename.to_s
+    else
+      redirect_to root_path, alert: 'Audio file not found'
+    end
   end
 
 
