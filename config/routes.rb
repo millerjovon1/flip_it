@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :crate_songs, only: [:create]
   end
 
+  resources :users, only: [:show, :edit, :update]
   resources :crates, only: [:new, :create, :show, :update, :edit]
-  resources :user, only: [:show, :edit, :update]
+
 end
