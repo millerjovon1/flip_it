@@ -72,7 +72,7 @@ lili = User.create(name: "Lili Banks", artist_name: "Busy Banks", email:"lili88b
 
 puts "Creating songs..."
 30.times do
-title = Faker::BossaNova.song,
+  title = Faker::BossaNova.song
   base = Song.create!(
     title: title,
     genre: Faker::Music.genre,
@@ -81,7 +81,13 @@ title = Faker::BossaNova.song,
     user: User.all.sample
   )
   3.times do |index|
-    remix = Song.create!(title: "#{title}: the remix #{index + 1}")
+    remix = Song.create!(
+      title: "#{title}: the remix #{index + 1}",
+      genre: Faker::Music.genre,
+      bpm: rand(50..200),
+      instruments: Faker::Music.instrument,
+      user: User.all.sample
+    )
     Source.create(remix: remix,
       base: base
     )
