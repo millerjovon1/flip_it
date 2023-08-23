@@ -15,42 +15,49 @@
 <div class="tab-content p-4" id="myTabContent">
   <div class="tab-pane fade py-3 show active" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
     <h3>Original Works</h3>
-    <%# <% if bookings.accepted.future.blank? %> %>
-      <p>Original Songs</p>
+    <%# <% if bookings.accepted.future.blank? %>
+    <p>Original Songs</p>
     <%# <% else   %>
-      <%# <% bookings.accepted.future.each do |booking| %> %>
-        <%# <%= render "bookings/booking", booking: booking %> %>
-      <%# <% end %> %> %>
-    <%# <% end %> %>
-  </div>
-  <div class="tab-pane fade py-3" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
-    <h3>My Remixes</h3>
-    <%# <% if bookings.accepted.past.blank? %> %>
+    <%# <% bookings.accepted.future.each do |booking| %>
+      <%# <%= render "bookings/booking", booking: booking %>
+      <%# <% end %>
+      <%# <% end %>
+    </div>
+    <div class="tab-pane fade py-3" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
+      <h3>My Remixes</h3>
+      <%# <% if bookings.accepted.past.blank? %>
       <p>My Remixes</p>
-    <%# <% else   %> %>
-      <%# <% bookings.accepted.past.each do |booking| %> %>
-        <%# <%= render "bookings/booking", booking: booking %> %>
-      <%# <% end %> %>
-    <%# <% end %> %>
-  </div>
-  <div class="tab-pane fade py-3" id="conversations-tab-pane" role="tabpanel" aria-labelledby="conversations-tab" tabindex="0">
-    <h3>My Crates</h3>
-    <%# <% if bookings.pending.blank? %> %>
-      <p>My Crates</p>
-    <%# <%else %> %>
-      <%# <%bookings.pending.each do |booking|%> %>
-        <%# <%= render "bookings/booking", booking: booking %> %>
-      <%# <% end %> %>
-    <%# <% end %> %>
-  </div>
-  <div class="tab-pane fade py-3" id="downloads-tab-pane" role="tabpanel" aria-labelledby="downloads-tab" tabindex="0">
-    <h3>Downloads</h3>
-    <%# <% if bookings.accepted.future.blank? %> %>
-      <p>Downloads</p>
-    <%# <% else   %>
-      <%# <% bookings.accepted.future.each do |booking| %> %>
-        <%# <%= render "bookings/booking", booking: booking %> %>
-      <%# <% end %> %> %>
-    <%# <% end %> %>
-  </div>
-</div>
+      <%# <% else   %>
+      <%# <% bookings.accepted.past.each do |booking| %>
+        <%# <%= render "bookings/booking", booking: booking %>
+        <%# <% end %>
+        <%# <% end %>
+      </div>
+      <div class="tab-pane fade py-3" id="conversations-tab-pane" role="tabpanel" aria-labelledby="conversations-tab" tabindex="0">
+        <h3>My Crates</h3>
+        <%# <% if bookings.pending.blank? %>
+        <p>My Crates</p>
+        <div class="container">
+          <% @crates.each do |crate| %>
+            <div class="remix-card">
+              <li><%= crate.name %></li>
+            </div>
+            <div class="container">
+            <% end %>
+            <%# <%else %>
+            <%# <%bookings.pending.each do |booking|%>
+              <%# <%= render "bookings/booking", booking: booking %>
+              <%# <% end %>
+              <%# <% end %>
+            </div>
+            <div class="tab-pane fade py-3" id="downloads-tab-pane" role="tabpanel" aria-labelledby="downloads-tab" tabindex="0">
+              <h3>Downloads</h3>
+              <%# <% if bookings.accepted.future.blank? %>
+              <p>Downloads</p>
+              <%# <% else   %>
+              <%# <% bookings.accepted.future.each do |booking| %>
+                <%# <%= render "bookings/booking", booking: booking %>
+                <%# <% end %>
+                <%# <% end %>
+              </div>
+            </div>

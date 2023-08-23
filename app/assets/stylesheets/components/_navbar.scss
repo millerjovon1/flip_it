@@ -49,3 +49,8 @@ a:hover, a:active {
   color: grey;
   transition: 0.7s;
 }
+
+body:not(:has(.banner)) > :nth-child(2) {
+  display: block;
+  margin-top: 90px;
+}
