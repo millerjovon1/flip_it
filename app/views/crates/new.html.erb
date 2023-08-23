@@ -1,7 +1,5 @@
-
-<div class="container">
-<%= simple_form_for [@crate] do |f| %>
+<%= simple_form_for(@crate) do |f| %>
   <%= f.input :name %>
-  <%= f.submit class: 'btn btn-primary mt-2' %>
+  <%= f.input :photo, as: :file %>
+  <%= f.submit %>
 <% end %>
-</div>

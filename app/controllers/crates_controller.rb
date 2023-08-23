@@ -18,14 +18,14 @@ class CratesController < ApplicationController
     @crate.user = current_user
     authorize @crate
       if @crate.save
-        redirect_to user_path
+        redirect_to user_path(current_user)
       end
   end
 
   private
 
   def crate_params
-    params.require(:crate).permit(:name)
+    params.require(:crate).permit(:name, :photo)
   end
 
 
