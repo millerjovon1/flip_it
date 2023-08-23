@@ -73,7 +73,7 @@ lili = User.create(name: "Lili Banks", artist_name: "Busy Banks", email:"lili88b
 puts "Creating songs..."
 30.times do
   Song.create!(
-    title: Faker::GreekPhilosophers.quote,
+    title: Faker::BossaNova.song,
     genre: Faker::Music.genre,
     bpm: rand(50..200),
     instruments: Faker::Music.instrument,

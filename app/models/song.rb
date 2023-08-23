@@ -5,4 +5,8 @@ class Song < ApplicationRecord
   validates :bpm, presence: true, numericality: { only_integer: true }
   validates :instruments, presence: true
   has_one_attached :audio_file
+
+  include PgSearch::Model
+  multisearchable against: [:title, :genre, :instruments]
+  has_one_attached :photo
 end
