@@ -1,9 +1,5 @@
 class CratesController < ApplicationController
 
-  def index
-    @crates = Crate.all
-  end
-
   def show
     @crate = Crate.find(params[:id])
     authorize @crate
@@ -22,7 +18,7 @@ class CratesController < ApplicationController
     @crate.user = current_user
     authorize @crate
       if @crate.save
-        redirect_to crates_path
+        redirect_to user_path
       end
   end
 
