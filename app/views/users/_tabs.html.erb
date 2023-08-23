@@ -17,6 +17,10 @@
     <h3>Original Works</h3>
     <%# <% if bookings.accepted.future.blank? %>
     <p>Original Songs</p>
+    <% @user.songs.each do |song| %>
+        <%= song.title %>
+      <% end  %>
+    </div>
     <%# <% else   %>
     <%# <% bookings.accepted.future.each do |booking| %>
       <%# <%= render "bookings/booking", booking: booking %>
@@ -27,6 +31,10 @@
       <h3>My Remixes</h3>
       <%# <% if bookings.accepted.past.blank? %>
       <p>My Remixes</p>
+      <%=@user.remixes.each do |remix| %>
+      <%= remix.name %>
+      <% end %>
+
       <%# <% else   %>
       <%# <% bookings.accepted.past.each do |booking| %>
         <%# <%= render "bookings/booking", booking: booking %>
@@ -37,27 +45,27 @@
         <h3>My Crates</h3>
         <%# <% if bookings.pending.blank? %>
         <p>My Crates</p>
-        <div class="container">
+        <%= link_to 'Add a new crate', new_crate_path, class: 'btn btn-primary' %>
+        <div class="crate-container">
           <% @crates.each do |crate| %>
-            <div class="remix-card">
-              <li><%= crate.name %></li>
+            <div class="crates-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= crate.photo.attached? ? cl_image_path(crate.photo.key) : "https://source.unsplash.com/random/?<#{crate.name.gsub(" ", " ")}" %> " alt="" class="songs-image">
+              <%= link_to crate.name, crate_path(crate), class: "text-decoration-none text-white"%>
             </div>
-            <div class="container">
-            <% end %>
-            <%# <%else %>
-            <%# <%bookings.pending.each do |booking|%>
+          <% end  %>
+        </div>
+        <%# <%else %>
+        <%# <%bookings.pending.each do |booking|%>
+          <%# <%= render "bookings/booking", booking: booking %>
+          <%# <% end %>
+          <%# <% end %>
+          <div class="tab-pane fade py-3" id="downloads-tab-pane" role="tabpanel" aria-labelledby="downloads-tab" tabindex="0">
+            <h3>Downloads</h3>
+            <%# <% if bookings.accepted.future.blank? %>
+            <p>Downloads</p>
+            <%# <% else   %>
+            <%# <% bookings.accepted.future.each do |booking| %>
               <%# <%= render "bookings/booking", booking: booking %>
               <%# <% end %>
               <%# <% end %>
             </div>
-            <div class="tab-pane fade py-3" id="downloads-tab-pane" role="tabpanel" aria-labelledby="downloads-tab" tabindex="0">
-              <h3>Downloads</h3>
-              <%# <% if bookings.accepted.future.blank? %>
-              <p>Downloads</p>
-              <%# <% else   %>
-              <%# <% bookings.accepted.future.each do |booking| %>
-                <%# <%= render "bookings/booking", booking: booking %>
-                <%# <% end %>
-                <%# <% end %>
-              </div>
-            </div>
+          </div>

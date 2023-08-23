@@ -1,8 +1,8 @@
 <h1><%= @crate.name %></h1>
+<%= link_to 'Add a Song', songs_path  %>
 
 <% @crate.songs.each do |song| %>
-<li><%= song.title %></li>
+<p><%= song.title %></p>
+
 <% end %>
-
-
-
+<%= link_to 'Back to Crates', user_path(current_user), class: 'btn btn-primary' %>

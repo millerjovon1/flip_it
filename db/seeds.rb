@@ -4,7 +4,7 @@
 # Examples:
 #
 require "yaml"
-puts "destorying cratesong"
+puts "destroying cratesong"
 CrateSong.destroy_all
 puts "destorying CRATE"
 Crate.destroy_all
@@ -72,13 +72,20 @@ lili = User.create(name: "Lili Banks", artist_name: "Busy Banks", email:"lili88b
 
 puts "Creating songs..."
 30.times do
-  Song.create!(
-    title: Faker::GreekPhilosophers.quote,
+title = Faker::GreekPhilosophers.quote
+  base = Song.create!(
+    title: title,
     genre: Faker::Music.genre,
     bpm: rand(50..200),
     instruments: Faker::Music.instrument,
     user: User.all.sample
   )
+  3.times do |index|
+    remix = Song.create!(title: "#{title}: the remix #{index + 1}")
+    Source.create(remix: remix,
+      base: base
+    )
+  end
 end
 
 puts "creating crates..."
