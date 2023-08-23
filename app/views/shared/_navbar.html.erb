@@ -8,12 +8,26 @@
 
 <div>
 
+<div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: root_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Genre, BPM..."
+        %>
+      <%= submit_tag "DIG", name: "", class: "search-button" %>
+    <% end %>
+  </div>
+</div>
+
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
           </li>
           <li class="nav-item">
           </li>
+
 
 
 <%= link_to 'POST REMIX', root_path, class: 'nav-bar-link' %>

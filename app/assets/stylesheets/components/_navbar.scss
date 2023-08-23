@@ -54,3 +54,13 @@ body:not(:has(.banner)) > :nth-child(2) {
   display: block;
   margin-top: 90px;
 }
+
+.search-button{
+  background-color: black;
+  color:white;
+  width:130px;
+}
+
+.form-control{
+  width:400px;
+}
