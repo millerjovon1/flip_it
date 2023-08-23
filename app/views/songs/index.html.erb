@@ -1,13 +1,4 @@
-<div class ="container">
-  <h1>Hello-World</h1>
-  <% @songs.each do |song| %>
-    <div class="song-card">
-      <%= song.title %>
-      <%= song.genre %>
-      <%= song.bpm%>
-      <%= song.instruments%>
-      <%= song.user.artist_name %>
-      <%# <%= song.audio_file.url %>
-    </div>
-  <% end %>
+<div class="container">
+  <h1>Community Crates</h1>
+  <%= render 'songs/card', songs: @songs  %>
 </div>
