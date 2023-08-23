@@ -11,13 +11,17 @@ class SongsController < ApplicationController
     authorize @song
   end
 
+  def show
+    @song = Song.find(params[:id])
+    authorize @song
+  end
+
   def create
-    @song = Song.find(params[:song_id])
-    @song = song.new(song_params)
+    @song = Song.new(song_params)
     @song.user = current_user
     authorize @song
     if @song.save
-      redirect_to songs_path
+      redirect_to song_path(@song)
     else
       render "song/new", status: :unprocessable_entity
     end

@@ -13,4 +13,8 @@ class SongPolicy < ApplicationPolicy
   def new?
     create?
   end
+
+  def show?
+    true
+  end
 end

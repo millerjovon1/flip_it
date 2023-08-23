@@ -10,7 +10,8 @@ class CratesController < ApplicationController
   end
 
   def new
-    @crate = Crate.new(crate_params)
+    @crate = Crate.new
+    authorize @crate
   end
 
   def create
@@ -19,6 +20,7 @@ class CratesController < ApplicationController
     # associated to the newly created crate
     @crate = Crate.new(crate_params)
     @crate.user = current_user
+    authorize @crate
       if @crate.save
         redirect_to crates_path
       end
