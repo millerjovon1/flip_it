@@ -1,10 +1,9 @@
 class CrateSongsController < ApplicationController
   def create
-    @song = Song.find(params[:song_id])
     @crate_song = CrateSong.new(crate_songs_params)
-    @crate_song.song = @song
+    authorize @crate_song
     if @crate_song.save
-      redirect_to user_crate_path
+      redirect_to crate_path(@crate_song.crate)
     else
       render :new, status: :unprocessable_entity
     end
@@ -13,6 +12,6 @@ class CrateSongsController < ApplicationController
   private
 
   def crate_songs_params
-    params.require(:crate, :crate_id)
+    params.require(:crate_song).permit(:song_id, :crate_id)
   end
 end

@@ -4,6 +4,7 @@ class SongsController < ApplicationController
   def index
     @songs = Song.all
     @songs = policy_scope(Song)
+    @crate_song = CrateSong.new
   end
 
   def new
