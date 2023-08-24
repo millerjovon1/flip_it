@@ -22,6 +22,7 @@ class SongsController < ApplicationController
     @song.user = current_user
     authorize @song
     if @song.save
+      Source.create(base_id: params[:base_id], remix: @song) if params[:base_id].present?
       redirect_to song_path(@song)
     else
       render "song/new", status: :unprocessable_entity
