@@ -4,7 +4,8 @@
     <div class="song-card-infos">
       <h3> <%= song.user.artist_name%></h3>
       <h2> <%= song.title%></h2>
-      <p> #<%= song.genre%> <strong> <%= song.bpm%></strong> #<%= song.instruments%></p>
+      <p> <%= song.genre%> <strong> <%= song.bpm%></strong> #<%= song.instruments%></p>
+      <%= render 'songs/download_button', song: @song %>
     </div>
   </div>
 <% end %>
