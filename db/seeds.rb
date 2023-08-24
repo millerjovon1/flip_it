@@ -77,7 +77,7 @@ file = File.open("app/assets/images/real_lush.wav")
 # song = Song.new(title: "Lisa Ono")
 
 puts "Creating songs..."
-10.times do
+5.times do
   title = Faker::BossaNova.song
   base = Song.create!(
     title: title,
@@ -89,7 +89,7 @@ puts "Creating songs..."
   puts "uploading audio...ç"
   base.audio_file.attach(io: file, filename: "audio.wav", content_type: "audio/wav")
   base.save
-  3.times do |index|
+  1.times do |index|
     remix = Song.create!(
       title: "#{title}: the remix #{index + 1}",
       genre: Faker::Music.genre,
