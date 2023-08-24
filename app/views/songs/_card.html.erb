@@ -5,7 +5,7 @@
       <h3> <%= song.user.artist_name%></h3>
       <h2> <%= song.title%></h2>
       <p> <%= song.genre%> <strong> <%= song.bpm%></strong> #<%= song.instruments%></p>
-      <%= render 'songs/download_button', song: @song %>
+      <%= render 'songs/download_button', song: song %>
     </div>
     <audio controls>
       <source src="<%=song.audio_file.url %>" type="audio/wav">
