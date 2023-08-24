@@ -108,7 +108,7 @@ puts "Creating songs..."
       user: User.all.sample
 
     )
-    puts "uploading audio...ç"
+    puts "uploading audio..."
     remix.audio_file.attach(io: file, filename: "audio.wav", content_type: "audio/wav")
     remix.save
 
@@ -119,13 +119,19 @@ puts "Creating songs..."
   end
 end
 
-
+crate_names = [ "Sick Bass",
+"Good Vibes",
+"Chill",
+"Party",
+"My Favs",
+"Inspo"
+]
 
 puts "creating crates..."
-10.times do
+3.times do
   Crate.create!(
     user: User.all.sample,
-    name: Faker::Music.genre
+    name: crate_names.sample
   )
 end
 
