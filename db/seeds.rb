@@ -3,13 +3,14 @@
 #
 # Examples:
 #
+require "open-uri"
 require "yaml"
+puts "destroying sources"
+Source.destroy_all
 puts "destroying cratesong"
 CrateSong.destroy_all
 puts "destorying song"
 Song.destroy_all
-puts "destroying sources"
-Source.destroy_all
 puts "destorying USER"
 User.destroy_all
 puts "destorying CRATE"
@@ -72,6 +73,9 @@ jovon = User.create(name: "Jovon Miller", artist_name: "Monsieur Jovoni", email:
 gabi = User.create(name: "Gabi Smer", artist_name: "Gabigabou", email:"gabriellesmer@gmail.com",password:"123123", bio: "...")
 lili = User.create(name: "Lili Banks", artist_name: "Busy Banks", email:"lili88banks@icloud.com", password:"123123", bio: "..." )
 
+file = File.open("app/assets/images/real_lush.wav")
+# song = Song.new(title: "Lisa Ono")
+
 puts "Creating songs..."
 30.times do
   title = Faker::BossaNova.song
@@ -82,6 +86,9 @@ puts "Creating songs..."
     instruments: Faker::Music.instrument,
     user: User.all.sample
   )
+  puts "uploading audio...ç"
+  base.audio_file.attach(io: file, filename: "audio.wav", content_type: "audio/wav")
+  base.save
   3.times do |index|
     remix = Song.create!(
       title: "#{title}: the remix #{index + 1}",
@@ -89,12 +96,23 @@ puts "Creating songs..."
       bpm: rand(50..200),
       instruments: Faker::Music.instrument,
       user: User.all.sample
+
     )
+
+
     Source.create(remix: remix,
       base: base
     )
   end
 end
+title = Faker::BossaNova.song
+base = Song.create!(
+  title: title,
+  genre: Faker::Music.genre,
+  bpm: rand(50..200),
+  instruments: Faker::Music.instrument,
+  user: User.all.sample
+)
 
 puts "creating crates..."
 10.times do
