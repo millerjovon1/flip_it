@@ -1,0 +1,10 @@
+ <% @crate.songs.each do |song| %>
+  <div class="song-card">
+    <img src=  " <%=song.photo.attached? ? cl_image_path(song.photo.key) : "https://source.unsplash.com/random/?<#{song.title.gsub(" ", " ")}" %> " alt="" class="songs-image">
+    <div class="song-card-infos">
+      <h3> <%= song.user.artist_name%></h3>
+      <h2> <%= song.title%></h2>
+      <p> #<%= song.genre%> <strong> <%= song.bpm%></strong> #<%= song.instruments%></p>
+    </div>
+  </div>
+<% end %>
