@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+      <div id="results">
+          <% @sorted_results.each do |result| %>
+              <% result.each do |object| %>
+<% if object.first.class == Song %>
+<div class= "song-card song-card-info">
+<p> song <%= object.first.title %></p>
+</div>
+<% else %>
+<p>crate <% object.first.name %></p>
+<% end %>
+
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
