@@ -1,8 +1,9 @@
+<div id="songs_form">
 <%= simple_form_for [@song] do |f| %>
-  <%= f.input :title, as: :string %>
-  <%= f.input :genre, as: :string %>
-  <%= f.input :bpm, as: :integer %>
-  <%= f.input :instruments, as: :string %>
+  <%= f.input :title, as: :string, placeholder: 'Title' %>
+  <%= f.input :genre, as: :string, placeholder: 'Genre' %>
+  <%= f.input :bpm, as: :integer, placeholder: 'bpm' %>
+  <%= f.input :instruments, as: :string, placeholder: 'Instruments' %>
   <%= f.input :audio_file, as: :file %>
   <%= f.input :photo, as: :file %>
   <div class="accordion accordion-flush" id="accordionFlushExample">
@@ -19,3 +20,4 @@
   </div>
   <%= f.submit class: 'btn btn-primary mt-2' %>
 <% end %>
+</div>
