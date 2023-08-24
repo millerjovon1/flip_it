@@ -65,11 +65,14 @@ body:not(:has(.banner)) > :nth-child(2) {
   border:0px solid red;
 }
 
-.form-control{
-  width:400px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  border:0px;
+.navbar {
+  .form-control{
+    width:400px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border:0px;
+  }
 }
+
