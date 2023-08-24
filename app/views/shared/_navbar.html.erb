@@ -22,7 +22,7 @@
       <ul class="navbar-nav me-auto align-items-center">
         <% if user_signed_in? %>
 
-<li><%= link_to 'POST REMIX', root_path, class: 'nav-bar-link' %></li>
+<li><%= link_to 'UPLOAD SONG', new_song_path, class: 'nav-bar-link' %></li>
 <li><%= link_to 'REMIX FEED', root_path, class: 'nav-bar-link' %></li>
  <li class="nav-item dropdown">
           <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -31,7 +31,7 @@
 
   <div class="container">
     <div class= "flexbox">
-     
+
     </div>
     <div>
       <ul class="navbar-nav me-auto">
@@ -44,7 +44,7 @@
 
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
