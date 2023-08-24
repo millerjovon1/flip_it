@@ -1,14 +1,117 @@
-.remix-card{
-  color:black;
+
+.song-card {
+  overflow: hidden;
+  margin: 10px 0px;
+  height: 94px;
+  width: 600px;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  size: 15px;
-  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
+  border-radius: 8px;
   align-items: center;
-  height: 200px;
-  width:200px;
+  margin-top: 6px;
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    color:black;
+  }
+  h3 {
+    font-size: 8px;
+    font-weight: bold;
+    margin: 0;
+    color:black;
+  }
+
+   p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+    color:black;
+  }
+   .song-card-infos {
+    padding: 16px 16px;
+    margin: 8px 0px;
+    align-items: center;
+  }
+   img {
+    height: 100%;
+    width: 80px;
+    object-fit: cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7));
+
+  }
+
 }
+
+.remix-card {
+  overflow: hidden;
+  margin: 10px 0px;
+  height: 94px;
+  width: 600px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  border-radius: 0px;
+  align-items: center;
+  margin-top: 6px;
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    color:black;
+  }
+  h3 {
+    font-size: 8px;
+    font-weight: bold;
+    margin: 0;
+    color:black;
+  }
+
+   p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: .7;
+    margin-bottom: 0;
+    margin-top: 8px;
+    color:black;
+  }
+   .song-card-infos {
+    padding: 16px 16px;
+    margin: 8px 0px;
+    align-items: center;
+  }
+   img {
+    height: 100%;
+    width: 80px;
+    object-fit: cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7));
+
+  }
+
+}
+
+
+
+
+
+
+
+// .remix-card{
+//   color:black;
+//   background: white;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   size: 15px;
+//   border-radius: 5px;
+//   display: flex;
+//   align-items: center;
+//   height: 200px;
+//   width:200px;
+// }
 
 .crates-category {
   background-size: cover;
@@ -108,53 +211,3 @@ audio::-webkit-media-controls-timeline {
 //   align-items: center;
 
 // }
-.song-card img {
-  height: 100%;
-  width: 80px;
-  object-fit: cover;
-  background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7));
-
-}
-
-
-.song-card h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  color:black;
-}
-.song-card h3 {
-  font-size: 8px;
-  font-weight: bold;
-  margin: 0;
-  color:black;
-}
-
-
-
-.song-card p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-  color:black;
-}
-.song-card {
-  overflow: hidden;
-  margin: 10px 0px;
-  height: 94px;
-  width: 600px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  display: flex;
-  border-radius: 8px;
-  align-items: center;
-  margin-top: 6px;
-}
-
-.song-card .song-card-infos {
-  padding: 16px 16px;
-  margin: 8px 0px;
-  align-items: center;
-}
