@@ -8,6 +8,8 @@ puts "destroying cratesong"
 CrateSong.destroy_all
 puts "destorying CRATE"
 Crate.destroy_all
+puts "destroying sources"
+Source.destroy_all
 puts "destorying song"
 Song.destroy_all
 puts "destorying USER"
