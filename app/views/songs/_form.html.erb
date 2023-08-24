@@ -1,23 +1,23 @@
 <div id="songs_form">
-<%= simple_form_for [@song] do |f| %>
-  <%= f.input :title, as: :string, placeholder: 'Title' %>
-  <%= f.input :genre, as: :string, placeholder: 'Genre' %>
-  <%= f.input :bpm, as: :integer, placeholder: 'bpm' %>
-  <%= f.input :instruments, as: :string, placeholder: 'Instruments' %>
-  <%= f.input :audio_file, as: :file %>
-  <%= f.input :photo, as: :file %>
-  <div class="accordion accordion-flush" id="accordionFlushExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="flush-headingOne">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-          remix?
-        </button>
-      </h2>
-      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body"><%= select_tag :base_id, options_from_collection_for_select(@songs, "id", "title") %> <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+  <%= simple_form_for [@song] do |f| %>
+    <%= f.input :title, as: :string, placeholder: 'Title' %>
+    <%= f.input :genre, as: :string, placeholder: 'Genre' %>
+    <%= f.input :bpm, as: :integer, placeholder: 'bpm' %>
+    <%= f.input :instruments, as: :string, placeholder: 'Instruments' %>
+    <%= f.input :audio_file, as: :file %>
+    <%= f.input :photo, as: :file %>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            remix?
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body"><%= select_tag :base_id, options_from_collection_for_select(@songs, "id", "title"), include_blank: true %> </div>
+        </div>
       </div>
     </div>
-  </div>
-  <%= f.submit class: 'btn btn-primary mt-2' %>
-<% end %>
+    <%= f.submit class: 'btn btn-primary mt-2' %>
+  <% end %>
 </div>

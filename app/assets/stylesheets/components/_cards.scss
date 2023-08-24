@@ -50,8 +50,8 @@
 .remix-card {
   overflow: hidden;
   margin: 10px 0px;
-  height: 94px;
-  width: 600px;
+  height: 200px;
+  width: 200px;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -203,4 +203,3 @@ audio::-webkit-media-controls-time-remaining-display,
 audio::-webkit-media-controls-timeline {
   color: white;
 }
-
