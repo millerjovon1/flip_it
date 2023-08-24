@@ -3,7 +3,10 @@
 
 <div class= "flexbox align-items-center" id='nav-logo'>
     <h1> <strong> FLIP IT! </strong></h1>
-    <%= link_to '◎', root_path, class: 'nav-bar-link-logo'%>
+    <%= link_to root_path, class: 'nav-bar-link-logo' do %>
+  <%= image_tag 'Section 4.png', alt: 'Logo', class: 'logo-image' %>
+<% end %>
+
     </div>
 
 <div class="row justify-content-center" id='nav-search'>
