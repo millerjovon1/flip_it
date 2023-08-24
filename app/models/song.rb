@@ -14,7 +14,7 @@ class Song < ApplicationRecord
   end
 
   include PgSearch::Model
-  multisearchable against: [:title, :genre, :instruments]
+  multisearchable against: [:title, :genre, :instruments, :bpm]
   has_one_attached :photo
 
 end
