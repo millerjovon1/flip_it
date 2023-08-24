@@ -8,9 +8,9 @@ puts "destroying cratesong"
 CrateSong.destroy_all
 puts "destorying CRATE"
 Crate.destroy_all
+puts "destorying song"
 puts "destroying sources"
 Source.destroy_all
-puts "destorying song"
 Song.destroy_all
 puts "destorying USER"
 User.destroy_all

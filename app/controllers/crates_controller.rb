@@ -2,6 +2,8 @@ class CratesController < ApplicationController
 
   def show
     @crate = Crate.find(params[:id])
+    @songs = @crate.songs.all
+
     authorize @crate
   end
 

@@ -17,9 +17,7 @@
     <h3>Original Works</h3>
     <%# <% if bookings.accepted.future.blank? %>
     <p>Original Songs</p>
-    <% @user.songs.each do |song| %>
-        <%= song.title %>
-      <% end  %>
+   <%= render 'users/card', songs: @user.songs  %>
     </div>
     <%# <% else   %>
     <%# <% bookings.accepted.future.each do |booking| %>
@@ -34,7 +32,7 @@
       <%=@user.remixes.each do |remix| %>
       <%# <%= remix.name %>
       <%# <% end %>
-      
+
       <%# <% else   %>
       <%# <% bookings.accepted.past.each do |booking| %>
         <%# <%= render "bookings/booking", booking: booking %>
@@ -44,7 +42,6 @@
       <div class="tab-pane fade py-3" id="conversations-tab-pane" role="tabpanel" aria-labelledby="conversations-tab" tabindex="0">
         <h3>My Crates</h3>
         <%# <% if bookings.pending.blank? %>
-        <p>My Crates</p>
         <%= link_to 'Add a new crate', new_crate_path, class: 'btn btn-primary' %>
         <div class="crate-container">
           <% @crates.each do |crate| %>
