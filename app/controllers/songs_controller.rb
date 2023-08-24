@@ -9,6 +9,7 @@ class SongsController < ApplicationController
 
   def new
     @song = Song.new
+    @songs = Song.all
     authorize @song
   end
 
