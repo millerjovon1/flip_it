@@ -1,6 +1,19 @@
 <div class="d-flex justify-content-center">
 <div class="result-container ">
   <%# <div class="row justify-content-center"> %>
+
+  <%# <div class="col-sm-8"> %>
+  <%# <div id="results"> %>
+  <div class= "song-container flex-grow-2 mt-5">
+    <h3>SONGS</h3>
+    <% @sorted_results[Song]&.each do |song| %>
+      <div class="song-card">
+        <img src=  " <%=song.photo.attached? ? cl_image_path(song.photo.key) : "https://source.unsplash.com/random/?<#{song.title.gsub(" ", " ")}" %> " alt="" class="songs-image">
+        <div class="song-card-infos">
+          <h3> <%= song.user.artist_name%></h3>
+          <h2> <%= song.title%></h2>
+          <p> #<%= song.genre%> <strong> <%= song.bpm%></strong> #<%= song.instruments%></p>
+
     <%# <div class="col-sm-8"> %>
       <%# <div id="results"> %>
 
@@ -31,11 +44,30 @@
       <%  @sorted_results[Crate]&.each do |crate|%>
         <div class="crates-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= crate.photo.attached? ? cl_image_path(crate.photo.key) : "https://source.unsplash.com/random/?<#{crate.name.gsub(" ", " ")}" %> " alt="" class="songs-image">
           <%= link_to crate.name, crate_path(crate), class: "text-decoration-none text-white"%>
+
         </div>
-      <% end %>
-       </div>
-    <%# </div> %>
+        <audio controls>
+          <source src="<%=song.audio_file.url %>" type="audio/wav">
+        </audio>
+      </div>
+      <a href="<%=song.audio_file.url %>" download></a>
+    <% end %>
+    <%# <% end %>
+  </div>
+  <div class="crate-container flex-grow-1 mt-5">
+    <h3>CRATES</h3>
+    <%  @sorted_results[Crate]&.each do |crate|%>
+      <div class="crates-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= crate.photo.attached? ? cl_image_path(crate.photo.key) : "https://source.unsplash.com/random/?<#{crate.name.gsub(" ", " ")}" %> " alt="" class="songs-image">
+        <%= link_to crate.name, crate_path(crate), class: "text-decoration-none text-white"%>
+      </div>
+    <% end %>
+  </div>
   <%# </div> %>
+  <%# </div> %>
+  <%# </div> %>
+
+
 <%# </div> %>
 
 </div>
+
