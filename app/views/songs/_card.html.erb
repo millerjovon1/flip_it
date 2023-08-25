@@ -1,5 +1,8 @@
  <% @songs.each do |song| %>
   <div data-controller="playlist-popup">
+    <div class="remix-button">
+      <p>remix</p>
+    </div>
     <div class="<%= song.remix? ? "remix-card" : "song-card" %>">
       <img src=  " <%=song.photo.attached? ? cl_image_path(song.photo.key) : "https://source.unsplash.com/random/?<#{song.title.gsub(" ", " ")}" %> " alt="" class="songs-image">
       <div class="song-card-infos">
