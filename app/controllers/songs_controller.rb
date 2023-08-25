@@ -2,8 +2,7 @@ class SongsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @songs = Song.all.order(created_at: :asc)
-    @songs = policy_scope(Song)
+    @songs = policy_scope(Song).order(created_at: :desc)
     @crate_song = CrateSong.new
   end
 
