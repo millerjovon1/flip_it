@@ -3,11 +3,11 @@
   overflow: hidden;
   margin: 10px 0px;
   height: 94px;
-  width: 600px;
+  // width: 600px;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
-  border-radius: 8px;
+  border-radius: 12px;
   align-items: center;
   margin-top: 3px;
   margin-bottom: 20px;
@@ -47,27 +47,32 @@
   }
 
 }
-.remix-button{
-  position:absolute;
-  background-color: yellow;
-  top: 10px;
-  right: 10px;
-  z-index: 1000;
 
-}
+
 
 .remix-card {
   overflow: hidden;
-  position: relative;
   margin: 10px 0px;
-  height: 200px;
-  width: 600px;
+  height: 100px;
+  // width: 600px;
+  position: relative;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
-  border-radius: 0px;
   align-items: center;
   margin-top: 6px;
+
+  .remix-button{
+    position:absolute;
+    display: flex;
+    background-color: yellow;
+    top: 10px;
+    left: 10px;
+    border-radius: 6px;
+    padding: 6px;
+    opacity: .6;
+
+    }
 
   h2 {
     font-size: 16px;
@@ -94,6 +99,7 @@
     padding: 16px 16px;
     margin: 8px 0px;
     align-items: center;
+
   }
    img {
     height: 100%;
@@ -158,6 +164,36 @@
     grid-template-columns: 1fr;
   }
 }
+audio {
+  display: block;
+  width: 300px;
+  max-width: 300px;
+  margin: 0 auto;
+  opacity: .8;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: $purple;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+audio::-webkit-media-controls-play-button,
+audio::-webkit-media-controls-pause-button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+}
+
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-timeline {
+  color: white;
+}
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
@@ -185,34 +221,4 @@
   .cards {
     grid-template-columns: 1fr 1fr 1fr;
   }
-}
-
-audio {
-  display: block;
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
-}
-
-audio::-webkit-media-controls-panel {
-  background-color: $purple;
-  border-radius: 8px;
-  padding: 10px;
-}
-
-audio::-webkit-media-controls-play-button,
-audio::-webkit-media-controls-pause-button {
-  background-color: #3498db;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 20px;
-}
-
-audio::-webkit-media-controls-current-time-display,
-audio::-webkit-media-controls-time-remaining-display,
-audio::-webkit-media-controls-timeline {
-  color: white;
 }
