@@ -2,8 +2,7 @@ class SongsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @songs = Song.all.order(created_at: :desc)
-    @songs = policy_scope(Song)
+    @songs = policy_scope(Song).order(created_at: :desc)
     @crate_song = CrateSong.new
   end
 
@@ -24,7 +23,7 @@ class SongsController < ApplicationController
     authorize @song
     if @song.save
       Source.create(base_id: params[:base_id], remix: @song) if params[:base_id].present?
-      redirect_to song_path(@song)
+      redirect_to songs_path
     else
       render "song/new", status: :unprocessable_entity
     end

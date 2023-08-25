@@ -14,7 +14,7 @@
               <h2> <%= song.title%></h2>
               <p> #<%= song.genre%> <strong> <%= song.bpm%></strong> #<%= song.instruments%></p>
                <%= render 'songs/download_button', song: song %>
-                <button data-action="click->playlist-popup#appear" class='btn btn-primary'>add</button>
+                 <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
             </div>
             <audio controls>
               <source src="<%=song.audio_file.url %>" type="audio/wav">
