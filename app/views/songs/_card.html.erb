@@ -1,12 +1,18 @@
  <% @songs.each do |song| %>
   <div data-controller="playlist-popup">
     <div class="<%= song.remix? ? "remix-card" : "song-card" %>" data-controller="playlist-popup">
-      <p class="remix-button">remix</p>
+      <% if song.remix?  %>
+        <div class="remix-button">
+          <strong>remix</strong>
+        </div>
+        <div class="remix-card-infos">
+        </div>
+      <% end %>
       <img src=  " <%=song.photo.attached? ? cl_image_path(song.photo.key) : "https://source.unsplash.com/random/?<#{song.title.gsub(" ", " ")}" %> " alt="" class="songs-image">
       <div class="song-card-infos">
-        <h3> <%= song.user.artist_name%></h3>
-        <h2> <%= song.title%></h2>
-        <p> <%= song.genre%> <strong> <%= song.bpm%></strong> #<%= song.instruments%></p>
+        <h3><strong> Artist:</strong> <%= song.user.artist_name%></h3>
+        <h2> <strong>Title:</strong> <%= song.title%></h2>
+        <p><strong>Genre:</strong> <%= song.genre%> <strong> bpm:</strong> <%= song.bpm%> <strong>Instruments:</strong> <%= song.instruments%></p>
         <%= render 'songs/download_button', song: song %>
         <button data-action="click->playlist-popup#appear" class='btn btn-primary'>add</button>
       </div>
