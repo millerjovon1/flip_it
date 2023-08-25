@@ -3,7 +3,7 @@
   overflow: hidden;
   margin: 10px 0px;
   height: 94px;
-  width: 600px;
+  // width: 600px;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -53,7 +53,7 @@
   overflow: hidden;
   margin: 10px 0px;
   height: 100px;
-  width: 600px;
+  // width: 600px;
   position: relative;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -162,8 +162,8 @@
 }
 audio {
   display: block;
-  width: 200px;
-  max-width: 200px;
+  width: 300px;
+  max-width: 300px;
   margin: 0 auto;
   opacity: .8;
 }
