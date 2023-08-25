@@ -131,7 +131,7 @@
 .crates-category {
   background-size: cover;
   background-position: center;
-  height: 280px;
+  height: 270px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -141,7 +141,7 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width:280px;
+  width:270px;
 
 }
 
@@ -149,7 +149,7 @@
 .crate-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
+  grid-gap: 26px;
 }
 
 // Smallest device
