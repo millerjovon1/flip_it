@@ -3,6 +3,7 @@
   background: rgba(43,11,83, 0.7);
   color: white;
   height:90px;
+  font-family: $navbar-font;
   // position:fixed;
 }
 
@@ -30,6 +31,7 @@
 
 .nav-bar-link {
   color: white;
+  font-family: $navbar-font;
   text-decoration: none;
   padding-right: 10px;
   padding-left:10px ;
@@ -39,6 +41,7 @@
 
 .nav-bar-link-logo {
   font-size: 50px;
+  font-family: $navbar-font;
   color:white;
   text-decoration: none;
   padding-left: 10px;
@@ -76,3 +79,8 @@ body:not(:has(.banner)) > :nth-child(2) {
   }
 }
 
+.flip-it {
+  text-decoration: none;
+  color: white;
+  font-size: 40px;
+}
