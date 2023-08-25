@@ -2,7 +2,7 @@ class SongsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @songs = Song.all
+    @songs = Song.all.order(created_at: :desc)
     @songs = policy_scope(Song)
     @crate_song = CrateSong.new
   end
@@ -34,6 +34,6 @@ class SongsController < ApplicationController
 private
 
 def song_params
-    params.require(:song).permit(:title, :genre, :bpm, :instruments, :audio_file)
+    params.require(:song).permit(:title, :genre, :bpm, :instruments, :audio_file, :photo)
   end
 end
