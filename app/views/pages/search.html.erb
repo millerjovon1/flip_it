@@ -1,4 +1,32 @@
 <div class="d-flex justify-content-center">
+  <div class="filter-container bg-white">
+    <div class="row">
+      <div class="col-sm-8 mt-5">
+        <%= form_with url: search_path, method: :get do %>
+          GENRE
+          <fieldset class="form-group check_boxes optional snippet_tags">
+            <% Song::GENRES.each do |genre| %>
+              <div class="tag-item">
+                <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="1" name="query[]" id="snippet_tag_ids_<%= genre %>">
+                <label class="form-check-label collection_check_boxes" for="snippet_tag_ids_<%= genre %>"><%= genre %></label>
+              </div>
+            <% end %>
+          </fieldset>
+          INSTRUMENTS
+          <fieldset class="form-group check_boxes optional snippet_tags">
+            <% Song::INSTRUMENTS.each do |instrument| %>
+              <div class="tag-item">
+                <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="1" name="query[]" id="snippet_tag_ids_<%= instrument %>">
+                <label class="form-check-label collection_check_boxes" for="snippet_tag_ids_<%= instrument %>"><%= instrument %></label>
+              </div>
+            <% end %>
+          </fieldset>
+        <% end %>
+      </div>
+    </div>
+    <div>
+      <%= submit_tag "DIG", name: "", class: "filter-button" %> </div>
+  </div>
   <div class="result-container ">
     <div class= "song-container flex-grow-2 mt-5">
       <% @sorted_results[Song]&.each do |song| %>
@@ -22,36 +50,7 @@
       <%  @sorted_results[Crate]&.each do |crate|%>
         <div class="crates-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= crate.photo.attached? ? cl_image_path(crate.photo.key) : "https://source.unsplash.com/random/?<#{crate.name.gsub(" ", " ")}" %> " alt="" class="songs-image">
           <%= link_to crate.name, crate_path(crate), class: "text-decoration-none text-white"%>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-
-
-
-  <div class="row">
-      <div class="col-sm-8">
-        <%= form_with url: search_path, method: :get, class: "d-flex align-items-center" do %>
-        <div>
-        GENRE
-          <div class="d-flex">
-            <% Song::GENRES.each do |genre| %>
-              <%= check_box_tag 'query[]', genre, false, class: 'category-selector'%>
-             <label><%= genre %></label>
-            <%end%>
-            </div>
-          </div>
-          <div>
-            INSTRUMENTS
-            <div class="d-flex">
-            <% Song::INSTRUMENTS.each do |instrument| %>
-              <%= check_box_tag 'query[]', instrument, false, class: 'category-selector' %>
-              <label><%= instrument %></label>
-            <%end%>
-            </div>
-          </div>
-            <div>
-            <%= submit_tag "Submit!", name: "", class: "btn btn-white btn btn-outline-success" %> </div>
-          <% end %>
-        </div>
-      </div>
