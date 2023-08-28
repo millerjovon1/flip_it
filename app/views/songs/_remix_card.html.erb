@@ -16,6 +16,7 @@
         </audio>
       </div>
       <div class="remix-engagement">
+        <p><%= song.title %></p>
         <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
         <%= render 'songs/download_button', song: song %>
       </div>

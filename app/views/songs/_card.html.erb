@@ -15,10 +15,10 @@
           <source src="<%=song.audio_file.url %>" type="audio/wav">
         </audio>
       </div>
-      <div>
+      <div class="song-engagement">
         <h3>Title:<%= song.title%></h3>
         <%= render 'songs/download_button', song: song %>
-        <button data-action="click->playlist-popup#appear" class='btn btn-primary'>add</button>
+        <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
         <%= render 'songs/playlist_form', song: song, crate_song: @crate_song %>
       </div>
     </div>
