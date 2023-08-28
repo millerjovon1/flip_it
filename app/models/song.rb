@@ -8,7 +8,6 @@ class Song < ApplicationRecord
   has_one_attached :audio_file
   has_one_attached :photo
 
-
   def remix?
     Source.where(remix: self).any?
   end
