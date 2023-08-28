@@ -153,6 +153,16 @@
   grid-gap: 26px;
 }
 
+.filter-container{
+width:250px;
+border-radius: 10px;
+margin-right:50px;
+margin-top:50px;
+margin-left: 50px;
+padding: 20px;
+
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
