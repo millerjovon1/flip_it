@@ -1,15 +1,25 @@
-<div class="remix-card">
-  <img src=  " <%=song.photo.attached? ? cl_image_path(song.photo.key) : "https://source.unsplash.com/random/?<#{song.title.gsub(" ", " ")}" %> " alt="" class="song-image">
-  <audio controls>
-    <source src="<%=song.audio_file.url %>" type="audio/wav">
-  </audio>
-  <div>
-    <div class="remix-card-infos">
-      <p class="remix-button">remix</p>
-      <h2><%= song.title %></h2>
-      <%=song.user.artist_name  %>
+<% @songs.each do |song| %>
+  <div data-controller="playlist-popup">
+    <div class="remix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=song.photo.attached? ? cl_image_path(song.photo.key) : "https://source.unsplash.com/random/?<#{song.title.gsub(" ", " ")}" %>); background-size:cover;">
+      <div class="remix-card-infos">
+        <h3><strong> Artist:</strong> <%= song.user.artist_name%></h3>
+        <h3 class= "text-nowrap"> bpm: <%= song.bpm%>
+          <br>
+          <strong>Genre:</strong>
+          <%= song.genre%>
+          <br>
+          <strong>Instruments:</strong> <%= song.instruments%></h3>
+      </div>
+      <div class="remix-audio">
+        <audio controls>
+          <source src="<%=song.audio_file.url %>" type="audio/wav">
+        </audio>
+      </div>
+      <div class="remix-engagement">
+        <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
+        <%= render 'songs/download_button', song: song %>
+      </div>
+      <%# <%= render 'songs/playlist_form', song: song, crate_song: @crate_song %>
     </div>
-    <h2 class="remix-card-pricing">£99.99</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="remix-card-user avatar-bordered" />
   </div>
-</div>
+<% end %>
