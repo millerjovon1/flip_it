@@ -22,20 +22,20 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     @song.user = current_user
-    raise
     authorize @song
     if @song.save
       Source.create(base_id: params[:base_id], remix: @song) if params[:base_id].present?
       redirect_to songs_path
     else
-      render "song/new", status: :unprocessable_entity
+      render "songs/new", status: :unprocessable_entity
     end
   end
 
 
-private
+  private
 
-def song_params
+  def song_params
+    params[:song][:instruments] = (params[:song][:instruments] - [""]).join(", ")
     params.require(:song).permit(:title, :genre, :bpm, :instruments, :audio_file, :photo)
   end
 end

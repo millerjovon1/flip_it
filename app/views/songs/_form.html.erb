@@ -9,12 +9,16 @@
     </div>
     <%= f.input :instruments, as: :check_boxes,
             collection_wrapper_tag: 'div',
+            include_blank: false,
             collection_wrapper_class: 'category-wrapper',
             item_wrapper_class: 'tag-item',
             input_html: {class: 'tag-selector'},
             collection: ["Guitar", "Bass", "Piano", "Drums", "Trombone", "Violin", "Harmonica", "Flute", "Cello", "Harp", "French Horn", "Trumpet", "Bagpipe", "Banjo"] %>
     <%= f.input :audio_file, as: :file %>
     <%= f.input :photo, as: :file %>
+
+    <%# for photo upload %>
+
     <div class="accordion accordion-flush" id="accordionFlushExample">
       <div class="accordion-item">
         <h2 class="accordion-header" id="flush-headingOne">
