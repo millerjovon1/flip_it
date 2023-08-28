@@ -10,6 +10,6 @@ export default class extends Controller {
   }
 
   play() {
-    this.audioTarget.play
+    this.audioTarget.play()
     }
   }
