@@ -1,4 +1,4 @@
-<% @songs.each do |song| %>
+<% songs.each do |song| %>
   <div data-controller="playlist-popup">
     <div data-controller="play-button">
       <div class="song-card" >
@@ -22,6 +22,7 @@
           <h3>Title:<%= song.title%></h3>
           <%= render 'songs/download_button', song: song %>
           <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
+
         </div>
       </div>
       <%= render 'songs/playlist_form', song: song, crate_song: @crate_song %>
