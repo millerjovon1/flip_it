@@ -2,8 +2,8 @@
 .song-card {
   overflow: hidden;
   margin: 10px 0px;
-  height: 94px;
-  // width: 600px;
+  height: 120px;
+  width: 600px;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -53,14 +53,16 @@
 .remix-card {
   overflow: hidden;
   margin: 10px 0px;
-  height: 100px;
-  // width: 600px;
-  position: relative;
+  height: 250px;
+  width: 250px;
+  // position: relative;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
-  align-items: center;
-  margin-top: 6px;
+  // flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  // margin-top: 6px;
 
   .remix-button{
     position:absolute;
@@ -73,18 +75,22 @@
     opacity: .6;
 
     }
+    .remix-engagement {
+      background-color: red;
+
+    }
 
   h2 {
     font-size: 16px;
     font-weight: bold;
     margin: 0;
-    color:black;
+    color:white;
   }
   h3 {
     font-size: 8px;
     font-weight: bold;
     margin: 0;
-    color:black;
+    color:white;
   }
 
    p {
@@ -93,24 +99,39 @@
     opacity: .7;
     margin-bottom: 0;
     margin-top: 8px;
-    color:black;
+    color:white;
   }
-   .song-card-infos {
+   .remix-card-infos {
     padding: 16px 16px;
-    margin: 8px 0px;
+    // margin: 8px 0px;
+    // position: absolute;
+    // top
+    background-color: $purple;
     align-items: center;
-
+    // background-size: 80px;
+    // background-position: inherit;
   }
    img {
-    height: 100%;
-    width: 80px;
+    // position: relative;
+    // position: absolute;
+    height: 200 px;
+    // width: 100%;
     object-fit: cover;
-    background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7));
+    opacity: .8;
+    background: linear-gradient(rgba(160, 66, 255, 0.634),rgba(91, 31, 255, 0.364));
+
 
   }
+
 
 }
 
+// .song-block{
+//   width: 300px;
+//   height: 80px;
+//   // position: absolute;
+//   background-color: rgba(48, 16, 48, 0.279);
+// }
 
 
 
@@ -176,6 +197,7 @@ audio::-webkit-media-controls-panel {
   background-color: $purple;
   border-radius: 8px;
   padding: 10px;
+
 }
 
 audio::-webkit-media-controls-play-button,
@@ -187,6 +209,7 @@ audio::-webkit-media-controls-pause-button {
   width: 40px;
   height: 40px;
   font-size: 20px;
+
 }
 
 audio::-webkit-media-controls-current-time-display,
