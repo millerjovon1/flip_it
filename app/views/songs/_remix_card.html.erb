@@ -11,11 +11,15 @@
         <h3>Title:<%= song.title%></h3>
       </div>
       <div class="remix-audio">
-        <audio controls>
+      <div data-play-button-target="audio">
+        <audio controls >
           <source src="<%=song.audio_file.url %>" type="audio/wav">
         </audio>
+        </div>
       </div>
+      <%= render 'songs/playlist_form', song: song, crate_song: @crate_song%>
       <div class="remix-engagement">
+
         <p><%= song.title %>
           <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
           <%= render 'songs/download_button', song: song %>
