@@ -9,7 +9,7 @@ class Song < ApplicationRecord
   has_one_attached :photo
 
   GENRES = ['Hip Hop', 'Jazz', 'Country', 'Funk', 'Classical', 'World', 'Rock', 'Folk', 'Blues']
-  INSTRUMENTS = ['Piano', 'Drums', 'Cello', 'Violin', 'Xylophone', 'Electric Guitar', 'Organ']
+  INSTRUMENTS = ['Piano', 'Drums', 'Cello', 'Violin', 'Xylophone', 'Electric Guitar', 'Organ', 'Ukelele']
 
   def remix?
     Source.where(remix: self).any?

@@ -1,31 +1,31 @@
 <div class="d-flex justify-content-center">
   <div class="filter-container bg-white">
     <div class="row">
-      <div class="col-sm-8 mt-5">
+      <div class="col">
         <%= form_with url: search_path, method: :get do %>
           GENRE
-          <fieldset class="form-group check_boxes optional snippet_tags">
+          <fieldset class="form-group check_boxes optional snippet_tags mt-1 mb-2">
             <% Song::GENRES.each do |genre| %>
               <div class="tag-item">
-                <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="1" name="query[]" id="snippet_tag_ids_<%= genre %>">
+                <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="<%=genre%>" name="query[]" id="snippet_tag_ids_<%= genre %>">
                 <label class="form-check-label collection_check_boxes" for="snippet_tag_ids_<%= genre %>"><%= genre %></label>
               </div>
             <% end %>
           </fieldset>
           INSTRUMENTS
-          <fieldset class="form-group check_boxes optional snippet_tags">
+          <fieldset class="form-group check_boxes optional snippet_tags mt-1 mb-2">
             <% Song::INSTRUMENTS.each do |instrument| %>
               <div class="tag-item">
-                <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="1" name="query[]" id="snippet_tag_ids_<%= instrument %>">
+                <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="<%=instrument%>" name="query[]" id="snippet_tag_ids_<%= instrument %>">
                 <label class="form-check-label collection_check_boxes" for="snippet_tag_ids_<%= instrument %>"><%= instrument %></label>
               </div>
             <% end %>
           </fieldset>
-        <% end %>
-      </div>
+          <%= submit_tag "DIG", name: "", class: "filter-button" %> </div>
+      <% end %>
     </div>
-    <div>
-      <%= submit_tag "DIG", name: "", class: "filter-button" %> </div>
+  </div>
+  <div>
   </div>
   <div class="result-container ">
     <div class= "song-container flex-grow-2 mt-5">
