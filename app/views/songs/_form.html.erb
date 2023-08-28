@@ -1,14 +1,15 @@
-<div id="songs_form">
+<div id="songs_form" data-controller="alert">
   <%= simple_form_for [@song] do |f| %>
     <%= f.input :title, as: :string, placeholder: 'Title' %>
     <%= f.input :genre, as: :string, placeholder: 'Genre' %>
     <div class="range-wrap" data-controller="slider" >
-    <div class="range-value" id="rangeV"></div>
-    <label for="">bpm</label>
-    <input id="range" type="range" min="50" max="400" value="50" step="10" name="song[bpm]">
+      <div class="range-value" id="rangeV"></div>
+      <label for="">bpm</label>
+      <input id="range" type="range" min="50" max="400" value="50" step="10" name="song[bpm]">
     </div>
     <%= f.input :instruments, as: :check_boxes,
             collection_wrapper_tag: 'div',
+            include_blank: false,
             collection_wrapper_class: 'category-wrapper',
             item_wrapper_class: 'tag-item',
             input_html: {class: 'tag-selector'},
@@ -27,6 +28,6 @@
         </div>
       </div>
     </div>
-    <%= f.submit class: 'btn btn-primary mt-2' %>
+    <%= f.submit input_html: { data: { action: "click->alert#initSweetalert" } }, class: 'btn btn-primary mt-2' %>
   <% end %>
 </div>

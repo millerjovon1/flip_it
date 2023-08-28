@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "sweetalert2": "^11.7.27",
     "tom-select": "^2.2.2"
   }
 }

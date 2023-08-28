@@ -1,6 +1,8 @@
+<div class="text-center">
 <h1><%= @crate.name %></h1>
 <%= link_to 'Add a Song', songs_path  %>
-<div class="container">
-  <%= render 'crates/card', songs: @crate.songs  %>
+</div>
+<div class="container d-flex">
+  <%= render 'crates/card', crate_songs: @crate.crate_songs  %>
 </div>
 <%= link_to 'Back to Crates', user_path(current_user), class: 'btn btn-primary' %>
