@@ -26,21 +26,7 @@
       <% end %>
     </div>
   </div>
-<section>
-	<h2>Genres</h2>
-	<button class="pill" type="button">Anime</button>
 
-	<button class="pill pill-selected" type="button">Top Rated</button>
-	<button class="pill" type="button">More Anime</button>
-	<button class="pill" type="button">Most Viewed</button>
-</section>
-<section>
-	<h2>Instruments</h2>
-	<button class="pill" type="button">Anime</button>
-	<button class="pill pill-selected" type="button">Top Rated</button>
-	<button class="pill" type="button">More Anime</button>
-	<button class="pill" type="button">Most Viewed</button>
-</section>
 
 
   <div class="row">
@@ -50,25 +36,20 @@
         GENRE
           <div class="d-flex">
             <% Song::GENRES.each do |genre| %>
-
-              <%= check_box_tag 'genre[]', genre, false, class: 'category-selector'%>
-
-             <label><%= Song.genre(genre) %></label>
+              <%= check_box_tag 'query[]', genre, false, class: 'category-selector'%>
+             <label><%= genre %></label>
             <%end%>
             </div>
           </div>
           <div>
             INSTRUMENTS
             <div class="d-flex">
-            <% Song.INSTRUMENTS.each do |instrument| %>
-              <%= check_box_tag 'instrument[]', instrument, false, class: 'category-selector' %>
-
-              <label><%= Song.instrument(instrument) %></label>
+            <% Song::INSTRUMENTS.each do |instrument| %>
+              <%= check_box_tag 'query[]', instrument, false, class: 'category-selector' %>
+              <label><%= instrument %></label>
             <%end%>
             </div>
           </div>
-
-
             <div>
             <%= submit_tag "Submit!", name: "", class: "btn btn-white btn btn-outline-success" %> </div>
           <% end %>
