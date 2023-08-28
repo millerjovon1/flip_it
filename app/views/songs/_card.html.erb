@@ -1,28 +1,28 @@
-<% @songs.each do |song| %>
+<% songs.each do |song| %>
   <div data-controller="playlist-popup">
-  <div data-controller="play-button">
-    <div class="song-card" >
-      <div class="song-card-infos" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=song.photo.attached? ? cl_image_path(song.photo.key) : "https://source.unsplash.com/random/?<#{song.title.gsub(" ", " ")}" %>);">
-        <h3><strong> Artist:</strong> <%= song.user.artist_name%></h3>
-        <h3 class= "text-nowrap"> bpm: <%= song.bpm%>
-          <br>
-          <strong>Genre:</strong>
-          <%= song.genre%>
-          <br>
-          <strong>Instruments:</strong> <%= song.instruments%></h3>
-      </div>
-      <div class="song-audio" data-play-button-target="audio">
-        <audio controls style="display: none" >
-          <source src="<%=song.audio_file.url %>" type="audio/wav" >
-        </audio>
-        <i class="fa-regular fa-circle-play card-buttons" style="color: #000000;" data-action="click->play-button#play"></i>
-      </div>
-      <div class="song-engagement">
-        <h3>Title:<%= song.title%></h3>
-        <%= render 'songs/download_button', song: song %>
-        <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
-        <%= render 'songs/playlist_form', song: song, crate_song: @crate_song %>
-      </div>
+    <div data-controller="play-button">
+      <div class="song-card" >
+        <div class="song-card-infos" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=song.photo.attached? ? cl_image_path(song.photo.key) : "https://source.unsplash.com/random/?<#{song.title.gsub(" ", " ")}" %>);">
+          <h3><strong> Artist:</strong> <%= song.user.artist_name%></h3>
+          <h3 class= "text-nowrap"> bpm: <%= song.bpm%>
+            <br>
+            <strong>Genre:</strong>
+            <%= song.genre%>
+            <br>
+            <strong>Instruments:</strong> <%= song.instruments%></h3>
+        </div>
+        <div class="song-audio" data-play-button-target="audio">
+          <audio controls style="display: none" >
+            <source src="<%=song.audio_file.url %>" type="audio/wav" >
+          </audio>
+          <i class="fa-regular fa-circle-play card-buttons" style="color: #000000;" data-action="click->play-button#play"></i>
+        </div>
+        <div class="song-engagement">
+          <h3>Title:<%= song.title%></h3>
+          <%= render 'songs/download_button', song: song %>
+          <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
+          <%= render 'songs/playlist_form', song: song, crate_song: @crate_song %>
+        </div>
       </div>
     </div>
   </div>
