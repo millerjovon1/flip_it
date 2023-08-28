@@ -6,8 +6,7 @@
 // applying the clear to the div wrapping the first following radio button
 // or checkbox.
 
-@import "dropzone/dist/min/dropzone.min.css";
-@import "dropzone/dist/min/basic.min.css";
+
 
 legend ~ div.form-check:first-of-type {
   clear: left;
