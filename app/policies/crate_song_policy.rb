@@ -8,5 +8,10 @@ class CrateSongPolicy < ApplicationPolicy
   def create?
     true
   end
-  
+
+  def destroy?
+    
+    record.crate.user == user
+  end
+
 end
