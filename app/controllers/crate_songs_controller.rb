@@ -9,6 +9,13 @@ class CrateSongsController < ApplicationController
     end
   end
 
+    def destroy
+      @crate_song = CrateSong.find(params[:id])
+      @crate_song.destroy
+      authorize @crate_song
+      redirect_to crate_path(@crate_song.crate), status: :see_other
+      end
+
   private
 
   def crate_songs_params

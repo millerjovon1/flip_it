@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @crates = Crate.all
+    @crates = @user.crates
     authorize @user
   end
 

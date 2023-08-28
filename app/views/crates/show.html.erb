@@ -1,8 +1,6 @@
 <h1><%= @crate.name %></h1>
 <%= link_to 'Add a Song', songs_path  %>
-
-
-
+<div class="container">
   <%= render 'crates/card', songs: @crate.songs  %>
-
+</div>
 <%= link_to 'Back to Crates', user_path(current_user), class: 'btn btn-primary' %>
