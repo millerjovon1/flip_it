@@ -3,7 +3,10 @@ class SongsController < ApplicationController
 
   def index
     @songs = policy_scope(Song).order(created_at: :desc)
+    @originals = @songs.originals
+    @remixes = @songs.remixes
     @crate_song = CrateSong.new
+
 
 
   end
