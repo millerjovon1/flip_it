@@ -4,6 +4,8 @@ class SongsController < ApplicationController
   def index
     @songs = policy_scope(Song).order(created_at: :desc)
     @crate_song = CrateSong.new
+
+
   end
 
   def new
@@ -20,6 +22,7 @@ class SongsController < ApplicationController
   def create
     @song = Song.new(song_params)
     @song.user = current_user
+    raise
     authorize @song
     if @song.save
       Source.create(base_id: params[:base_id], remix: @song) if params[:base_id].present?
