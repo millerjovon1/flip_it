@@ -4,11 +4,13 @@
     <h1 class="text-center my-4">Community Crates</h1>
     <div class="row">
       <div class="col-12 col-lg-6">
-        <%= render 'songs/card', songs: @songs  %>
+        <h2>Original Works</h2>
+        <%= render 'songs/card', songs: @originals  %>
       </div>
       <div class="col-12 col-lg-6">
+        <h2>Remixes</h2>
         <div class="d-flex flex-wrap justify-content-around">
-          <%= render 'songs/remix_card', songs: @songs  %>
+          <%= render 'songs/remix_card', songs: @remixes  %>
         </div>
       </div>
     </div>
