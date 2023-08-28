@@ -2,8 +2,17 @@
   <%= simple_form_for [@song] do |f| %>
     <%= f.input :title, as: :string, placeholder: 'Title' %>
     <%= f.input :genre, as: :string, placeholder: 'Genre' %>
-    <%= f.input :bpm, as: :integer, placeholder: 'bpm' %>
-    <%= f.input :instruments, as: :string, placeholder: 'Instruments' %>
+    <div class="range-wrap" data-controller="slider" >
+    <div class="range-value" id="rangeV"></div>
+    <label for="">bpm</label>
+    <input id="range" type="range" min="50" max="400" value="50" step="10" name="song[bpm]">
+    </div>
+    <%= f.input :instruments, as: :check_boxes,
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'category-wrapper',
+            item_wrapper_class: 'tag-item',
+            input_html: {class: 'tag-selector'},
+            collection: ["Guitar", "Bass", "Piano", "Drums", "Trombone", "Violin", "Harmonica", "Flute", "Cello", "Harp", "French Horn", "Trumpet", "Bagpipe", "Banjo"] %>
     <%= f.input :audio_file, as: :file %>
     <%= f.input :photo, as: :file %>
     <div class="accordion accordion-flush" id="accordionFlushExample">

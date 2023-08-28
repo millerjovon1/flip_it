@@ -7,6 +7,7 @@ class Song < ApplicationRecord
   validates :instruments, presence: true
   has_one_attached :audio_file
   has_one_attached :photo
+
   GENRES = ['Hip Hop', 'Jazz', 'Country', 'Funk', 'Classical', 'World', 'Rock', 'Folk', 'Blues']
   INSTRUMENTS = ['Piano', 'Drums', 'Cello', 'Violin', 'Xylophone', 'Electric Guitar', 'Organ']
 
