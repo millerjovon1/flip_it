@@ -11,19 +11,21 @@
             <br>
             <strong>Instruments:</strong> <%= song.instruments%></h3>
         </div>
-        <div class="song-audio" data-play-button-target="audio">
-          <audio controls style="display: none" >
+        <div class="song-audio">
+          <audio controls style="display: none" data-play-button-target="audio">
             <source src="<%=song.audio_file.url %>" type="audio/wav" >
           </audio>
-          <i class="fa-regular fa-circle-play card-buttons" style="color: #000000;" data-action="click->play-button#play"></i>
+          <i class="fa-regular fa-circle-play play-button" style="color: #000000;" data-action="click->play-button#play"></i>
+          <i class="fa-regular fa-circle-pause pause-button" style="color: #000000;" data-action="click->play-button#pause"></i>
         </div>
         <div class="song-engagement">
           <h3>Title:<%= song.title%></h3>
           <%= render 'songs/download_button', song: song %>
           <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
-          <%= render 'songs/playlist_form', song: song, crate_song: @crate_song %>
+
         </div>
       </div>
+      <%= render 'songs/playlist_form', song: song, crate_song: @crate_song %>
     </div>
   </div>
 <% end %>
