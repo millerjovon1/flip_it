@@ -1,5 +1,5 @@
 <div class="container">
-  <%= render 'user_avatar', users: @users  %>
+   <%= render 'user_avatar', users: @users  %>
   <h3> <%= @user.artist_name%></h3>
   <div class="mb-5"><%= link_to 'Upload original work', new_song_path, :class => "btn btn-primary" %>
     <%= link_to 'Edit user', edit_user_registration_path, :class => "btn btn-warning" %></div>
