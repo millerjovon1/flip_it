@@ -3,7 +3,7 @@
   overflow: hidden;
   margin: 10px 0px;
   height: 120px;
-  width: 100%;
+  width: 600px;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -117,9 +117,14 @@
     color:black;
   }
    .remix-card-infos {
-    padding: 16px 16px;
-    margin: 8px 0px;
-    align-items: center;
+    // padding: 16px 16px;
+    // margin: 8px 0px;
+    // align-items: center;
+    width:100%;
+  }
+  .remix-audio {
+    height:100%;
+    width: 100%;
   }
    img {
     height: 100%;
