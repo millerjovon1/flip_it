@@ -12,6 +12,16 @@
   margin-top: 3px;
   margin-bottom: 20px;
 
+  .bpm-sticker {
+    background-color: yellowgreen;
+    // position:absolute;
+    width: 80px;
+    padding: 4px 4px;
+    border-radius: 4px;
+    // top: 10px;
+    // left:10px;
+  }
+
   h2 {
     font-size: 16px;
     font-weight: bold;
@@ -19,7 +29,7 @@
     color:black;
   }
   h3 {
-    font-size: 8px;
+    font-size: 16px;
     font-weight: bold;
     margin: 0;
     color:black;
@@ -34,18 +44,29 @@
     color:black;
   }
    .song-card-infos {
-    padding: 16px 16px;
-    margin: 8px 0px;
-    align-items: center;
+    // padding: 16px 16px;
+    // margin: 8px 0px;
+    display:flex;
+    height:100%;
+    // align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 8px;
+
+    // justify-content: space-between;
   }
    img {
     height: 100%;
-    width: 80px;
+    width: 120px;
     object-fit: cover;
     background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7));
 
-  }
 
+  }
+.song-audio{
+  position:relative;
+  height:100%;
+}
 }
 
 

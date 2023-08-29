@@ -8,50 +8,20 @@
 
 .play-button,
 .pause-button {
-  font-size: 50px;
+  font-size: 40px;
   color: #000000;
   cursor: pointer;
   padding: 5px;
+  opacity: .8;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.genre-button{
-  height:25px;
-  width:75px;
-  border-radius: 30px;
-  background-color:$purple;
-  opacity: .7;
-  color:white;
-  // flex-flow: wrap;
-  text-align: center;
-  border: 2px solid purple;
-  margin: 4px auto;
-  padding: 2px 2px;
-  position:absolute;
-  top: 10px;
-  right: 10px;
-  p{
-    color:white;
-    font-size:8px;
 
-  }
-}
-.instrument-button{
-  height:25px;
-  width:75px;
-  border-radius: 30px;
-  background-color:$purple;
-  opacity: .7;
-  color:white;
-  // display:flex;
-  text-align:center;
-  border: 2px solid purple;
-  margin: 4px auto;
-  padding: 2px 2px;
-  position:absolute;
-  top: 10px;
-  right:90px;
-  p{
-    color:white;
-    font-size:8px;
 
-  }
+.song-pills {
+  display: flex;
+  gap:4px;
+  justify-content: flex-end;
 }
