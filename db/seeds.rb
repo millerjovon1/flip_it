@@ -124,7 +124,9 @@ crate_names = [ "Sick Bass",
 "Chill",
 "Party",
 "My Favs",
-"Inspo"
+"Inspo",
+"Rock",
+"Funk",
 ]
 
 puts "creating crates..."
