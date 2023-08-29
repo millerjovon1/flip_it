@@ -7,5 +7,5 @@ class Crate < ApplicationRecord
   has_one_attached :photo
 
   include PgSearch::Model
-  multisearchable against: [:name]
+  multisearchable against: [:name, :songs]
 end

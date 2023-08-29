@@ -6,6 +6,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :artist_name, presence: true, uniqueness: true
   # has_one_attached :profile_photo
+  include PgSearch::Model
+  multisearchable against: [:artist_name]
 
 
   def remixes
@@ -16,4 +18,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_one_attached :photo
+
 end
