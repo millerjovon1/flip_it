@@ -11,7 +11,6 @@
   align-items: center;
   margin-top: 3px;
   margin-bottom: 20px;
-  position: relative;
 
   .bpm-sticker {
     background-color: yellowgreen;
@@ -30,7 +29,7 @@
     color:black;
   }
   h3 {
-    font-size: 8px;
+    font-size: 16px;
     font-weight: bold;
     margin: 0;
     color:black;
@@ -49,7 +48,11 @@
     // margin: 8px 0px;
     display:flex;
     height:100%;
-    align-items: center;
+    // align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 8px;
+
     // justify-content: space-between;
   }
    img {
@@ -58,8 +61,12 @@
     object-fit: cover;
     background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7));
 
-  }
 
+  }
+.song-audio{
+  position:relative;
+  height:100%;
+}
 }
 
 
