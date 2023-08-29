@@ -14,7 +14,7 @@ class CrateSongsController < ApplicationController
       @crate_song.destroy
       authorize @crate_song
       redirect_to crate_path(@crate_song.crate), status: :see_other
-      end
+    end
 
   private
 

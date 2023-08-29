@@ -1,6 +1,6 @@
-<div class="text-center">
+<div class="text-center p-3">
 <h1><%= @crate.name %></h1>
-<%= link_to 'Add a Song', songs_path  %>
+<%= link_to 'Add a Song', songs_path, class: "btn btn-primary"  %>
 </div>
 <div class="container d-flex">
   <%= render 'crates/card', crate_songs: @crate.crate_songs  %>

@@ -13,9 +13,11 @@
             <p><%= song.instruments%></p>
           </div>
           <div class="remix-audio">
-            <audio controls>
-              <source src="<%=song.audio_file.url %>" type="audio/wav">
-            </audio>
+            <audio controls style="display: none" data-play-button-target="audio">
+            <source src="<%=song.audio_file.url %>" type="audio/wav" >
+          </audio>
+          <i class="fa-regular fa-circle-play play-button" style="color: #000000;" data-action="click->play-button#play" data-play-button-target="playButton"></i>
+          <i class="fa-regular fa-circle-pause pause-button d-none" style="color: #000000;" data-action="click->play-button#pause" data-play-button-target="pauseButton"></i>
             <p>Title:<%= song.title%></p>
             <div class="remix-engagement">
               <p><strong> Artist:</strong> <%= song.user.artist_name%></p>

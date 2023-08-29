@@ -9,6 +9,5 @@ export default class extends Controller {
   }
   appear() {
     this.formTarget.classList.toggle("d-none");
-    this.formTarget.style.display("block");
   }
 }

@@ -30,20 +30,36 @@
   <div class="result-container ">
     <div class= "song-container flex-grow-2 mt-5">
       <% @sorted_results[Song]&.each do |song| %>
-        <div class="song-card">
-          <img src=  " <%=song.photo.attached? ? cl_image_path(song.photo.key) : "https://source.unsplash.com/random/?<#{song.title.gsub(" ", " ")}" %> " alt="" class="songs-image">
-          <div class="song-card-infos">
-            <h3> <%= song.user.artist_name%></h3>
-            <h2> <%= song.title%></h2>
-            <p> #<%= song.genre%> <strong> <%= song.bpm%></strong> #<%= song.instruments%></p>
-            <%= render 'songs/download_button', song: song %>
-            <button data-action="click->playlist-popup#appear" class='btn btn-primary'>add</button>
+        <div data-controller="playlist-popup">
+          <div data-controller="play-button">
+            <div class="song-card" >
+              <div class="mx-3">
+                <i class="fa-regular fa-circle-play play-button" style="color: #000000;" data-action="click->play-button#play" data-play-button-target="playButton"></i>
+                <i class="fa-regular fa-circle-pause pause-button d-none" style="color: #000000;" data-action="click->play-button#pause" data-play-button-target="pauseButton"></i>
+              </div>
+              <div class="song-card-infos" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=song.photo.attached? ? cl_image_path(song.photo.key) : "https://source.unsplash.com/random/?<#{song.title.gsub(" ", " ")}" %>);">
+                <h3><strong> Artist:</strong> <%= song.user.artist_name%></h3>
+                <h3 class= "text-nowrap"> bpm: <%= song.bpm%>
+                  <br>
+                  <strong>Genre:</strong>
+                  <%= song.genre%>
+                  <br>
+                  <strong>Instruments:</strong> <%= song.instruments%></h3>
+              </div>
+              <div class="song-audio">
+                <audio controls style="display: none" data-play-button-target="audio">
+                  <source src="<%=song.audio_file.url %>" type="audio/wav" >
+                </audio>
+              </div>
+              <div class="song-engagement">
+                <h3>Title:<%= song.title%></h3>
+                <%= render 'songs/download_button', song: song %>
+                <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
+              </div>
+            </div>
+            <%= render 'songs/playlist_form', song: song, crate_song: @crate_song %>
           </div>
-          <audio controls>
-            <source src="<%=song.audio_file.url %>" type="audio/wav">
-          </audio>
         </div>
-        <a href="<%=song.audio_file.url %>" download></a>
       <% end %>
     </div>
     <div class="crate-container mt-5">
@@ -52,5 +68,11 @@
           <%= link_to crate.name, crate_path(crate), class: "text-decoration-none text-white"%>
         <% end %>
       </div>
+      <div class="artist-container mt-5">
+        <%  @sorted_results[User]&.each do |user|%>
+          <div class="artist-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= user.photo.attached? ? cl_image_path(user.photo.key) : "https://source.unsplash.com/random/?<#{user.artist_name.gsub(" ", " ")}" %> " alt="" class="songs-image">
+            <%= link_to user.artist_name, user_path(user), class: "text-decoration-none text-white"%>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
