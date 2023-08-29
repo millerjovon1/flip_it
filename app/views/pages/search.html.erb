@@ -66,13 +66,14 @@
       <%  @sorted_results[Crate]&.each do |crate|%>
         <div class="crates-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= crate.photo.attached? ? cl_image_path(crate.photo.key) : "https://source.unsplash.com/random/?<#{crate.name.gsub(" ", " ")}" %> " alt="" class="songs-image">
           <%= link_to crate.name, crate_path(crate), class: "text-decoration-none text-white"%>
-        <% end %>
-      </div>
-      <div class="artist-container mt-5">
-        <%  @sorted_results[User]&.each do |user|%>
-          <div class="artist-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= user.photo.attached? ? cl_image_path(user.photo.key) : "https://source.unsplash.com/random/?<#{user.artist_name.gsub(" ", " ")}" %> " alt="" class="songs-image">
-            <%= link_to user.artist_name, user_path(user), class: "text-decoration-none text-white"%>
-          <% end %>
         </div>
-      </div>
+      <% end %>
     </div>
+    <div class="artist-container mt-5">
+      <%  @sorted_results[User]&.each do |user|%>
+        <div class="artist-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= user.photo.attached? ? cl_image_path(user.photo.key) : "https://source.unsplash.com/random/?<#{user.artist_name.gsub(" ", " ")}" %> " alt="" class="songs-image">
+          <%= link_to user.artist_name, user_path(user), class: "text-decoration-none text-white"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
