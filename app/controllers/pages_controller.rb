@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 
   def search
     @songs = policy_scope(Song).order(created_at: :desc)
+    @crate_song = CrateSong.new
 
     @songs = @songs.where(genre: params[:genre]) if params[:genre].present?
     @songs = @songs.where(instruments: params[:instruments]) if params[:instruments].present?
