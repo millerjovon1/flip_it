@@ -1,5 +1,6 @@
 
 .banner {
+  background-image: asset-url("BL4A8507.JPG");
   background-size: cover;
   background-position: center;
   padding: 230px 0;
@@ -30,4 +31,7 @@ padding-bottom: 10px;
 border-radius: 5px;
 font-style: bold;
 width:50px;
+}
+#overlay{
+  background-color: rgba(0,0,0,0.2);
 }
