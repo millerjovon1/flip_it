@@ -27,38 +27,7 @@
     </div>
     <div class="col-8">
       <div class= "song-container flex-grow-2 mt-5">
-        <% @sorted_results[Song]&.each do |song| %>
-          <div data-controller="playlist-popup">
-            <div data-controller="play-button">
-              <div class="song-card" >
-                <div class="mx-3">
-                  <i class="fa-regular fa-circle-play play-button" style="color: #000000;" data-action="click->play-button#play" data-play-button-target="playButton"></i>
-                  <i class="fa-regular fa-circle-pause pause-button d-none" style="color: #000000;" data-action="click->play-button#pause" data-play-button-target="pauseButton"></i>
-                </div>
-                <div class="song-card-infos" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=song.photo.attached? ? cl_image_path(song.photo.key) : "https://source.unsplash.com/random/?#{song.title.gsub(" ", " ")}" %>)" >
-                  <h3><strong> Artist:</strong> <%= song.user.artist_name%></h3>
-                  <h3 class= "text-nowrap"> bpm: <%= song.bpm%>
-                    <br>
-                    <strong>Genre:</strong>
-                    <%= song.genre%>
-                    <br>
-                    <strong>Instruments:</strong> <%= song.instruments%></h3>
-                </div>
-                <div class="song-audio">
-                  <audio controls style="display: none" data-play-button-target="audio">
-                    <source src="<%=song.audio_file.url %>" type="audio/wav" >
-                  </audio>
-                </div>
-                <div class="song-engagement">
-                  <h3>Title:<%= song.title%></h3>
-                  <%= render 'songs/download_button', song: song %>
-                  <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
-                </div>
-              </div>
-              <%= render 'songs/playlist_form', song: song, crate_song: @crate_song %>
-            </div>
-          </div>
-        <% end %>
+        <%= render partial: 'songs/card', locals: {songs: @sorted_results[Song]} %>
       </div>
     </div>
   </div>
