@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @crates = @user.crates
+    @crate_song = CrateSong.new
     authorize @user
   end
 
