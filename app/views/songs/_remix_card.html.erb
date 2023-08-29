@@ -1,11 +1,10 @@
 <% songs.each do |song| %>
   <div data-controller="playlist-popup">
-   <div data-controller="play-button">
-    <div class="remix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=song.photo.attached? ? cl_image_path(song.photo.key) : "https://source.unsplash.com/random/?<#{song.title.gsub(" ", " ")}" %>); background-size:cover;">
-      <div class="remix-card-infos">
-        <h2 class= "text-nowrap ">
+    <div data-controller="play-button">
+      <div class="remix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=song.photo.attached? ? cl_image_path(song.photo.key) : "https://source.unsplash.com/random/?<#{song.title.gsub(" ", " ")}" %>); background-size:cover;">
+        <div class="remix-card-infos">
           <div class="bpm-sticker">
-            bpm: <%= song.bpm%>
+            <h2> bpm: <%= song.bpm%></h2>
           </div>
           <div class="genre-button">
             <p> <%= song.genre%></p>
