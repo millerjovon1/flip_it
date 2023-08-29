@@ -1,9 +1,11 @@
 <% if user_signed_in? %>
 <div class="d-none" data-playlist-popup-target="form">
+<div class="form-container ">
   <%= simple_form_for crate_song do |f| %>
     <%= f.input :song_id,  input_html: {value: song.id, type: "hidden"}, label: false %>
     <%= f.association :crate, collection: current_user.crates.order(:name) %>
     <%= f.submit class: 'btn btn-primary mt-2' %>
   <% end %>
+  </div>
 </div>
 <% end %>
