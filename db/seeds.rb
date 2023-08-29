@@ -82,6 +82,11 @@ devi = User.create(name: "Devi Putri", artist_name: "DJ Navi", email:"devi.putri
 jovon = User.create(name: "Jovon Miller", artist_name: "Monsieur Jovoni", email:"millerjovon1@gmail.com", password: "123123", bio: "...")
 gabi = User.create(name: "Gabi Smer", artist_name: "Gabigabou", email:"gabriellesmer@gmail.com",password:"123123", bio: "...")
 lili = User.create(name: "Lili Banks", artist_name: "Busy Banks", email:"lili88banks@icloud.com", password:"123123", bio: "..." )
+kraftykid = User.create(name: "Krafty Kid", artist_name: "Kraftykid", email:"kraftykids@icloud.com", password:"123123", bio: "..." )
+avalley = User.create(name: "A Valley", artist_name: "A.Valley", email:"avalleys@icloud.com", password:"123123", bio: "..." )
+mj = User.create(name: "Mj The Sensei", artist_name: "MJ the Sensei", email:"mjthesensei@icloud.com", password:"123123", bio: "..." )
+jrovia = User.create(name: "J Rovia", artist_name: "J.rovia", email:"jrovia@icloud.com", password:"123123", bio: "..." )
+jtheprotagonist = User.create(name: "J The Protagonist", artist_name: "J the Protagonist", email:"jtheprotagonist@icloud.com", password:"123123", bio: "..." )
 
 file = File.open("app/assets/images/real_lush.wav")
 # song = Song.new(title: "Lisa Ono")
