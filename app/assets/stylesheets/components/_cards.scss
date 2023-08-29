@@ -76,12 +76,14 @@
   overflow: hidden;
   margin: 10px 0px;
   height: 350px;
+  gap:4px;
   width: 300px;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
-  border-radius: 12px;
-  align-items: center;
+  flex-direction: column-reverse;
+  // border-radius: 12px;
+  // align-items: center;
   position:relative;
   // margin-top: 3px;
   // margin-bottom: 20px;
@@ -100,12 +102,12 @@
   }
   .bpm-sticker {
     background-color: yellowgreen;
-    position:absolute;
+    // position:absolute;
     width: 80px;
     padding: 4px 4px;
     border-radius: 4px;
-    top: 10px;
-    left:10px;
+    // top: 10px;
+    // left:10px;
   }
 
    p {
@@ -124,12 +126,13 @@
   }
   .remix-audio {
     height:100%;
-    width: 100%;
+    width:100%;
+    // width: 100%;
   }
    img {
     height: 100%;
-    width: 80px;
-    object-fit: cover;
+    width: 100%;
+    // object-fit: cover;
     background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7));
 
   }
@@ -160,66 +163,7 @@
 //   width:200px;
 // }
 
-.result-container{
-  display:flex !important;
-  gap:50px;
-}
 
-.crates-category {
-  background-size: cover;
-  background-position: center;
-  height: 270px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width:270px;
-
-}
-
-.artist-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 26px;
-}
-
-.artist-category{
-  background-size: cover;
-  background-position: center;
-  height: 270px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width:270px;
-
-}
-
-.crate-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 26px;
-}
-
-.filter-container{
-width:250px;
-border-radius: 10px;
-margin-right:50px;
-margin-top:50px;
-margin-left: 50px;
-padding: 20px;
-
-}
 
 .crates-song-card {
   overflow: hidden;
