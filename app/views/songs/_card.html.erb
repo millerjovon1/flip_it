@@ -22,7 +22,6 @@
           <h3>Title:<%= song.title%></h3>
           <%= render 'songs/download_button', song: song %>
           <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
-
         </div>
       </div>
       <%= render 'songs/playlist_form', song: song, crate_song: @crate_song %>

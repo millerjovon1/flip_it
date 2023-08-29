@@ -3,22 +3,27 @@
    <div data-controller="play-button">
     <div class="remix-card" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=song.photo.attached? ? cl_image_path(song.photo.key) : "https://source.unsplash.com/random/?<#{song.title.gsub(" ", " ")}" %>); background-size:cover;">
       <div class="remix-card-infos">
-        <div class="remix-audio">
-          <audio controls>
-            <source src="<%=song.audio_file.url %>" type="audio/wav">
-          </audio>
-        </div>
-        <p><strong> Artist:</strong> <%= song.user.artist_name%></p>
-        <p>Title:<%= song.title%></p>
-      </div>
-      <h2 class= "text-nowrap"> bpm: <%= song.bpm%>
-        <strong>Genre:</strong>
-        <%= song.genre%>
-        <strong>Instruments:</strong> <%= song.instruments%></h2>
-      <div class="remix-engagement">
-        <p><%= song.title %>
-          <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
-          <%= render 'songs/download_button', song: song %>
+        <h2 class= "text-nowrap ">
+          <div class="bpm-sticker">
+            bpm: <%= song.bpm%>
+          </div>
+          <div class="genre-button">
+            <p> <%= song.genre%></p>
+          </div>
+          <div class="instrument-button">
+            <p><%= song.instruments%></p>
+          </div>
+          <div class="remix-audio">
+            <audio controls>
+              <source src="<%=song.audio_file.url %>" type="audio/wav">
+            </audio>
+            <p>Title:<%= song.title%></p>
+            <div class="remix-engagement">
+              <p><strong> Artist:</strong> <%= song.user.artist_name%></p>
+              <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
+              <%= render 'songs/download_button', song: song %>
+            </div>
+          </div>
         </div>
         <%= render 'songs/playlist_form', song: song, crate_song: @crate_song%>
       </div>
