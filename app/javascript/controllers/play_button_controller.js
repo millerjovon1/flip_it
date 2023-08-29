@@ -2,19 +2,20 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="play-button"
 export default class extends Controller {
-  static targets = ["audio"]
+  static targets = ["audio", "playButton", "pauseButton"]
 
   connect() {
   console.log("Testing")
-  console.log(this.audioTarget)
   }
-
   play() {
-    this.audioTarget.play()
-    }
+    this.audioTarget.play();
+    this.playButtonTarget.classList.toggle("d-none");
+    this.pauseButtonTarget.classList.remove("d-none");
+  }
 
   pause() {
-    this.audioTarget.pause()
+    this.audioTarget.pause();
+    this.pauseButtonTarget.classList.toggle("d-none");
+    this.playButtonTarget.classList.toggle("d-none");
   }
-
-  }
+}
