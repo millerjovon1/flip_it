@@ -1,6 +1,13 @@
-<div class="text-center p-3">
-<h1><%= @crate.name %></h1>
-<%= link_to 'Add a Song', songs_path, class: "btn btn-primary"  %>
+<div class="text-center p-5">
+  <h1><%= @crate.name %></h1>
+  <div class="d-flex justify-content-around">
+    <%= link_to user_path(current_user) do %>
+      <i class="fas fa-arrow-left go-back-button"></i>
+    <% end %>
+     <p class="mt-3"><%= pluralize(@crate.crate_songs.count, 'song') %></p>
+    <%= link_to songs_path do %>
+      <i class="fa-solid fa-circle-plus add-music" style="color: #ffffff;"></i>
+    <% end %>
+  </div>
 </div>
-  <%= render 'crates/card', crate_songs: @crate.crate_songs  %>
-<%= link_to 'Back to Crates', user_path(current_user), class: 'btn btn-primary' %>
+<%= render 'crates/card', crate_songs: @crate.crate_songs  %>
