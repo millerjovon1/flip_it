@@ -6,20 +6,27 @@ import Swal from "sweetalert2"
 export default class extends Controller {
 
   connect() {
-
   }
 
-  initSweetalert() {
-    // event.preventDefault(); // Prevent the form to be submited after the submit button has been clicked
+  initSweetalert(event) {
+    event.preventDefault(event); // Prevent the form to be submited after the submit button has been clicked
 
     Swal.fire({
-
-    }).then((result) => {
+      title: 'Good job!',
+      text: 'You uploaded the song!',
+      icon: 'success',
+      confirmButtonText: 'FLIP IT!'
+  })
+    .then((result) => {
+      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        // User confirmed, take appropriate action here
-        Swal.fire('Good job!', 'You clicked the button!', 'success');
+        window.location.href = '/songs';
+      } else if (result.isDenied) {
+        Swal.fire('Changes are not saved', '', 'info')
       }
-    });
-
+    })
   }
+
+
+
 }
