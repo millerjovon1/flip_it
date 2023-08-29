@@ -6,6 +6,11 @@
   cursor: pointer;
 }
 
+.add-music {
+  font-size: 40px;
+  color: white
+}
+
 .play-button,
 .pause-button {
   font-size: 40px;
@@ -19,6 +24,10 @@
   transform: translate(-50%, -50%);
 }
 
+.go-back-button {
+  font-size: 40px;
+  color: white
+}
 
 .song-pills {
   display: flex;
