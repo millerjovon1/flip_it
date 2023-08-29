@@ -45,15 +45,16 @@
     color:black;
   }
    .song-card-infos {
-    padding: 16px 16px;
-    margin: 8px 0px;
+    // padding: 16px 16px;
+    // margin: 8px 0px;
     display:flex;
+    height:100%;
     align-items: center;
     // justify-content: space-between;
   }
    img {
     height: 100%;
-    width: 80px;
+    width: 120px;
     object-fit: cover;
     background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7));
 
