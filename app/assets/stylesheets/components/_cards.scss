@@ -76,12 +76,14 @@
   overflow: hidden;
   margin: 10px 0px;
   height: 350px;
+  gap:4px;
   width: 300px;
   background: white;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
-  border-radius: 12px;
-  align-items: center;
+  flex-direction: column-reverse;
+  // border-radius: 12px;
+  // align-items: center;
   position:relative;
   // margin-top: 3px;
   // margin-bottom: 20px;
@@ -100,12 +102,12 @@
   }
   .bpm-sticker {
     background-color: yellowgreen;
-    position:absolute;
+    // position:absolute;
     width: 80px;
     padding: 4px 4px;
     border-radius: 4px;
-    top: 10px;
-    left:10px;
+    // top: 10px;
+    // left:10px;
   }
 
    p {
@@ -124,12 +126,13 @@
   }
   .remix-audio {
     height:100%;
-    width: 100%;
+    width:100%;
+    // width: 100%;
   }
    img {
     height: 100%;
-    width: 80px;
-    object-fit: cover;
+    width: 100%;
+    // object-fit: cover;
     background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7));
 
   }
