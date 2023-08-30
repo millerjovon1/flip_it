@@ -4,7 +4,8 @@
   margin: 10px 0px;
   height: 120px;
   width: 600px;
-  background: white;
+  background: $off-white;
+  opacity: .8;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   border-radius: 12px;
@@ -148,7 +149,8 @@
     // ), linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
     // linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
   }
-    // width: 100%;
+
+
   img {
     height: 100%;
     width: 100%;

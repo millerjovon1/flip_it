@@ -5,7 +5,7 @@ class CrateSongsController < ApplicationController
     if @crate_song.save
       redirect_to crate_path(@crate_song.crate)
     else
-      render :new, status: :unprocessable_entity
+      redirect_to songs_path, status: :unprocessable_entity
     end
   end
 
