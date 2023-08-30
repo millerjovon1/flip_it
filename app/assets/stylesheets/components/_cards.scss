@@ -114,11 +114,11 @@
   p {
     font-size: 10px;
     // line-height: 1.4;
-    opacity: 0.7;
+    // opacity: 0.7;
     // margin-bottom: 0;
     // margin-top: 8px;
     margin: 0;
-    color: white;
+    color: whitesmoke;
   }
 
   .remix-card-infos {
@@ -169,12 +169,9 @@
   img {
     height: 100%;
     width: 100%;
-    // z-index: -1;;
-    // position:relative;
-    // display: block;
+    filter: hue-rotate(240deg) brightness(0.5);
     object-fit: cover;
   }
-  // linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
 }
 
 // .song-block{
