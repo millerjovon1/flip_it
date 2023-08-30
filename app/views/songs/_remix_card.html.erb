@@ -1,13 +1,17 @@
 <% songs.each do |song| %>
   <div class="remix-card " data-controller="playlist-popup play-button play-slider">
     <div class="remix-card-infos">
-      <i class="fa-regular fa-circle-play play-button" style="color: #000000;" data-action="click->play-button#play" data-play-button-target="playButton"></i>
-      <i class="fa-regular fa-circle-pause pause-button d-none" style="color: #000000;" data-action="click->play-button#pause" data-play-button-target="pauseButton"></i>
+      <i class="fa-regular fa-circle-play play-button" style="color: #ffffff;" data-action="click->play-button#play" data-play-button-target="playButton"></i>
+      <i class="fa-regular fa-circle-pause pause-button d-none" style="color: #ffffff;" data-action="click->play-button#pause" data-play-button-target="pauseButton"></i>
       <div class="remix-pills justify-content-between">
-        <div class="bpm-sticker">
+        <div class="remix-bpm-sticker">
           <h2>  bpm <%= song.bpm%></h2>
         </div>
         <div>
+          <div class= "artist-info">
+            <h3> <%= link_to user_path(song.user) do %> Artist: <%= song.user.artist_name  %> <% end %> </h3>
+            <h3>Title: <%= song.title%></h3>
+          </div>
           <span class="badge rounded-pill text-bg-info"> <%= song.genre%></span>
           <span class="badge rounded-pill text-bg-info"> <%= song.instruments%></span>
         </div>
@@ -16,24 +20,22 @@
         <source src="<%=song.audio_file.url %>" type="audio/wav" >
       </audio>
       <input type="range" id="play-slider" min="0" value="0" data-action="click->play-slider#timeupdate" data-play-slider-target="input">
-      <div class= "align-items-center">
-        <h3> Artist: <%= song.user.artist_name %></h3>
-        <h3>Title: <%= song.title%></h3>
-      </div>
+ 
+
       <div class="remix-engagement">
-        <%# <p>OG Track: <%= song.original.title %></p>
-      <%# <p>OG Artist: <%= song.original.user.artist_name %></p>
-    <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
-    <%= render 'songs/download_button', song: song %>
+        <p><%= link_to user_path(song.original.user) do %> Original Artist: <%= song.original.user.artist_name %> <% end %></p>
+        <p>Original Track: <%= song.original.title%></p>
+        <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
+        <%= render 'songs/download_button', song: song %>
+      </div>
+    </div>
+    <div class="remix-audio" >
+      <% if song.photo.attached? %>
+        <%=cl_image_tag(song.photo.key)%>
+      <% else %>
+        <%=  image_tag "https://source.unsplash.com/random/?#{song.title.gsub(" ", " ")}" %>
+      <% end %>
+    </div>
+    <%= render 'songs/playlist_form', song: song, crate_song: @crate_song%>
   </div>
-</div>
-<div class="remix-audio" >
-  <% if song.photo.attached? %>
-    <%=cl_image_tag(song.photo.key)%>
-  <% else %>
-    <%=  image_tag "https://source.unsplash.com/random/?#{song.title.gsub(" ", " ")}" %>
-  <% end %>
-</div>
-<%= render 'songs/playlist_form', song: song, crate_song: @crate_song%>
-</div>
 <% end %>
