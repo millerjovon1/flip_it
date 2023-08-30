@@ -1,56 +1,54 @@
-<div class="row d-flex">
-  <div class="col-9">
-    <div class="row">
-      <div class="col-4">
-        <div class="filter-container bg-white">
-          <%= form_with url: search_path, method: :get do %>
-            GENRE
-            <fieldset class="form-group check_boxes optional snippet_tags mt-1 mb-2">
-              <% Song::GENRES.each do |genre| %>
-                <div class="tag-item">
-                  <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="<%=genre%>" name="query[]" id="snippet_tag_ids_<%= genre %>">
-                  <label class="form-check-label collection_check_boxes" for="snippet_tag_ids_<%= genre %>"><%= genre %></label>
-                </div>
-              <% end %>
-            </fieldset>
-            INSTRUMENTS
-            <fieldset class="form-group check_boxes optional snippet_tags mt-1 mb-2">
-              <% Song::INSTRUMENTS.each do |instrument| %>
-                <div class="tag-item">
-                  <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="<%=instrument%>" name="query[]" id="snippet_tag_ids_<%= instrument %>">
-                  <label class="form-check-label collection_check_boxes" for="snippet_tag_ids_<%= instrument %>"><%= instrument %></label>
-                </div>
-              <% end %>
-            </fieldset>
-            <%= submit_tag "DIG", name: "", class: "filter-button" %>
-          <% end %>
-        </div>
-      </div>
-      <div class="col-8">
-        <div class= "song-container flex-grow-2 mt-5">
-          <%= render partial: 'songs/card', locals: {songs: @sorted_results[Song]} if @sorted_results[Song]%>
-        </div>
+<div>
+  <div class="row d-flex">
+    <div class="col-4">
+      <div class="filter-container bg-white">
+        <%= form_with url: search_path, method: :get do %>
+          GENRE
+          <fieldset class="form-group check_boxes optional snippet_tags mt-1 mb-2">
+            <% Song::GENRES.each do |genre| %>
+              <div class="tag-item">
+                <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="<%=genre%>" name="query[]" id="snippet_tag_ids_<%= genre %>">
+                <label class="form-check-label collection_check_boxes" for="snippet_tag_ids_<%= genre %>"><%= genre %></label>
+              </div>
+            <% end %>
+          </fieldset>
+          INSTRUMENTS
+          <fieldset class="form-group check_boxes optional snippet_tags mt-1 mb-2">
+            <% Song::INSTRUMENTS.each do |instrument| %>
+              <div class="tag-item">
+                <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="<%=instrument%>" name="query[]" id="snippet_tag_ids_<%= instrument %>">
+                <label class="form-check-label collection_check_boxes" for="snippet_tag_ids_<%= instrument %>"><%= instrument %></label>
+              </div>
+            <% end %>
+          </fieldset>
+          <%= submit_tag "DIG", name: "", class: "filter-button" %>
+        <% end %>
       </div>
     </div>
-    <div class ="row">
-      <div class="col">
-        <div class="crate-container mt-5">
-          <%  @sorted_results[Crate]&.each do |crate|%>
-            <div class="crates-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= crate.photo.attached? ? cl_image_path(crate.photo.key) : "https://source.unsplash.com/random/?#{crate.name.gsub(" ", " ")}" %>)" alt="" class="songs-image">
-              <%= link_to crate.name, crate_path(crate), class: "text-decoration-none text-white"%>
-            </div>
-          <% end %>
-        </div>
+    <div class="col-8">
+      <div class= "song-container flex-grow-2 mt-5">
+        <%= render partial: 'songs/card', locals: {songs: @sorted_results[Song]} if @sorted_results[Song]%>
       </div>
     </div>
   </div>
-  <div class="col-3">
-    <div class="artist-container mt-5">
-      <%  @sorted_results[User]&.each do |user|%>
-        <div class="artist-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= user.photo.attached? ? cl_image_path(user.photo.key) : "https://source.unsplash.com/random/?#{user.artist_name.gsub(" ", " ")}" %>)" alt="" class="songs-image">
-          <%= link_to user.artist_name, user_path(user), class: "text-decoration-none text-white"%>
-        </div>
-      <% end %>
+  <div class ="row">
+    <div class="col">
+      <div class="crate-container mt-5">
+        <%  @sorted_results[Crate]&.each do |crate|%>
+          <div class="crates-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= crate.photo.attached? ? cl_image_path(crate.photo.key) : "https://source.unsplash.com/random/?#{crate.name.gsub(" ", " ")}" %>)" alt="" class="songs-image">
+            <%= link_to crate.name, crate_path(crate), class: "text-decoration-none text-white"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col">
+      <div class="artist-container mt-5">
+        <%  @sorted_results[User]&.each do |user|%>
+          <div class="artist-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= user.photo.attached? ? cl_image_path(user.photo.key) : "https://source.unsplash.com/random/?#{user.artist_name.gsub(" ", " ")}" %>)" alt="" class="songs-image">
+            <%= link_to user.artist_name, user_path(user), class: "text-decoration-none text-white"%>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

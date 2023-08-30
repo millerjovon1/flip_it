@@ -23,20 +23,18 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 26px;
-  margin-left:50px ;
-  margin-bottom: 50px;
 }
 
 .artist-container {
   display: grid;
-  grid-template-rows: auto;
-  grid-gap: 46px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 26px;
 }
 
 .artist-category{
   background-size: cover;
   background-position: center;
-  height: 200px;
+  height: 270px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,7 +44,7 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 50%;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width:200px;
+  width:270px;
 
 }
 
