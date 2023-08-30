@@ -1,38 +1,40 @@
 <% crate_songs.each do |crate_song| %>
   <div data-controller="play-button">
-    <div class="song-card m-auto my-4">
-      <div class="song-audio">
-        <audio controls style="display: none" data-play-button-target="audio">
-          <source src="<%=crate_song.song.audio_file.url %>" type="audio/wav" >
-        </audio>
-        <i class="fa-regular fa-circle-play play-button" style="color: #ffffff;" data-action="click->play-button#play" data-play-button-target="playButton"></i>
-        <i class="fa-regular fa-circle-pause pause-button d-none" style="color: #ffffff;" data-action="click->play-button#pause" data-play-button-target="pauseButton"></i>
-        <% if crate_song.song.photo.attached? %>
-          <%=cl_image_tag(crate_song.song.photo.key)%>
-        <% else %>
-          <%=  image_tag "https://source.unsplash.com/random/?#{crate_song.song.title.gsub(" ", " ")}" %>
-        <% end %>
-      </div>
-      <div class="song-card-infos" >
-        <div class="song-pills justify-content-bewteen">
-          <div class="bpm-sticker">
-            <h2>  bpm: <%= crate_song.song.bpm%></h2>
-          </div>
-          <div>
-            <span class="badge rounded-pill text-bg-info"> <%= crate_song.song.genre%></span>
-            <span class="badge rounded-pill text-bg-info"> <%= crate_song.song.instruments%></span>
-          </div>
+    <div data-controller="play-slider">
+      <div class="song-card m-auto my-4">
+        <div class="song-audio">
+          <audio controls style="display: none" data-play-button-target="audio">
+            <source src="<%=crate_song.song.audio_file.url %>" type="audio/wav" >
+          </audio>
+          <i class="fa-regular fa-circle-play play-button" style="color: #ffffff;" data-action="click->play-button#play" data-play-button-target="playButton"></i>
+          <i class="fa-regular fa-circle-pause pause-button d-none" style="color: #ffffff;" data-action="click->play-button#pause" data-play-button-target="pauseButton"></i>
+          <% if crate_song.song.photo.attached? %>
+            <%=cl_image_tag(crate_song.song.photo.key)%>
+          <% else %>
+            <%=  image_tag "https://source.unsplash.com/random/?#{crate_song.song.title.gsub(" ", " ")}" %>
+          <% end %>
         </div>
-        <div class= "flex-grow-1">
-          <h3> Artist: <%= crate_song.song.user.artist_name %>
-            <p>Title: <%= crate_song.song.title%></p>
+        <div class="song-card-infos" >
+          <div class="song-pills justify-content-bewteen">
+            <div class="bpm-sticker">
+              <h2>  bpm: <%= crate_song.song.bpm%></h2>
+            </div>
+            <div>
+              <span class="badge rounded-pill text-bg-info"> <%= crate_song.song.genre%></span>
+              <span class="badge rounded-pill text-bg-info"> <%= crate_song.song.instruments%></span>
+            </div>
           </div>
-          <div class="song-engagement">
-            <%= render 'songs/download_button', song: crate_song.song %>
-            <%= link_to "Delete", crate_song_path(crate_song), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this song?" }, class: "btn delete-button" %>
+          <div class= "flex-grow-1">
+            <h3> Artist: <%= crate_song.song.user.artist_name %>
+              <input type="range" id="play-slider" min="0" value="0" data-action="click->play-slider#timeupdate" data-play-slider-target="input">
+              <p>Title: <%= crate_song.song.title%></p>
+            </div>
+            <div class="song-engagement">
+              <%= render 'songs/download_button', song: crate_song.song %>
+              <%= link_to "Delete", crate_song_path(crate_song), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this song?" }, class: "btn delete-button" %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-<% end %>
+  <% end %>

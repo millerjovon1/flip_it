@@ -1,0 +1,20 @@
+#play-slider::-webkit-slider-runnable-track {
+  background-color: black;
+  height: 6px;
+  width: 80%;
+}
+
+#play-slider {
+  width: 50%;
+}
+/* For Mozilla Firefox */
+#play-slider::-moz-range-track {
+  background-color: black;
+  height: 8px;
+}
+
+/* For Microsoft Edge and IE */
+#play-slider::-ms-track {
+  background-color: black;
+  height: 8px;
+}
