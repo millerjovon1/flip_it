@@ -21,6 +21,7 @@
             <h3>Title: <%= song.title%></h3>
           </div>
           <p><%= link_to user_path(song.original.user),  class: "no-decoration hover-effect"  do %> Original Artist: <%= song.original.user.artist_name %> <% end %></p>
+          <p>Original Track: <%= song.original.title%></p>
           <span class="badge rounded-pill text-bg-info"> <%= song.genre%></span>
           <span class="badge rounded-pill text-bg-info"> <%= song.instruments%></span>
         </div>

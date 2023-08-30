@@ -43,7 +43,7 @@
     opacity: 0.7;
     margin-bottom: 0;
     margin-top: 8px;
-    color: black;
+    color: white;
   }
   .song-card-infos {
     // padding: 16px 16px;
@@ -103,52 +103,98 @@
     background-color: #ffd700;
     display: flex;
     align-items: center;
+    // position:absolute;
     height: 30px;
     padding: 4px 4px;
     border-radius: 4px;
-
-    p {
-      font-size: 10px;
-      margin: 0;
-      color: white;
-    }
-    .remix-card-infos {
-      width: 100%;
-    }
-    .remix-audio {
-      height: 100%;
-      width: 100%;
-
-      input {
-        bottom: 15%;
-      }
-    }
-    .artist-info {
-      background-color: $off-white;
-      display: flex;
-      flex-direction: column;
-      border-style: inset;
-      padding: 4px 4px;
-      border-radius: 4px;
-    }
-    .no-decoration {
-      text-decoration: none; /* Remove underlining */
-      color: inherit; /* Use the default color */
-    }
-    .hover-effect:hover {
-      color: #ff9900; /* Change the color on hover */
-      /* Add other hover effects here */
-    }
-    .remix-engagement {
-      padding: 8px;
-    }
+    // top: 10px;
+    // left:10px;
   }
 
+  p {
+    font-size: 10px;
+    // line-height: 1.4;
+    opacity: 0.7;
+    // margin-bottom: 0;
+    // margin-top: 8px;
+    margin: 0;
+    color: white;
+  }
+
+  .remix-card-infos {
+    // padding: 16px 16px;
+    // margin: 8px 0px;
+    // align-items: center;
+    width: 100%;
+  }
+  .remix-audio {
+    height: 100px;
+    width: 100%;
+    flex-grow: 1;
+
+    input {
+      bottom: 15%;
+    }
+  }
+  .artist-info {
+    background-color: $off-white;
+    // opacity: .4;
+    display: flex;
+    flex-direction: column;
+    border-style: inset;
+    // align-items: center;
+    // width: 100%;
+    padding: 4px 4px;
+    border-radius: 4px;
+  }
+  .no-decoration {
+    text-decoration: none; /* Remove underlining */
+    color: inherit; /* Use the default color */
+  }
+  .hover-effect:hover {
+    color: #ff9900; /* Change the color on hover */
+    /* Add other hover effects here */
+  }
+  .remix-engagement {
+    padding: 8px;
+  }
+  // display: inline-block;
+  // opacity: .1;
+  // opacity: .2;
+  // background: linear-gradient(
+  //   217deg,
+  //   rgba(255, 0, 0, 0.8),
+  //   rgba(255, 0, 0, 0) 70.71%
+  // ), linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
   img {
     height: 100%;
     width: 100%;
+    // z-index: -1;;
+    // position:relative;
+    // display: block;
+    object-fit: cover;
   }
+  // linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
 }
+
+// .song-block{
+//   width: 300px;
+//   height: 80px;
+//   // position: absolute;
+//   background-color: rgba(48, 16, 48, 0.279);
+// }
+
+// .remix-card{
+//   color:black;
+//   background: white;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   size: 15px;
+//   border-radius: 5px;
+//   display: flex;
+//   align-items: center;
+//   height: 200px;
+//   width:200px;
+// }
 
 .crates-song-card {
   overflow: hidden;
