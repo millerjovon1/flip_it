@@ -1,3 +1,7 @@
 <div class="container">
-  <%= if @song.remix? ? render('songs/remix_card', song: @remix) : render('songs/card', song: @remix) %>
-  </div>
+  <% if @song.remix?%>
+    <%= render 'songs/remix_card', song: @song %>
+  <% else %>
+    <%=render 'songs/card', song: @song %>
+  <% end %>
+</div>

@@ -5,12 +5,16 @@
     <div class="row">
       <div class="col-12 col-lg-6">
         <h3>Original Works</h3>
-        <%= render 'songs/card', songs: @originals  %>
+        <% @originals.each do |song| %>
+          <%= render 'songs/card', song: song  %>
+        <% end %>
       </div>
       <div class="col-12 col-lg-6">
         <h3>Remixes</h3>
         <div class="d-flex flex-wrap justify-content-between">
-          <%= render 'songs/remix_card', songs: @remixes  %>
+          <% @remixes.each do |song| %>
+            <%= render 'songs/remix_card', song: song %>
+          <% end %>
         </div>
       </div>
     </div>
