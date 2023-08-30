@@ -17,7 +17,7 @@ class Song < ApplicationRecord
   end
 
   def original
-    Source.find_by(remix: self)&.base
+    Source.find_by(remix: self).base
   end
 
   include PgSearch::Model

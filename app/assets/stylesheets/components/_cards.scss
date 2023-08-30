@@ -1,11 +1,10 @@
-
 .song-card {
   overflow: hidden;
   margin: 10px 0px;
   height: 120px;
   width: 600px;
-  background: $off-white;
-  opacity: .8;
+  background: linear-gradient(to bottom, $off-white, $purple-haze);
+  opacity: 0.8;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
   border-radius: 12px;
@@ -14,9 +13,11 @@
   margin-bottom: 20px;
 
   .bpm-sticker {
-    background-color: yellowgreen;
+    background-color: #ffd700;
     // position:absolute;
-    width: 80px;
+    display: flex;
+    align-items: center;
+    // width: 80px;
     padding: 4px 4px;
     border-radius: 4px;
     // top: 10px;
@@ -27,28 +28,28 @@
     font-size: 16px;
     font-weight: bold;
     margin: 0;
-    color:black;
+    color: black;
   }
   h3 {
     font-size: 16px;
     font-weight: bold;
     margin: 0;
-    color:black;
+    color: black;
   }
 
-   p {
+  p {
     font-size: 12px;
     line-height: 1.4;
-    opacity: .7;
+    opacity: 0.7;
     margin-bottom: 0;
     margin-top: 8px;
-    color:black;
+    color: black;
   }
-   .song-card-infos {
+  .song-card-infos {
     // padding: 16px 16px;
     // margin: 8px 0px;
-    display:flex;
-    height:100%;
+    display: flex;
+    height: 100%;
     // align-items: center;
     flex-direction: column;
     flex-grow: 1;
@@ -56,36 +57,32 @@
 
     // justify-content: space-between;
   }
-   img {
+  img {
     height: 100%;
     width: 120px;
     object-fit: cover;
-    background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7));
-
-
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
   }
-  .song-audio{
-    position:relative;
-    height:100%;
+  .song-audio {
+    position: relative;
+    height: 100%;
   }
 }
-
-
-
 
 .remix-card {
   overflow: hidden;
   margin: 10px 0px;
   height: 350px;
-  gap:4px;
+  gap: 4px;
   width: 300px;
-  background: white;
+  background: $off-white;
+  opacity: .8;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   // border-radius: 12px;
   // align-items: center;
-  position:relative;
+  position: relative;
   // margin-top: 3px;
   // margin-bottom: 20px;
 
@@ -93,74 +90,97 @@
     font-size: 16px;
     font-weight: bold;
     margin: 0;
-    color:black;
+    color: black;
   }
   h3 {
-    font-size: 8px;
+    font-size: 12px;
     font-weight: bold;
     margin: 0;
-    color:black;
+    color: black;
+    text-shadow: #fc0 1px 0 p3x;
   }
-  .bpm-sticker {
-    background-color: yellowgreen;
+  .remix-bpm-sticker {
+    background-color: #ffd700;
+    display: flex;
+    align-items: center;
     // position:absolute;
-    width: 80px;
+    height: 30px;
     padding: 4px 4px;
     border-radius: 4px;
     // top: 10px;
     // left:10px;
   }
 
-   p {
-    font-size: 12px;
-    line-height: 1.4;
-    opacity: .7;
-    margin-bottom: 0;
-    margin-top: 8px;
-    color:black;
+  p {
+    font-size: 10px;
+    // line-height: 1.4;
+    opacity: 0.7;
+    // margin-bottom: 0;
+    // margin-top: 8px;
+    margin: 0;
+    color: black;
   }
-   .remix-card-infos {
+  .remix-card-infos {
     // padding: 16px 16px;
     // margin: 8px 0px;
     // align-items: center;
-    width:100%;
-
+    width: 100%;
   }
   .remix-audio {
-    height:100%;
-    width:100%;
-
-}
-  .filter {
-    background: linear-gradient(
-      217deg,
-      rgba(255, 0, 0, 0.8),
-      rgba(255, 0, 0, 0) 70.71%
-    ), linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
-    linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
-  }
-    // display: inline-block;
-    // opacity: .1;
-    // opacity: .2;
-    // background: linear-gradient(
-    //   217deg,
-    //   rgba(255, 0, 0, 0.8),
-    //   rgba(255, 0, 0, 0) 70.71%
-    // ), linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
-    // linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
-  }
-
-
-  img {
     height: 100%;
     width: 100%;
-    // z-index: -1;;
-    // position:relative;
-    // display: block;
-    // object-fit: cover
+
+    input {
+      bottom: 15%;
+    }
   }
+  .artist-info {
+    background-color: $off-white;
+    // opacity: .4;
+    display: flex;
+    flex-direction: column;
+    border-style: inset;
+    // align-items: center;
+    // width: 100%;
+    padding: 4px 4px;
+    border-radius: 4px;
+  }
+  .no-decoration {
+    text-decoration: none; /* Remove underlining */
+    color: inherit; /* Use the default color */
+  }
+  .hover-effect:hover {
+    color: #ff9900; /* Change the color on hover */
+    /* Add other hover effects here */
+  }
+  .filter {
+    background: linear-gradient(
+        217deg,
+        rgba(255, 0, 0, 0.8),
+        rgba(255, 0, 0, 0) 70.71%
+      ),
+      linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+      linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  }
+  // display: inline-block;
+  // opacity: .1;
+  // opacity: .2;
+  // background: linear-gradient(
+  //   217deg,
+  //   rgba(255, 0, 0, 0.8),
+  //   rgba(255, 0, 0, 0) 70.71%
+  // ), linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+  // linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+}
 
-
+img {
+  height: 100%;
+  width: 100%;
+  // z-index: -1;;
+  // position:relative;
+  // display: block;
+  // object-fit: cover
+}
 
 // .song-block{
 //   width: 300px;
@@ -168,11 +188,6 @@
 //   // position: absolute;
 //   background-color: rgba(48, 16, 48, 0.279);
 // }
-
-
-
-
-
 
 // .remix-card{
 //   color:black;
@@ -185,8 +200,6 @@
 //   height: 200px;
 //   width:200px;
 // }
-
-
 
 .crates-song-card {
   overflow: hidden;
@@ -213,14 +226,13 @@ audio {
   width: 300px;
   max-width: 300px;
   margin: 0 auto;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 audio::-webkit-media-controls-panel {
   background-color: $purple;
   border-radius: 8px;
   padding: 10px;
-
 }
 
 audio::-webkit-media-controls-play-button,
@@ -232,7 +244,6 @@ audio::-webkit-media-controls-pause-button {
   width: 40px;
   height: 40px;
   font-size: 20px;
-
 }
 
 audio::-webkit-media-controls-current-time-display,
