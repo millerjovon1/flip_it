@@ -1,14 +1,7 @@
 <div class="container">
-  <div class="song-card">
-    <img src=  " <%=@song.photo.attached? ? cl_image_path(@song.photo.key) : "https://source.unsplash.com/random/?<#{@song.title.gsub(" ", " ")}" %> " alt="" class="songs-image">
-    <div class="song-card-infos">
-      <h3> <%= @song.user.artist_name%></h3>
-      <h2> <%= @song.title%></h2>
-      <p>  <%= @song.genre%> <strong> <%= @song.bpm%></strong> #<%= @song.instruments%></p>
-      <%= render 'songs/download_button', song: @song %>
-    </div>
-    <audio controls>
-      <source src="<%=@song.audio_file.url %>" type="audio/wav">
-    </audio>
-  </div>
+  <% if @song.remix?%>
+    <%= render 'songs/remix_card', song: @song %>
+  <% else %>
+    <%=render 'songs/card', song: @song %>
+  <% end %>
 </div>

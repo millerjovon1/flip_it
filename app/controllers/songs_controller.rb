@@ -19,6 +19,7 @@ class SongsController < ApplicationController
 
   def show
     @song = Song.find(params[:id])
+    @crate_song = CrateSong.new
     authorize @song
   end
 

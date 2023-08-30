@@ -17,11 +17,15 @@
     <h3>Original Works</h3>
     <%# <% if bookings.accepted.future.blank? %>
     <p>Original Songs</p>
-    <%= render 'users/card', songs: @user.songs  %>
+    <% @user.songs.each do |song| %>
+      <%= render 'songs/card', song: song  %>
+    <% end %>
   </div>
   <div class="tab-pane fade py-3" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
     <h3>My Remixes</h3>
-    <%= render 'users/remix_card', songs: @user.remixes %>
+    <% @user.remixes.each do |song| %>
+      <%= render 'songs/remix_card', song: song %>
+    <% end %>
   </div>
   <div class="tab-pane fade py-3" id="conversations-tab-pane" role="tabpanel" aria-labelledby="conversations-tab" tabindex="0">
     <div class="p-3 text-center">
