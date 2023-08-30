@@ -10,10 +10,10 @@
 <div class='row m-3'>
   <div class='col'>
     <h3>GEMS</h3>
-    <%= render 'songs/card', songs: @originals  %>
+    <%= render 'songs/card', songs: @originals %>
   </div>
   <div class='col'>
     <h3>LATEST TRACKS</h3>
-    <%= render 'songs/card', songs: @songs  %>
+    <%= render 'songs/card', songs: @songs.take(5)   %>
   </div>
 </div>
