@@ -31,10 +31,12 @@
             <div class="song-engagement">
               <%= render 'songs/download_button', song: song %>
               <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
+              <%= render 'songs/share_button', song: song %>
             </div>
           </div>
         </div>
         <%= render 'songs/playlist_form', song: song, crate_song: @crate_song %>
       </div>
     </div>
+    <%= render 'songs/share_modal', song: song %>
   <% end %>
