@@ -1,9 +1,10 @@
 <% songs.each do |song| %>
   <div data-controller="playlist-popup">
     <div data-controller="play-button">
+    <div data-controller="play-slider">
       <div class="song-card">
         <div class="song-audio">
-          <audio controls style="display: none" data-play-button-target="audio">
+          <audio controls style="display: none" data-play-button-target="audio" data-play-slider-target="audio">
             <source src="<%=song.audio_file.url %>" type="audio/wav" >
           </audio>
           <i class="fa-regular fa-circle-play play-button" style="color: #ffffff;" data-action="click->play-button#play" data-play-button-target="playButton"></i>
@@ -26,6 +27,7 @@
           </div>
           <div class= "flex-grow-1">
             <h3> Artist: <%= song.user.artist_name %>
+              <input type="range" id="play-slider" min="0" value="0" data-action="click->play-slider#timeupdate" data-play-slider-target="input">
               <p>Title: <%= song.title%></p>
             </div>
             <div class="song-engagement">
@@ -36,5 +38,6 @@
         </div>
         <%= render 'songs/playlist_form', song: song, crate_song: @crate_song %>
       </div>
+    </div>
     </div>
   <% end %>
