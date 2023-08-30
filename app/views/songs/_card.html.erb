@@ -25,14 +25,25 @@
               <span class="badge rounded-pill text-bg-info"> <%= song.instruments%></span>
             </div>
           </div>
-          <div class= "flex-grow-1">
-            <input type="range" id="play-slider" min="0" value="0" data-action="click->play-slider#timeupdate" data-play-slider-target="input">
-            <h3> Artist: <%= song.user.artist_name %>
-              <p>Title: <%= song.title%></p>
+          <div class="song-card-infos" >
+            <div class="song-pills justify-content-bewteen">
+              <div class="bpm-sticker">
+                <h2>  bpm: <%= song.bpm%></h2>
+              </div>
+              <div>
+                <span class="badge rounded-pill text-bg-info"> <%= song.genre%></span>
+                <span class="badge rounded-pill text-bg-info"> <%= song.instruments%></span>
+              </div>
             </div>
-            <div class="song-engagement">
+            <div class= "flex-grow-1">
+              <h3> Artist: <%= song.user.artist_name %>
+                <input type="range" id="play-slider" min="0" value="0" data-action="click->play-slider#timeupdate" data-play-slider-target="input">
+                <p>Title: <%= song.title%></p>
+              </div>
+           <div class="song-engagement">
               <%= render 'songs/download_button', song: song %>
               <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
+              <%= render 'songs/share_button', song: song %>
             </div>
           </div>
         </div>
@@ -40,3 +51,6 @@
       </div>
     </div>
   </div>
+  <%= render 'songs/share_modal', song: song %>
+</div>
+  

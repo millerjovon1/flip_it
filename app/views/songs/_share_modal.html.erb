@@ -1,0 +1,21 @@
+<div class="modal fade" id="songModal-<%= song.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Share your song</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= link_to "https://www.facebook.com/sharer/sharer.php?u=#{song_url(song)}", target: '_blank', class: 'btn' do %>
+          <i class="share-icons fa-brands fa-square-facebook fa-2xl"></i>
+        <% end %>
+        <%= link_to "https://www.instagram.com/?url=#{song_url(song)}", target: '_blank', class: 'btn' do %>
+          <i class="fa-brands fa-instagram fa-2xl"></i>
+        <% end %>
+        <%= link_to "https://www.tiktok.com/", target: '_blank', class: 'btn' do %>
+          <i class="fa-brands fa-tiktok fa-2xl"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
