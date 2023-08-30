@@ -18,13 +18,13 @@
     <%# <% if bookings.accepted.future.blank? %>
     <p>Original Songs</p>
     <% @user.songs.each do |song| %>
-      <%= render 'songs/card', song: song  %>
+      <%= render 'songs/card', song: song, crate_song: false %>
     <% end %>
   </div>
   <div class="tab-pane fade py-3" id="requests-tab-pane" role="tabpanel" aria-labelledby="requests-tab" tabindex="0">
     <h3>My Remixes</h3>
     <% @user.remixes.each do |song| %>
-      <%= render 'songs/remix_card', song: song %>
+      <%= render 'songs/remix_card', song: song, crate_song: false  %>
     <% end %>
   </div>
   <div class="tab-pane fade py-3" id="conversations-tab-pane" role="tabpanel" aria-labelledby="conversations-tab" tabindex="0">

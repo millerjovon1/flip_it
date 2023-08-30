@@ -10,4 +10,6 @@
     <% end %>
   </div>
 </div>
-<%= render 'crates/card', crate_songs: @crate.crate_songs  %>
+<% @crate.crate_songs.each do |crate_song| %>
+<%= render 'songs/card', song: crate_song.song, crate_song: crate_song  %>
+<% end %>

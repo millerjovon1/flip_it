@@ -10,10 +10,14 @@
 <div class='row m-3'>
   <div class='col'>
     <h3>GEMS</h3>
-    <%= render 'songs/card', songs: @originals %>
+    <% @originals.each do |song| %>
+      <%= render 'songs/card', song: song, crate_song: false %>
+    <% end %>
   </div>
   <div class='col'>
     <h3>LATEST TRACKS</h3>
-    <%= render 'songs/card', songs: @songs.take(5)   %>
+    <% @songs.take(5).each do |song| %>
+      <%= render 'songs/card', song: song, crate_song: false   %>
+    <% end %>
   </div>
 </div>
