@@ -1,73 +1,62 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon flexbox fixed-top">
-<div class="container">
-
-<div class= "flexbox align-items-center" id='nav-logo'>
-    <%= link_to 'FLIP IT!', root_path, class: 'flip-it'  %>
-    <%= link_to songs_path, class: 'nav-bar-link-logo' do %>
-  <%= image_tag 'Section 4.png', alt: 'Logo', class: 'logo-image' %>
-<% end %>
-
+  <div class="container">
+    <div class= "flexbox align-items-center" id='nav-logo'>
+      <%= link_to 'FLIP IT!', root_path, class: 'flip-it'  %>
+      <%= link_to songs_path, class: 'nav-bar-link-logo' do %>
+        <%= image_tag 'Section 4.png', alt: 'Logo', class: 'logo-image' %>
+      <% end %>
     </div>
-
-<div class="row justify-content-center" id='nav-search'>
-  <div class="col-sm-8 my-3">
-    <%= form_with url: search_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag 'query[]',
+    <div class="row justify-content-center" id='nav-search'>
+      <div class="col-sm-8 my-3">
+        <%= form_with url: search_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag 'query[]',
             params[:query],
             class: "form-control",
             placeholder: "Genre, BPM..."
         %>
-      <%= submit_tag "DIG", name: "", class: "search-button" %>
-    <% end %>
-  </div>
-</div>
-<div id='nav-links'>
-      <ul class="navbar-nav me-auto align-items-center">
-        <% if user_signed_in? %>
-
-<li><%= link_to 'UPLOAD SONG', new_song_path, class: 'nav-bar-link' %></li>
-<%# <li><%= link_to 'REMIX FEED', root_path, class: 'nav-bar-link' %></li>
- <li class="nav-item dropdown">
-          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "https://avatars.githubusercontent.com/u/130570205?v=4", class: "avatar", alt: "dropdown menu" %>
-          </a>
-
-  <div class="container">
-    <div class= "flexbox">
-
-    </div>
-    <div>
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <li class="nav-item active">
-          </li>
-          <li class="nav-item">
-          </li>
-
-
-
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-            </div>
-          </li>
-
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-bar-link" %>
-          </li>
+          <%= submit_tag "DIG", name: "", class: "search-button" %>
         <% end %>
-      </ul>
       </div>
     </div>
-
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-bar-link" %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+    <div id='nav-links'>
+      <ul class="navbar-nav me-auto align-items-center">
+        <% if user_signed_in? %>
+          <li><%= link_to 'UPLOAD SONG', new_song_path, class: 'nav-bar-link' %></li>
+          <%# <li><%= link_to 'REMIX FEED', root_path, class: 'nav-bar-link' %></li>
+        <li class="nav-item dropdown">
+          <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
+          </a>
+          <div class="container">
+            <div class= "flexbox">
+            </div>
+            <div>
+              <ul class="navbar-nav me-auto">
+                <% if user_signed_in? %>
+                  <li class="nav-item active">
+                  </li>
+                  <li class="nav-item">
+                  </li>
+                  <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+                    <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+                  </div>
+                </li>
+              <% else %>
+                <li class="nav-item">
+                  <%= link_to "Login", new_user_session_path, class: "nav-bar-link" %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </li>
+    <% else %>
+      <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-bar-link" %>
+      </li>
+    <% end %>
+  </ul>
+</div>
 </div>
 </div>
