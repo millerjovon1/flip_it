@@ -87,7 +87,8 @@ avalley = User.create(name: "A Valley", artist_name: "A.Valley", email:"avalleys
 mj = User.create(name: "Mj The Sensei", artist_name: "MJ the Sensei", email:"mjthesensei@icloud.com", password:"123123", bio: "..." )
 jrovia = User.create(name: "J Rovia", artist_name: "J.rovia", email:"jrovia@icloud.com", password:"123123", bio: "..." )
 jtheprotagonist = User.create(name: "J The Protagonist", artist_name: "J the Protagonist", email:"jtheprotagonist@icloud.com", password:"123123", bio: "..." )
-rock = User.create(name: "Rock", artist_name: "Rock", email:"rock@icloud.com", password:"123123", bio: "..." )
+rock = User.create(name: "Rock", artist_name: "Rock", email:"rock6@icloud.com", password:"123123", bio: "..." )
+
 file = File.open("app/assets/images/real_lush.wav")
 # song = Song.new(title: "Lisa Ono")
 
