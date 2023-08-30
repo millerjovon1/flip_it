@@ -2,6 +2,10 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
+    @songs = policy_scope(Song).order(created_at: :desc)
+    @originals = @songs.originals
+    @remixes = @songs.remixes
+    @crate_song = CrateSong.new
   end
 
   def search
