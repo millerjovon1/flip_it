@@ -1,7 +1,19 @@
-<div class="banner" style="background-image: url(images/app/assets/images/BL4A8507.jpg);">
-  <div class="container">
-    <h1>Unite Musicians - Create, Remix, and Showcase!</h1>
-    <p>Welcome to FLIP IT!, the ultimate collaborative music platform</p>
-    <%= link_to 'DIG', songs_path, class: 'card-category-home'%>
+<div class="overlay">
+  <div class="banner" >
+    <div class="container">
+      <h1>Unite Musicians - Create, Remix, and Showcase!</h1>
+      <p>Welcome to FLIP IT!, the ultimate collaborative music platform</p>
+      <%= link_to 'DIG CRATES', songs_path, class: 'card-category-home'%>
+    </div>
+  </div>
+</div>
+<div class='row m-3'>
+  <div class='col'>
+    <h3>GEMS</h3>
+    <%= render 'songs/card', songs: @originals %>
+  </div>
+  <div class='col'>
+    <h3>LATEST TRACKS</h3>
+    <%= render 'songs/card', songs: @songs.take(5)   %>
   </div>
 </div>
