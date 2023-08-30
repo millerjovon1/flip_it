@@ -18,7 +18,7 @@
           <div class="song-card-infos" >
             <div class="song-pills justify-content-bewteen">
               <div class="bpm-sticker">
-                <h2>  bpm <%= song.bpm%></h2>
+                <h2>  bpm: <%= song.bpm%></h2>
               </div>
               <div>
                 <span class="badge rounded-pill text-bg-info"> <%= song.genre%></span>
@@ -29,8 +29,8 @@
          
 
             <div class= "flex-grow-1">
-              <input type="range" id="play-slider" min="0" value="0" data-action="click->play-slider#timeupdate" data-play-slider-target="input">
               <h3> Artist: <%= song.user.artist_name %>
+                <input type="range" id="play-slider" min="0" value="0" data-action="click->play-slider#timeupdate" data-play-slider-target="input">
                 <p>Title: <%= song.title%></p>
               </div>
            <div class="song-engagement">
