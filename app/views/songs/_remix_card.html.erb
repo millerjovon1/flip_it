@@ -1,8 +1,8 @@
 <% songs.each do |song| %>
   <div class="remix-card " data-controller="playlist-popup play-button">
     <div class="remix-card-infos">
-      <i class="fa-regular fa-circle-play play-button" style="color: #000000;" data-action="click->play-button#play" data-play-button-target="playButton"></i>
-      <i class="fa-regular fa-circle-pause pause-button d-none" style="color: #000000;" data-action="click->play-button#pause" data-play-button-target="pauseButton"></i>
+      <i class="fa-regular fa-circle-play play-button" style="color: #ffffff;" data-action="click->play-button#play" data-play-button-target="playButton"></i>
+      <i class="fa-regular fa-circle-pause pause-button d-none" style="color: #ffffff;" data-action="click->play-button#pause" data-play-button-target="pauseButton"></i>
       <div class="remix-pills justify-content-between">
         <div class="bpm-sticker">
           <h2>  bpm <%= song.bpm%></h2>
@@ -36,4 +36,3 @@
 <%= render 'songs/playlist_form', song: song, crate_song: @crate_song%>
 </div>
 <% end %>
-
