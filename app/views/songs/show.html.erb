@@ -1,7 +1,9 @@
 <div class="container">
-  <% if @song.remix?%>
-    <%= render 'songs/remix_card', song: @song, crate_song: false  %>
-  <% else %>
-    <%=render 'songs/card', song: @song, crate_song: false  %>
-  <% end %>
+  <div class="d-flex justify-content-center my-12">
+    <% if @song.remix?%>
+      <%= render 'songs/remix_card', song: @song, crate_song: false  %>
+    <% else %>
+      <%=render 'songs/card', song: @song, crate_song: false  %>
+    <% end %>
+  </div>
 </div>
