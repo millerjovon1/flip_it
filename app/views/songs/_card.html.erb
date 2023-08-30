@@ -25,8 +25,8 @@
                 <span class="badge rounded-pill text-bg-info"> <%= song.instruments%></span>
               </div>
             </div>
-            
-         
+
+
 
             <div class= "flex-grow-1">
               <h3> Artist: <%= song.user.artist_name %>
@@ -36,7 +36,7 @@
            <div class="song-engagement">
               <%= render 'songs/download_button', song: song %>
               <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
-              <%= render 'songs/share_button', song: song %>  
+              <%= render 'songs/share_button', song: song %>
 
             </div>
           </div>
@@ -45,4 +45,5 @@
       </div>
     </div>
     <%= render 'songs/share_modal', song: song %>
+    </div>
   <% end %>
