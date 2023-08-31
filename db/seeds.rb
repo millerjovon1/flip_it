@@ -82,9 +82,18 @@ devi_photo = URI.open("https://avatars.githubusercontent.com/u/133011696?v=4")
 devi = User.new(name: "Devi Putri", artist_name: "DJ Navi", email:"devi.putri@live.com", password: "123123", bio: "...")
 devi.photo.attach(io: devi_photo, filename: "devi.png", content_type: "image/png")
 devi.save
-jovon = User.create(name: "Jovon Miller", artist_name: "Monsieur Jovoni", email:"millerjovon1@gmail.com", password: "123123", bio: "...")
-gabi = User.create(name: "Gabi Smer", artist_name: "Gabigabou", email:"gabriellesmer@gmail.com",password:"123123", bio: "...")
-lili = User.create(name: "Lili Banks", artist_name: "Busy Banks", email:"lili88banks@icloud.com", password:"123123", bio: "..." )
+jovon_photo = URI.open("https://avatars.githubusercontent.com/u/130570205?v=4")
+jovon = User.new(name: "Jovon Miller", artist_name: "Monsieur Jovoni", email:"millerjovon1@gmail.com", password: "123123", bio: "...")
+jovon.photo.attach(io: jovon_photo, filename: "jovon.png", content_type: "image/png")
+jovon.save
+gabi_photo = URI.open("https://avatars.githubusercontent.com/u/130984874?v=4")
+gabi = User.new(name: "Gabi Smer", artist_name: "Gabigabou", email:"gabriellesmer@gmail.com", password:"123123", bio: "...")
+gabi.photo.attach(io: gabi_photo, filename: "gabi.png", content_type: "image/png")
+gabi.save
+lili_photo = URI.open("https://avatars.githubusercontent.com/u/133755774?v=4")
+lili = User.new(name: "Lili Banks", artist_name: "Busy Banks", email:"lili88banks@icloud.com", password:"123123", bio: "..." )
+lili.photo.attach(io: lili_photo, filename: "lili.png", content_type: "image/png")
+lili.save
 kraftykid = User.create(name: "Krafty Kid", artist_name: "Kraftykid", email:"kraftykids@icloud.com", password:"123123", bio: "..." )
 avalley = User.create(name: "A Valley", artist_name: "A.Valley", email:"avalleys@icloud.com", password:"123123", bio: "..." )
 mj = User.create(name: "Mj The Sensei", artist_name: "MJ the Sensei", email:"mjthesensei@icloud.com", password:"123123", bio: "..." )

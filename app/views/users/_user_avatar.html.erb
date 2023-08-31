@@ -1,1 +1,5 @@
-<img class="user-avatar mt-50" alt="avatar-large" src="https://avatars.githubusercontent.com/u/130570205?v=4" />
+<img class="user-avatar mt-50" alt="avatar-large" src="<% if current_user.photo.attached? %>
+              <%=cl_image_tag(current_user.photo.key)%>
+            <% else %>
+              <%= image_tag "https://avatars.githubusercontent.com/u/130570205?v=4", class: "avatar", alt: "dropdown menu" %>
+               <% end %>" />
