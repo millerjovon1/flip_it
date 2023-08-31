@@ -30,7 +30,7 @@
   <div class="tab-pane fade py-3" id="conversations-tab-pane" role="tabpanel" aria-labelledby="conversations-tab" tabindex="0">
     <div class="p-3 text-center">
       <h3 class="text-center">My Crates</h3>
-      <%= link_to 'Add a new crate', new_crate_path, class: 'btn btn-primary' %>
+      <%= link_to 'Add a new crate', new_crate_path, class: 'download-pill-button' %>
     </div>
     <div class="crate-container">
       <% @crates.each do |crate| %>

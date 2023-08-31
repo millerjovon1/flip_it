@@ -15,7 +15,7 @@
           <% end %>
         </div>
         <div class="song-card-infos" >
-          <div class="song-pills justify-content-bewteen">
+          <div class="song-pills d-flex align-items-center">
 
             <h3><%= song.user.artist_name %></h3>
             <div class="bpm-sticker">
@@ -30,7 +30,7 @@
             <input type="range" id="play-slider" min="0" value="0" data-action="click->play-slider#timeupdate" data-play-slider-target="input">
             <p>Title: <%= song.title%></p>
           </div>
-          <div class="song-engagement">
+          <div class="song-engagement d-flex align-items-center">
             <%= render 'songs/download_button', song: song %>
             <% unless crate_song %>
             <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
