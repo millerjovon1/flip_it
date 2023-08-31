@@ -79,9 +79,9 @@
 
 .remix-card {
   overflow: hidden;
-  margin: 10px 0px;
+  margin-bottom: 10px;
   height: 350px;
-  gap: 4px;
+  // gap: 4px;
   width: 300px;
   background: $off-white;
   opacity: 0.8;
@@ -207,18 +207,23 @@
   height: 120px;
   width: 80%;
   background: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
   display: flex;
   border-radius: 12px;
   align-items: center;
   margin-top: 3px;
   margin-bottom: 20px;
 }
-
 .crate-grid {
   display: grid;
-  grid-row: 1;
-  margin-top: 6px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 4px;
+  margin-bottom: 40px;
+  // border: 2px solid red;
+  // align-items: stretch; // margin-top: 6px;
+}
+.crates-category {
+  cursor: pointer;
 }
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
