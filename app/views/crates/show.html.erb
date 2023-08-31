@@ -4,12 +4,14 @@
     <%= link_to user_path(current_user) do %>
       <i class="fas fa-arrow-left go-back-button"></i>
     <% end %>
-     <p class="mt-3"><%= pluralize(@crate.crate_songs.count, 'song') %></p>
+    <p class="mt-3"><%= pluralize(@crate.crate_songs.count, 'song') %></p>
     <%= link_to songs_path do %>
       <i class="fa-solid fa-circle-plus add-music" style="color: #ffffff;"></i>
     <% end %>
   </div>
 </div>
-<% @crate.crate_songs.each do |crate_song| %>
-<%= render 'songs/card', song: crate_song.song, crate_song: crate_song  %>
-<% end %>
+<div class="d-flex">
+  <% @crate.crate_songs.each do |crate_song| %>
+    <%= render 'songs/card', song: crate_song.song, crate_song: crate_song  %>
+  <% end %>
+</div>

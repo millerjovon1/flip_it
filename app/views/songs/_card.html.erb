@@ -27,8 +27,9 @@
           </div>
           <div class= "flex-grow-1">
             <input type="range" id="play-slider" min="0" value="0" data-action="click->play-slider#timeupdate" data-play-slider-target="input">
+
             <div class="d-flex justify-content-between">
-            <p>Title: <%= song.title%></p>
+              <h3><%= link_to song_path(song), class: "no-decoration hover-effect"  do %> Title: <%= song.title%> <% end %></h3>
             <div data-play-slider-target="duration" data-play-button-target="duration" data-action="click->play-slider#duration"></div>
             </div>
           </div>
