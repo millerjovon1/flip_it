@@ -9,7 +9,7 @@ class Song < ApplicationRecord
   has_one_attached :photo
   scope :originals, -> {joins("LEFT OUTER JOIN sources on songs.id = sources.remix_id").where("sources.remix_id is null")}
   scope :remixes, -> {joins("INNER JOIN sources on songs.id = sources.remix_id") }
-  GENRES = ['Hip Hop', 'Jazz', 'Country', 'Funk', 'Classical', 'World', 'Rock', 'Folk', 'Blues']
+  GENRES = ['Hip Hop', 'Jazz', 'Country', 'Funk', 'Classical', 'World', 'Rock', 'Folk', 'Blues', 'Bossa Nova', 'Lo-Fi']
   INSTRUMENTS = ['Piano', 'Drums', 'Cello', 'Violin', 'Xylophone', 'Electric Guitar', 'Organ', 'Ukelele']
 
   def remix?
