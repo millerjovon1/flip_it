@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["audio", "playButton", "pauseButton"]
 
   connect() {
-  console.log("Testing")
+  // console.log("Testing")
   }
   play() {
     this.audioTarget.play();

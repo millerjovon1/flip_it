@@ -4,10 +4,16 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["audio","input", "duration", "playButton" ]
 
-  connect() {
-    console.log(this.audioTarget)
+  async connect() {
+    // console.log(this.audioTarget)
     this.inputTarget.max = this.audioTarget.duration
-    this.durationTarget.innerHTML = this.audioTarget.duration
+    const length = Math.round(this.audioTarget.duration)
+    const lengthMinutes = Math.floor(this.audioTarget.duration / 60);
+    const lengthSeconds = length % 60;
+
+    console.log(this.audioTarget.duration)
+    this.durationTarget.innerHTML = `${lengthMinutes}:${lengthSeconds.toString().padStart(2, '0')}`;
+
 
 
   }
@@ -21,7 +27,7 @@ export default class extends Controller {
     const lengthMinutes = Math.floor(this.audioTarget.duration / 60);
     const lengthSeconds = length % 60;
 
-    this.durationTarget.innerText = `${timeMinutes}:${timeSeconds}/ ${lengthMinutes}:${lengthSeconds}`;
+    this.durationTarget.innerText = `${timeMinutes}:${timeSeconds.toString().padStart(2, '0')} / ${lengthMinutes}:${lengthSeconds.toString().padStart(2, '0')}`;
 
 
   }

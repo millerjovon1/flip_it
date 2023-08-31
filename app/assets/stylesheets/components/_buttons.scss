@@ -1,11 +1,11 @@
 .card-buttons {
   color: black;
-  margin-right: 5px;
+  margin-right: 7px;
 }
 
 
 
-.download-pill-button {
+.info-pills-button {
     display: inline-block;
     margin-right: 5px;
     padding: 3px 5px;
@@ -17,6 +17,35 @@
     color: $purple; /* Change this to the desired text color */
     font-weight: bold;
     transition: background-color 0.3s, color 0.3s;
+  }
+  .bpm-pills-button {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 3px 5px;
+    font-size: 12px;
+    font-family: $navbar-font;
+    border: 2px solid $yellow; /* Change this to the desired button color */
+    border-radius: 50px; /* To create the pill shape */
+    text-decoration: none;
+    color: black; /* Change this to the desired text color */
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+
+
+  .download-pill-button {
+    color: white;
+    background-color: rgba(43, 11, 83, 0.7);
+    text-decoration: none;
+    padding: 3px 5px;
+    margin-right: 7px;
+    border-radius: 5px;
+    font-style: bold;
+    width: 50px;
+    font-size: 12px;
+    font-family: "Koulen", cursive;
+    filter: drop-shadow(0 0 0.1rem grey);
   }
 
   .download-pill-button:hover {

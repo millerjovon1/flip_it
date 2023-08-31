@@ -25,15 +25,16 @@
         <span class="badge rounded-pill text-bg-info"> <%= song.instruments%></span>
       </div>
     </div>
-    <audio controls style="display: none" data-play-button-target="audio" data-play-slider-target="audio">
+    <audio controls style="display: none" data-play-button-target="audio" data-play-slider-target="audio" data-action="timeupdate->play-slider#update">
       <source src="<%=song.audio_file.url %>" type="audio/wav" >
     </audio>
-    <div class="remix-engagement">
+    <div class="remix-engagement d-flex align-content-start flex-wrap">
       <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
       <%= render 'songs/download_button', song: song %>
       <%= render 'songs/share_button', song: song %>
+      <div data-play-slider-target="duration" data-play-button-target="duration" data-action="click->play-slider#update"></div>
     </div>
   </div>
   <%= render 'songs/playlist_form', song: song, crate_song: @crate_song%>
 </div>
-  <%= render 'songs/share_modal', song: song %>
+<%= render 'songs/share_modal', song: song %>
