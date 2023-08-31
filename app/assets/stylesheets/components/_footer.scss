@@ -5,14 +5,23 @@
   justify-content: center;
   text-align: center;
   height:90px;
+  margin-top: auto;
 }
 .footer-links {
   text-decoration: none;
   font-size: 40px;
-  padding: 40px;
+  // padding: 40px;
   align-items: center;
-  margin:40px;
-  padding-top: 40px;
+  // margin:40px;
+  height:100%;
+  display: flex;
+  a {
+  margin:5px;
+}
+}
+
+.tiktok{
+
 }
 
 .footer-links a:hover {
