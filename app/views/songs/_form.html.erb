@@ -5,7 +5,7 @@
     <div class="range-wrap" data-controller="slider" >
       <div class="range-value" id="rangeV"></div>
       <label for="">bpm</label>
-      <input id="range" type="range" min="50" max="400" value="50" step="10" name="song[bpm]">
+      <input id="range" type="range" min="50" max="400" value="50" step="1" name="song[bpm]">
     </div>
     <%= f.input :instruments, as: :check_boxes,
             collection_wrapper_tag: 'div',

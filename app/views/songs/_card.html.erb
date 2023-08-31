@@ -16,8 +16,7 @@
         </div>
         <div class="song-card-infos" >
           <div class="song-pills d-flex align-items-center">
-
-            <h3><%= song.user.artist_name %></h3>
+            <h3> <%= link_to user_path(song.user), class: "no-decoration hover-effect"  do %> Artist: <%= song.user.artist_name  %> <% end %> </h3>
             <div class="bpm-sticker">
               <h2>  bpm <%= song.bpm%></h2>
             </div>
@@ -33,17 +32,17 @@
           <div class="song-engagement d-flex align-items-center">
             <%= render 'songs/download_button', song: song %>
             <% unless crate_song %>
-            <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
+              <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
             <% end %>
             <%= render 'songs/share_button', song: song %>
             <% if crate_song %>
-            <%= link_to "Delete", crate_song_path(crate_song), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this song?" }, class: "delete-button" %>
+              <%= link_to "Delete", crate_song_path(crate_song), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this song?" }, class: "delete-button" %>
             <% end %>
           </div>
         </div>
       </div>
       <% unless crate_song %>
-      <%= render 'songs/playlist_form', song: song, crate_song: @crate_song %>
+        <%= render 'songs/playlist_form', song: song, crate_song: @crate_song %>
       <% end %>
     </div>
   </div>
