@@ -229,11 +229,6 @@
   cursor: pointer;
 }
 // Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
 audio {
   display: block;
   width: 300px;
@@ -263,6 +258,19 @@ audio::-webkit-media-controls-current-time-display,
 audio::-webkit-media-controls-time-remaining-display,
 audio::-webkit-media-controls-timeline {
   color: white;
+}
+.show-card {
+  background: $off-white;
+  height: 380px;
+  border-radius: 8px;
+  padding: 12px 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
