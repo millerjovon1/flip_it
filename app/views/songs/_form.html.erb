@@ -1,5 +1,5 @@
 <div id="songs_form" data-controller="alert loader" >
-  <%= simple_form_for [@song], html: { data: { action: "turbo:submit-end->alert#initSweetalert" } } do |f| %>
+  <%= simple_form_for [song], html: { data: { action: "turbo:submit-end->alert#initSweetalert" } } do |f| %>
     <%= f.input :title, as: :string, placeholder: 'Title' %>
     <%= f.input :genre, as: :string, placeholder: 'Genre' %>
     <div class="range-wrap" data-controller="slider" >

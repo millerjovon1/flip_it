@@ -1,0 +1,17 @@
+<%# <div class="form-remix-body"> %>
+<div class="modal fade" id="remixForm<%=song.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="border-radius: 8px 8px 0 0">
+      <div class="modal-header" >
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Post remix</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="remix-form-background">
+      <div class="modal-body">
+        <%= render 'songs/form_remix', song: song %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%# </div> %>

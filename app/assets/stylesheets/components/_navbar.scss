@@ -1,8 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: rgba(43,11,83, 0.7);
+  background: rgba(43, 11, 83, 0.7);
   color: white;
-  height:90px;
+  height: 90px;
   font-family: $navbar-font;
   // position:fixed;
 }
@@ -25,8 +25,8 @@
 }
 
 .card-category-link {
- color: rgb(4, 57, 38);
- text-decoration: none;
+  color: rgb(4, 57, 38);
+  text-decoration: none;
 }
 
 .nav-bar-link {
@@ -34,46 +34,49 @@
   font-family: $navbar-font;
   text-decoration: none;
   padding-right: 10px;
-  padding-left:10px ;
+  padding-left: 10px;
   font-weight: bold;
   filter: drop-shadow(0 0 0.1rem grey);
 }
 
 .nav-bar-link-logo {
   font-family: $navbar-font;
+  color: white;
+  text-decoration: none;
   padding-left: 10px;
   padding-right: 10px;
   margin-top:7px;
 }
 
-a:hover, a:active {
+a:hover,
+a:active {
   color: grey;
   transition: 0.7s;
 }
 
 body:not(:has(.banner)) > :nth-child(2) {
   display: block;
-  margin-top: 90px;
+  margin-top: 140px;
 }
 
-.search-button{
-  background-color:rgb(33, 34, 36);
-  color:white;
-  width:130px;
+.search-button {
+  background-color: rgb(33, 34, 36);
+  color: white;
+  width: 130px;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
   // box-shadow:0px 0px 0px transparent;
-  border:0px solid red;
+  border: 0px solid red;
 }
 
 .navbar {
-  .form-control{
-    width:400px;
+  .form-control {
+    width: 400px;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
-    border:0px;
+    border: 0px;
   }
 }
 

@@ -16,23 +16,22 @@
         </div>
         <div class="song-card-infos" >
           <div class="song-pills d-flex justify-content-between">
-          <div class="p-2">
-            <h3> <%= link_to user_path(song.user), class: "d-flex text-decoration-none hover-effect text-black"  do %><%= song.user.artist_name  %> <% end %> </h3>
+            <div class="pt-1">
+              <h3> <%= link_to user_path(song.user), class: "d-flex text-decoration-none hover-effect text-black"  do %><%= song.user.artist_name  %> <% end %> </h3>
             </div>
             <div>
-            <div class="bpm-pills-button">
-              <h2>  bpm <%= song.bpm%></h2>
-            </div>
+              <div class="bpm-pills-button">
+                <h2>  bpm <%= song.bpm%></h2>
+              </div>
               <span class="info-pills-button"> <%= song.genre%></span>
               <span class="info-pills-button"> <%= song.instruments%></span>
             </div>
           </div>
           <div class= "flex-grow-1">
             <input type="range" id="play-slider" min="0" value="0" data-action="click->play-slider#timeupdate" data-play-slider-target="input">
-
             <div class="d-flex justify-content-between">
-              <h3><%= link_to song_path(song), class: "text-decoration-none hover-effect text-black"  do %> Title: <%= song.title%> <% end %></h3>
-            <div data-play-slider-target="duration" data-play-button-target="duration" data-action="click->play-slider#update"></div>
+              <h3><%= link_to song_path(song), id: "song-card-title", class: "text-decoration-none hover-effect text-black"  do %> Title: <%= song.title%> <% end %></h3>
+              <div data-play-slider-target="duration" data-play-button-target="duration" data-action="click->play-slider#update">0:00</div>
             </div>
           </div>
           <div class="song-engagement d-flex align-items-center">
@@ -55,3 +54,4 @@
   </div>
 </div>
 <%= render 'songs/share_modal', song: song %>
+<%= render 'songs/remix_form', song: song %>

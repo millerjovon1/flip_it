@@ -6,22 +6,24 @@ export default class extends Controller {
 
   async connect() {
     // console.log(this.audioTarget)
-    this.inputTarget.max = this.audioTarget.duration
-    const length = Math.round(this.audioTarget.duration)
-    const lengthMinutes = Math.floor(this.audioTarget.duration / 60);
-    const lengthSeconds = length % 60;
+    setTimeout( () => {
+      this.inputTarget.max = this.audioTarget.duration
+      const length = Math.round(this.audioTarget.duration)
+      const lengthMinutes = Math.floor(this.audioTarget.duration / 60);
+      const lengthSeconds = length % 60;
 
-    console.log(this.audioTarget.duration)
-    this.durationTarget.innerHTML = `${lengthMinutes}:${lengthSeconds.toString().padStart(2, '0')}`;
+      console.log(this.audioTarget.duration)
+      this.durationTarget.innerHTML = `${lengthMinutes}:${lengthSeconds.toString().padStart(2, '0')}`;
+    }, 500)
 
 
 
   }
 
-  update() {
-    const time = Math.round(this.audioTarget.currentTime)
+  async update() {
+    const time = await Math.round(this.audioTarget.currentTime)
     this.inputTarget.value = time
-    const length = Math.round(this.audioTarget.duration)
+    const length = await Math.round(this.audioTarget.duration)
     const timeMinutes = Math.floor(this.audioTarget.currentTime / 60);
     const timeSeconds = time % 60;
     const lengthMinutes = Math.floor(this.audioTarget.duration / 60);
