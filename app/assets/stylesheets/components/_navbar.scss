@@ -40,12 +40,12 @@
 }
 
 .nav-bar-link-logo {
-  font-size: 50px;
   font-family: $navbar-font;
   color: white;
   text-decoration: none;
   padding-left: 10px;
   padding-right: 10px;
+  margin-top:7px;
 }
 
 a:hover,
@@ -84,4 +84,8 @@ body:not(:has(.banner)) > :nth-child(2) {
   text-decoration: none;
   color: white;
   font-size: 40px;
+}
+
+.logo-image{
+width:75px;
 }

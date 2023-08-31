@@ -6,6 +6,26 @@
     margin-bottom: 20px;
     border-radius: 8px;
 
+
+  }
+
+  .submit{
+    font-family: "Koulen", cursive;
+    background-color: rgba(43, 11, 83, 0.7);
+    border-radius: 10%;
+    border: rgba(43, 11, 83, 0.7);
+  }
+
+  .submit:hover, a:active {
+    color: rgba(43, 11, 83, 0.7);
+    transition: 0.7s;
+    background-color: white;
+    border-radius: 10%;
+    border: rgba(43, 11, 83, 0.7);
+  }
+
+  #songs_form{
+    font-family: "Koulen", cursive;
   }
 
 .remix-form-background {

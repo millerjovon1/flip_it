@@ -1,6 +1,8 @@
-<div class="container mb-5">
+
+<div class="container mb-12">
   <h2 class="my-12">Start Here: Browse our Community Crates</h2>
-  <p> Find insrpiration from our user generated music libraray.Collaborate with artist by remixing or sampling thier original works.</p>
+  <p> Find inspiration from our user-generated music library. Collaborate with artist by remixing or sampling their original works</p>
+
   <div class="crate-grid">
     <% @crates.each do |crate| %>
       <div class="crates-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= crate.photo.attached? ? cl_image_path(crate.photo.key) : "https://source.unsplash.com/random/?<#{crate.name.gsub(" ", " ")}" %> " alt="" class="songs-image">
@@ -14,7 +16,8 @@
     <div class="row">
       <div class="col-12 col-lg-6">
         <h3>Original Works</h3>
-        <p>Collaborate with artist and remix or sampletheir original works</p>
+        <p>Collaborate with artists and remix their original works</p>
+
         <% @originals.each do |song| %>
           <%= render 'songs/card', song: song, crate_song: false %>
         <% end %>
