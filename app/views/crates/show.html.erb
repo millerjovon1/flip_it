@@ -10,7 +10,7 @@
     <% end %>
   </div>
 </div>
-<div class="d-flex">
+<div class="d-flex flex-column align-items-center">
   <% @crate.crate_songs.each do |crate_song| %>
     <%= render 'songs/card', song: crate_song.song, crate_song: crate_song  %>
   <% end %>
