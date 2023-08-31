@@ -1,7 +1,30 @@
 .card-buttons {
   color: black;
-  margin-right: 3px;
+  margin-right: 5px;
 }
+
+
+
+.download-pill-button {
+    display: inline-block;
+    margin-right: 5px;
+    padding: 3px 5px;
+    font-size: 12px;
+    font-family: $navbar-font;
+    border: 2px solid $purple; /* Change this to the desired button color */
+    border-radius: 50px; /* To create the pill shape */
+    text-decoration: none;
+    color: $purple; /* Change this to the desired text color */
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .download-pill-button:hover {
+    background-color: white; /* Change this to the desired hover background color */
+    color: $purple; /* Change this to the desired hover text color */
+  }
+
+
 
 .card-buttons:hover {
   cursor: pointer;
