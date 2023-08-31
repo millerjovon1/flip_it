@@ -11,14 +11,11 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update?
-    user_is_owner? || user_is_admin?
+    user_is_owner?
   end
 
   def user_is_owner?
     record == user
   end
 
-  def user_is_admin?
-    user.admin?
-  end
 end

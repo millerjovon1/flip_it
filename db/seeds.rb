@@ -82,11 +82,11 @@ devi_photo = URI.open("https://avatars.githubusercontent.com/u/133011696?v=4")
 devi = User.new(name: "Devi Putri", artist_name: "DJ Navi", email:"devi.putri@live.com", password: "123123", bio: "...")
 devi.photo.attach(io: devi_photo, filename: "devi.png", content_type: "image/png")
 devi.save
-jovon_photo = URI.open("https://avatars.githubusercontent.com/u/130570205?v=4")
+jovon_photo = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1688378778/ccig4rvgl52p3zdndc6i.jpg")
 jovon = User.new(name: "Jovon Miller", artist_name: "Monsieur Jovoni", email:"millerjovon1@gmail.com", password: "123123", bio: "...")
 jovon.photo.attach(io: jovon_photo, filename: "jovon.png", content_type: "image/png")
 jovon.save
-gabi_photo = URI.open("https://avatars.githubusercontent.com/u/130984874?v=4")
+gabi_photo = URI.open("https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1689040220/vmyp47qil08g9nwul0ur.jpg")
 gabi = User.new(name: "Gabi Smer", artist_name: "Gabigabou", email:"gabriellesmer@gmail.com", password:"123123", bio: "...")
 gabi.photo.attach(io: gabi_photo, filename: "gabi.png", content_type: "image/png")
 gabi.save
