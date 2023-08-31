@@ -6,6 +6,7 @@ class SongsController < ApplicationController
     @originals = @songs.originals
     @remixes = @songs.remixes
     @crate_song = CrateSong.new
+    @crates = Crate.all
 
 
 

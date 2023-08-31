@@ -44,7 +44,6 @@
     margin-bottom: 0;
     margin-top: 0px;
     color: black;
-
   }
   p {
     font-size: 12px;
@@ -216,6 +215,11 @@
   margin-bottom: 20px;
 }
 
+.crate-grid {
+  display: grid;
+  grid-row: 1;
+  margin-top: 6px;
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
