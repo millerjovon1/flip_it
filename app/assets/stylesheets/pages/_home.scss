@@ -1,5 +1,9 @@
 .banner {
-  background-image: asset-url("BL4A8507.JPG");
+  background-image: linear-gradient(
+      rgba(237, 121, 250, 0.171),
+      rgba(148, 94, 241, 0.572)
+    ),
+    asset-url("BL4A8507.JPG");
   background-size: cover;
   background-position: center;
   padding: 230px 0;
@@ -8,7 +12,7 @@
 .banner h1 {
   margin: 0;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   font-size: 32px;
   font-weight: bold;
 }
@@ -16,25 +20,25 @@
 .banner p {
   font-size: 20px;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.card-category-home{
-color:white;
-background-color: rgba(43,11,83, 0.7);
-text-decoration: none;
-padding-right:50px;
-padding-left:50px;
-padding-top:10px;
-padding-bottom: 10px;
-border-radius: 5px;
-font-style: bold;
-width:100px;
-font-size: 40px;
+.card-category-home {
+  color: white;
+  background-color: rgba(43, 11, 83, 0.7);
+  text-decoration: none;
+  padding-right: 50px;
+  padding-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  font-style: bold;
+  width: 100px;
+  font-size: 40px;
 }
-.overlay{
-  background-color: rgba(0,0,0,0.2);
-  position:relative;
+.overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
 .banner::before {
@@ -47,5 +51,5 @@ font-size: 40px;
 }
 
 .row h3 {
-  font-family: 'Koulen', cursive;
+  font-family: "Koulen", cursive;
 }
