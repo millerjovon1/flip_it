@@ -298,3 +298,7 @@ audio::-webkit-media-controls-timeline {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
+
+.crate-title {
+  font-family: $navbar-font;
+}
