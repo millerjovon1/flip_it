@@ -78,7 +78,10 @@ sample_artists.each do |artist_name|
 end
 
 puts "Creating us..."
-devi = User.create(name: "Devi Putri", artist_name: "DJ Navi", email:"devi.putri@live.com", password: "123123", bio: "...")
+devi_photo = URI.open("https://avatars.githubusercontent.com/u/133011696?v=4")
+devi = User.new(name: "Devi Putri", artist_name: "DJ Navi", email:"devi.putri@live.com", password: "123123", bio: "...")
+devi.photo.attach(io: devi_photo, filename: "devi.png", content_type: "image/png")
+devi.save
 jovon = User.create(name: "Jovon Miller", artist_name: "Monsieur Jovoni", email:"millerjovon1@gmail.com", password: "123123", bio: "...")
 gabi = User.create(name: "Gabi Smer", artist_name: "Gabigabou", email:"gabriellesmer@gmail.com",password:"123123", bio: "...")
 lili = User.create(name: "Lili Banks", artist_name: "Busy Banks", email:"lili88banks@icloud.com", password:"123123", bio: "..." )
