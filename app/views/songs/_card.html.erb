@@ -34,6 +34,7 @@
             </div>
           </div>
           <div class="song-engagement d-flex align-items-center">
+            <%= render 'songs/remix_button', song: song %>
             <%= render 'songs/download_button', song: song %>
             <% unless crate_song %>
               <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
