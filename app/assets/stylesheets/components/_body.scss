@@ -15,6 +15,9 @@ body {
     rgba(237, 121, 250, 0.171),
     rgba(148, 94, 241, 0.572)
   );
+  min-height: 100vh;
+  display:flex;
+  flex-direction: column;
 }
 
 h1,
