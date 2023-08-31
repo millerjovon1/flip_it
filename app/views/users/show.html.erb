@@ -1,17 +1,23 @@
 <div class="container">
-   <%= render 'user_avatar', user: @user %>
-  <h3> <%= @user.artist_name%></h3>
-  <div class="mb-5">
-<% if policy(@user).edit? %>
-  <%= link_to 'Upload original work', new_song_path, :class => "btn btn-primary" %>
-  <% end %>
-  <% if policy(@user).edit? %>
-    <%= link_to 'Edit user', edit_user_registration_path, :class => "btn btn-warning" %>
-<% end %>
+  <div class="row">
+    <div class="col-4">
+      <%= render 'user_avatar', user: @user %>
+      <h3> <%= @user.artist_name%></h3>
+      <div class="user-bio">
+        <h5>Bio:</h5>
+        <p> Hey there! I'm all about those cosmic vibes and electric beats. You'll find me creating music that'll make you groove.</p>
+      </div>
+      <% if policy(@user).edit? %>
+        <%= link_to'Upload original work', new_song_path, :class => "btn btn-primary" %>
+      <% end %>
+      <% if policy(@user).edit? %>
+        <%= link_to 'Edit user', edit_user_registration_path, :class => "btn btn-warning" %>
+      <% end %>
     </div>
-    <div class="user-bio">
-<h5>Bio:</h5>
-<p> Hey there! I'm all about those cosmic vibes and electric beats. You'll find me creating music that'll make you groove.</p>
-</div>
-  <%= render 'tabs', users: @users  %>
+    <div class="col-8 mt-5">
+      <div class="mb-5">
+        <%= render 'tabs', users: @users  %>
+      </div>
+    </div>
+  </div>
 </div>
