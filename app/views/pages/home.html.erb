@@ -14,19 +14,20 @@
       <% end %>
     </div>
   </div>
-  <div class='row m-3'>
-    <div class='col'>
-      <h3>FAN FAVORITES</h3>
-      <p>Find inspiration for your next remixes </p>
-      <% @originals.take(5).each do |song| %>
-        <%= render 'songs/card', song: song, crate_song: false %>
-      <% end %>
-    </div>
-    <div class='col'>
-      <h3>LATEST TRACKS</h3>
-      <p>Explore our most recent uploaded songs </p>
-      <% @songs.take(5).each do |song| %>
-        <%= render 'songs/card', song: song, crate_song: false   %>
-      <% end %>
-    </div>
+</div>
+<div class='row m-3'>
+  <div class='col'>
+    <h3>FAN FAVORITES</h3>
+    <p>Find inspiration for your next remixes </p>
+    <% @originals.take(5).each do |song| %>
+      <%= render 'songs/card', song: song, crate_song: false %>
+    <% end %>
   </div>
+  <div class='col'>
+    <h3>LATEST TRACKS</h3>
+    <p>Explore our most recent uploaded songs </p>
+    <% @songs.take(5).each do |song| %>
+      <%= render 'songs/card', song: song, crate_song: false   %>
+    <% end %>
+  </div>
+</div>
