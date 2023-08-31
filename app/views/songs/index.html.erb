@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container mb-5">
   <h2 class="my-12">Start Here: Browse our Community Crates</h2>
-  <p> Find insrpiration from our user generated music libraray. Collaborate with artist by remixing or sampling thier original works.</p>
+  <p> Find insrpiration from our user generated music libraray.Collaborate with artist by remixing or sampling thier original works.</p>
   <div class="crate-grid">
     <% @crates.each do |crate| %>
       <div class="crates-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= crate.photo.attached? ? cl_image_path(crate.photo.key) : "https://source.unsplash.com/random/?<#{crate.name.gsub(" ", " ")}" %> " alt="" class="songs-image">
@@ -8,20 +8,20 @@
       </div>
     <% end  %>
   </div>
-  <div class="row justify-content-center">
+  <div class="justify-content-center">
     <%# <div class="col col-sm-12 col-md-12"> %>
     <%# <h1 class="text-center my-4">Community Crates</h1> %>
     <div class="row">
       <div class="col-12 col-lg-6">
         <h3>Original Works</h3>
-        <p>Collaborate with artist and remix their original works</p>
+        <p>Collaborate with artist and remix or sampletheir original works</p>
         <% @originals.each do |song| %>
           <%= render 'songs/card', song: song, crate_song: false %>
         <% end %>
       </div>
       <div class="col-12 col-lg-6">
         <h3>Remixes</h3>
-        <p>Listen to the latest  remixes and collaborations </p>
+        <p>Listen to the latest remixes and collaborations </p>
         <div class="d-flex flex-wrap justify-content-between">
           <% @remixes.each do |song| %>
             <%= render 'songs/remix_card', song: song, crate_song: false %>

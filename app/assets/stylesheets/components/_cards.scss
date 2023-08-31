@@ -190,6 +190,11 @@
 
 #remix-card-details {
   width: 123px;
+} 
+
+.header-margin {
+  margin-top: 40px;
+
 }
 // .song-block{
 //   width: 300px;
@@ -227,7 +232,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 4px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   // border: 2px solid red;
   // align-items: stretch; // margin-top: 6px;
 }
@@ -235,11 +240,6 @@
   cursor: pointer;
 }
 // Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
 audio {
   display: block;
   width: 300px;
@@ -269,6 +269,19 @@ audio::-webkit-media-controls-current-time-display,
 audio::-webkit-media-controls-time-remaining-display,
 audio::-webkit-media-controls-timeline {
   color: white;
+}
+.show-card {
+  background: $off-white;
+  height: 380px;
+  border-radius: 8px;
+  padding: 12px 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
