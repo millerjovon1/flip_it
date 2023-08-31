@@ -32,7 +32,37 @@
     transition: background-color 0.3s, color 0.3s;
   }
 
-
+.remix-info-pills-button {
+    display: inline-block;
+    margin-right: 2px;
+    padding: 3px 5px;
+    background-color: $off-white;
+    font-size: 12px;
+    height: 27px;
+    font-family: $navbar-font;
+    border: 2px solid $purple; /* Change this to the desired button color */
+    border-radius: 50px; /* To create the pill shape */
+    text-decoration: none;
+    color: $purple; /* Change this to the desired text color */
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+  }
+.remix-bpm-pills-button {
+    display: inline-block;
+    margin-right: 2px;
+    margin-left: 3px;
+    background-color: $off-white;
+    padding: 3px 5px;
+    font-size: 11px;
+    height: 30px;
+    font-family: $navbar-font;
+    border: 2px solid $yellow; /* Change this to the desired button color */
+    border-radius: 50px; /* To create the pill shape */
+    text-decoration: none;
+    color: black; /* Change this to the desired text color */
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+  }
 
   .download-pill-button {
     color: white;

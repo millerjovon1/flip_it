@@ -1,6 +1,8 @@
 <div class="remix-card " data-controller="playlist-popup play-button play-slider">
   <div class="remix-audio position-relative" >
-    <input style="z-index: 10000" class="position-absolute" type="range" id="play-slider" min="0" value="0" data-action="click->play-slider#timeupdate" data-play-slider-target="input">
+    <div>
+      <input style="z-index: 10000" class="position-absolute" type="range" id="play-slider" min="0" value="0" data-action="click->play-slider#timeupdate" data-play-slider-target="input">
+    </div>
     <% if song.photo.attached? %>
       <%=cl_image_tag(song.photo.key)%>
     <% else %>
@@ -11,28 +13,28 @@
     <i class="fa-regular fa-circle-play play-button" style="color: #ffffff;" data-action="click->play-button#play" data-play-button-target="playButton"></i>
     <i class="fa-regular fa-circle-pause pause-button d-none" style="color: #ffffff;" data-action="click->play-button#pause" data-play-button-target="pauseButton"></i>
     <div class="remix-pills justify-content-between">
-      <div class="remix-bpm-sticker">
+      <div class="remix-bpm-pills-button ">
         <h2>  bpm <%= song.bpm%></h2>
       </div>
-      <div>
-        <div class= "artist-info">
-          <h3> <%= link_to user_path(song.user), class: "no-decoration hover-effect"  do %> Artist: <%= song.user.artist_name  %> <% end %> </h3>
-          <h3><%= link_to song_path(song), class: "no-decoration hover-effect"  do %> Title: <%= song.title%> <% end %></h3>
-        </div>
+      <span class="remix-info-pills-button"> <%= song.genre%></span>
+      <span class="remix-info-pills-button"> <%= song.instruments%></span>
+      <div class= "artist-info">
         <p><%= link_to user_path(song.original.user),  class: "no-decoration hover-effect"  do %> Original Artist: <%= song.original.user.artist_name %> <% end %></p>
         <p><%= link_to song_path(song),  class: "no-decoration hover-effect"  do %> Original Track: <%= song.original.title%> <% end %></p>
-        <span class="badge rounded-pill text-bg-info"> <%= song.genre%></span>
-        <span class="badge rounded-pill text-bg-info"> <%= song.instruments%></span>
       </div>
     </div>
     <audio controls style="display: none" data-play-button-target="audio" data-play-slider-target="audio" data-action="timeupdate->play-slider#update">
       <source src="<%=song.audio_file.url %>" type="audio/wav" >
     </audio>
-    <div class="remix-engagement d-flex align-content-start flex-wrap">
-      <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
+    <div class="remix-engagement d-flex align-items-center">
       <%= render 'songs/download_button', song: song %>
+      <i class="fa-solid fa-circle-plus card-buttons" data-action="click->playlist-popup#appear"> </i>
       <%= render 'songs/share_button', song: song %>
-      <div data-play-slider-target="duration" data-play-button-target="duration" data-action="click->play-slider#update"></div>
+      <div class="ml-2">
+          <h3 id="remix-card-details"> <%= link_to user_path(song.user), class: "no-decoration hover-effect"  do %><%= song.user.artist_name  %> <% end %> </h3>
+          <h3 id="remix-card-details"><%= link_to song_path(song), class: "no-decoration hover-effect"  do %> Title: <%= song.title%> <% end %></h3>
+        </div>
+      <div data-play-slider-target="duration" data-play-button-target="duration" data-action="click->play-slider#update" class="ms-auto p-2"></div>
     </div>
   </div>
   <%= render 'songs/playlist_form', song: song, crate_song: @crate_song%>
