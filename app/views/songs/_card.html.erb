@@ -3,7 +3,7 @@
     <div data-controller="play-slider">
       <div class="song-card">
         <div class="song-audio">
-          <audio controls style="display: none" data-play-button-target="audio" data-play-slider-target="audio">
+          <audio controls style="display: none" data-play-button-target="audio" data-play-slider-target="audio" data-action="timeupdate->play-slider#update">
             <source src="<%=song.audio_file.url %>" type="audio/wav" >
           </audio>
           <i class="fa-regular fa-circle-play play-button" style="color: #ffffff;" data-action="click->play-button#play" data-play-button-target="playButton"></i>
@@ -27,7 +27,11 @@
           </div>
           <div class= "flex-grow-1">
             <input type="range" id="play-slider" min="0" value="0" data-action="click->play-slider#timeupdate" data-play-slider-target="input">
-            <h3><%= link_to song_path(song), class: "no-decoration hover-effect"  do %> Title: <%= song.title%> <% end %></h3>
+
+            <div class="d-flex justify-content-between">
+              <h3><%= link_to song_path(song), class: "no-decoration hover-effect"  do %> Title: <%= song.title%> <% end %></h3>
+            <div data-play-slider-target="duration" data-play-button-target="duration" data-action="click->play-slider#duration"></div>
+            </div>
           </div>
           <div class="song-engagement d-flex align-items-center">
             <%= render 'songs/download_button', song: song %>
