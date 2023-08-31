@@ -28,7 +28,11 @@
       </div>
       <div class="col-8">
         <div class= "song-container flex-grow-2 mt-5">
-          <%= render partial: 'songs/card', locals: {songs: @sorted_results[Song]} if @sorted_results[Song]%>
+        <% if @sorted_results[Song].present? %>
+          <% @sorted_results[Song].each do |song| %>
+            <%= render partial: "songs/card", locals: { song: song, crate_song: false} %>
+          <% end %>
+          <% end %>
         </div>
       </div>
     </div>
