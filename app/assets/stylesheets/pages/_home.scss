@@ -47,6 +47,12 @@
 
 .remixes{
   border-style: solid;
-  border-color:rgba(43, 11, 83, 0.7);
+  border-color:white;
   border-width:thick;
+  padding:15px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap:10px;
+  justify-content: space-around;
+  filter: drop-shadow(0 0 0.1rem grey);
 }
