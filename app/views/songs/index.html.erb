@@ -2,7 +2,7 @@
   <h3 class="start my-12">Start Here: Browse our Community Crates</h3>
   <p> Find inspiration from our user-generated music library. Collaborate with artist by remixing or sampling their original works</p>
   <div class="crate-grid">
-    <% @crates.each do |crate| %>
+    <% @crates.take(4).each do |crate| %>
       <div class="crates-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= crate.photo.attached? ? cl_image_path(crate.photo.key) : "https://source.unsplash.com/random/?<#{crate.name.gsub(" ", " ")}" %> " alt="" class="songs-image">
         <%= link_to crate.name, crate_path(crate), class: "crate-title text-decoration-none text-white"%>
       </div>
