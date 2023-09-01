@@ -24,7 +24,14 @@
           </button>
         </h2>
         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-          <div class="accordion-body"><%= select_tag :base_id, options_from_collection_for_select(@songs, "id", "title"), include_blank: true %> </div>
+          <div class="accordion-body">
+            <select name="base_id" id="base_id">
+              <option value=""></option>
+              <% @songs.each do |song| %>
+                <option value="<%= song.id %>"><%= song.title %></option>
+              <% end %>
+            </select>
+          </div>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 <div id="songs_form" >
-  <%= simple_form_for [song] do |f| %>
-    <%= f.input :title, as: :string %>
-    <%= f.input :genre, as: :string %>
+  <%= simple_form_for(Song.new) do |f| %>
+    <%= f.input :title, as: :string, input_html: { value: song.title } %>
+    <%= f.input :genre, as: :string, input_html: { value: song.genre } %>
     <div class="range-wrap" data-controller="slider" >
       <div class="range-value" id="rangeV"></div>
       <label for="">bpm</label>
@@ -9,6 +9,10 @@
     </div>
     <%= f.input :audio_file, as: :file, input_html: {value: ''} %>
     <%= f.input :photo, as: :file %>
-   <%= f.button :submit, 'Upload remix', class: 'btn btn-primary' %>
+    <% song.instruments.split(',').each do |instrument| %>
+      <input type="radio" hidden name="song[instruments][]" value="<%= instrument %>" checked>
+    <% end %>
+    <input type="number" hidden name="base_id" value="<%=song.id%>">
+    <%= f.button :submit, 'Upload remix', class: 'btn btn-primary' %>
   <% end %>
 </div>

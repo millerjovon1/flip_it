@@ -7,9 +7,6 @@ class SongsController < ApplicationController
     @remixes = @songs.remixes
     @crate_song = CrateSong.new
     @crates = Crate.all
-
-
-
   end
 
   def new
@@ -28,10 +25,17 @@ class SongsController < ApplicationController
     @song = Song.new(song_params)
     @song.user = current_user
     authorize @song
+
     if @song.save
-      Source.create(base_id: params[:base_id], remix: @song) if params[:base_id].present?
-      # redirect_to songs_path
+      unless params[:base_id] == ''
+        source = Source.new
+        source.remix = @song
+        source.base = Song.find(params[:base_id])
+        source.save
+      end
+      redirect_to songs_path
     else
+      @songs = Song.all.order(created_at: :desc)
       render "songs/new", status: :unprocessable_entity
     end
   end
