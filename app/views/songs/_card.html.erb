@@ -42,7 +42,7 @@
             <% end %>
             <%= render 'songs/share_button', song: song %>
             <% if crate_song %>
-              <%= link_to "Delete", crate_song_path(crate_song), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this song?" }, class: "delete-button" %>
+              <%= link_to "Remove", crate_song_path(crate_song), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this song?" }, class: "remove-button ms-auto p-1" %>
             <% end %>
           </div>
         </div>
