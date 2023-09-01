@@ -6,7 +6,7 @@
           <div class="remix-audio position-relative" >
             <input style="z-index: 10000" class="position-absolute" type="range" id="play-slider" min="0" value="0" data-action="click->play-slider#timeupdate" data-play-slider-target="input">
             <% if @song.photo.attached? %>
-              <%=cl_image_tag(song.photo.key)%>
+              <%=cl_image_tag(@song.photo.key)%>
             <% else %>
               <%=  image_tag "https://source.unsplash.com/random/?#{@song.title.gsub(" ", " ")}" %>
             <% end %>
@@ -33,7 +33,7 @@
         </div>
         <%= render 'songs/share_modal', song: @song %>
         <div class="p-3">
-          <div class= "artist-info >
+          <div class= "artist-info" >
             <h3> <%= link_to user_path(@song.user), class: "text-decoration-none text-black hover-effect"  do %> Artist: <%= @song.user.artist_name  %> <% end %> </h3>
             <h3><%= link_to song_path(@song), class: "text-decoration-none text-black hover-effect"  do %> Title: <%= @song.title%> <% end %></h3>
           </div>
