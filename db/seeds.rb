@@ -136,24 +136,24 @@ puts "Creating songs..."
   end
 end
 
-crate_names = [ "Sick Bass",
-"Good Vibes",
-"Chill",
-"Party",
-"My Favs",
-"Inspo",
-"Rock",
-"Funk",
-]
 
 puts "creating crates..."
-3.times do
   Crate.create!(
     user: User.all.sample,
-    name: crate_names.sample
+    name: "Chill"
   )
-end
-
+  Crate.create!(
+    user: User.all.sample,
+    name: "Party"
+  )
+  Crate.create!(
+    user: User.all.sample,
+    name: "Inspo"
+  )
+  Crate.create!(
+    user: User.all.sample,
+    name: "Rock"
+  )
 300.times do
   CrateSong.create!(
     crate: Crate.all.sample,
