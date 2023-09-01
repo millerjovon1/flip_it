@@ -48,3 +48,6 @@
     </div>
   </div>
 </div>
+<% content_for :meta_title, "#{@song.title}" %>
+<% content_for :meta_description, "Song by #{@song.user.artist_name}" %>
+<% content_for :meta_image, cl_image_path(@song.photo.key) if @song.photo.attached? %>
