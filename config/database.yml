@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: flip_it_production
-  username: flip_it
-  password: <%= ENV["FLIP_IT_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>

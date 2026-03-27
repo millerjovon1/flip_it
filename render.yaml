@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: flip-it-web
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec rails server"
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase: 
+          name: flip-it-db
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: WEB_CONCURRENCY
+        value: 2
+
+  - type: postgres
+    name: flip-it-db
+    plan: free
