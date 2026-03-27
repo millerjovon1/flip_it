@@ -1,19 +1,30 @@
+// ─── Navbar ───────────────────────────────────────────────────────────────────
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: rgba(43, 11, 83, 0.7);
-  color: white;
-  height: 90px;
+  background: rgba(13, 11, 20, 0.82);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  color: $white;
+  height: 72px;
   font-family: $navbar-font;
-  // position:fixed;
+  padding: 0 1.5rem;
+  transition: background 0.3s ease;
 }
 
-.item {
-  flex-grow: 1;
+.navbar-lewagon:hover {
+  background: rgba(13, 11, 20, 0.92);
 }
 
 .flexbox {
   display: flex;
   align-items: center;
+  gap: 0.75rem;
+}
+
+.item {
+  flex-grow: 1;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -24,68 +35,172 @@
   width: 40px;
 }
 
-.card-category-link {
-  color: rgb(4, 57, 38);
+// ─── Brand Logo ───────────────────────────────────────────────────────────────
+
+.flip-it {
   text-decoration: none;
+  color: $white;
+  font-size: 2rem;
+  font-family: $navbar-font;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $gold;
+    opacity: 1;
+  }
 }
 
-.nav-bar-link {
-  color: white;
-  font-family: $navbar-font;
-  text-decoration: none;
-  padding-right: 10px;
-  padding-left: 10px;
-  font-weight: bold;
-  filter: drop-shadow(0 0 0.1rem grey);
+.logo-image {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: rotate(-5deg) scale(1.05);
+  }
 }
 
 .nav-bar-link-logo {
   font-family: $navbar-font;
-  color: white;
+  color: $white;
   text-decoration: none;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-top:7px;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
 }
+
+// ─── Nav Links ────────────────────────────────────────────────────────────────
+
+.nav-bar-link {
+  color: rgba(255, 255, 255, 0.85);
+  font-family: $navbar-font;
+  text-decoration: none;
+  padding: 6px 14px;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  border-radius: 6px;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    color: $white;
+    background: rgba(255, 198, 90, 0.12);
+    opacity: 1;
+  }
+}
+
+// ─── Search Bar ───────────────────────────────────────────────────────────────
+
+.navbar .form-control {
+  width: 300px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  color: $white;
+  font-size: 0.875rem;
+  padding: 8px 14px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+  }
+
+  &:focus {
+    background: rgba(255, 255, 255, 0.11);
+    border-color: rgba(255, 198, 90, 0.45);
+    box-shadow: none;
+    outline: none;
+    color: $white;
+  }
+}
+
+.search-button {
+  background: $purple;
+  color: $white;
+  font-family: $navbar-font;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  width: 90px;
+  border: 1px solid $purple-mid;
+  border-left: none;
+  border-radius: 0 8px 8px 0;
+  padding: 8px 14px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: $purple-mid;
+  }
+}
+
+// ─── Avatar Dropdown ──────────────────────────────────────────────────────────
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 198, 90, 0.5);
+  object-fit: cover;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  display: block;
+
+  img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &:hover {
+    border-color: $gold;
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+.dropdown-menu {
+  background: rgba(22, 16, 38, 0.96);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 6px;
+  min-width: 160px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+}
+
+.dropdown-item {
+  color: rgba(255, 255, 255, 0.85);
+  font-family: $body-font;
+  font-size: 0.875rem;
+  border-radius: 6px;
+  padding: 8px 14px;
+  transition: background 0.15s ease, color 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 198, 90, 0.12);
+    color: $white;
+  }
+}
+
+// ─── Link hover override ──────────────────────────────────────────────────────
 
 a:hover,
 a:active {
-  color: grey;
-  transition: 0.7s;
+  color: $gold;
+  transition: color 0.25s ease;
+}
+
+.card-category-link {
+  color: $neon-green;
+  text-decoration: none;
 }
 
 body:not(:has(.banner)) > :nth-child(2) {
   display: block;
-  margin-top: 140px;
-}
-
-.search-button {
-  background-color: rgb(33, 34, 36);
-  color: white;
-  width: 130px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  // box-shadow:0px 0px 0px transparent;
-  border: 0px solid red;
-}
-
-.navbar {
-  .form-control {
-    width: 400px;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
-    border: 0px;
-  }
-}
-
-.flip-it {
-  text-decoration: none;
-  color: white;
-  font-size: 40px;
-}
-
-.logo-image{
-width:75px;
+  margin-top: 90px;
 }

@@ -1,34 +1,43 @@
-<div class="banner mb-5" >
+<%# ── Hero Banner ──────────────────────────────────────────────────────────── %>
+<div class="banner">
   <div class="container">
-    <h1>Unite Musicians - Create, Remix, and Showcase!</h1>
-    <p>Welcome to FLIP IT!, the ultimate collaborative music platform</p>
-    <%= link_to 'DIG CRATES', songs_path, class: 'card-category-home'%>
+    <h1>Create. Remix. Collaborate.</h1>
+    <p>The community music library where producers upload originals and the world remixes them.</p>
+    <%= link_to 'DIG CRATES', songs_path, class: 'card-category-home' %>
   </div>
 </div>
-<div class="row m-3">
-  <h3>LATEST Remixes</h3>
-  <p>Check out the last collabs </p>
+
+<%# ── Latest Remixes ───────────────────────────────────────────────────────── %>
+<div class="container mt-5">
+  <div class="mb-4">
+    <h3 class="section-title">LATEST REMIXES</h3>
+    <p class="section-subtitle">Fresh collabs from the community</p>
+  </div>
   <div class="remixes">
-    <div class="d-flex flex-wrap justify-content-between">
+    <div class="d-flex flex-wrap gap-3">
       <% @remixes.take(4).each do |song| %>
         <%= render 'songs/remix_card', song: song, crate_song: false %>
       <% end %>
     </div>
   </div>
 </div>
-<div class='row m-3'>
-  <div class='col'>
-    <h3>FAN FAVORITES</h3>
-    <p>Find inspiration for your next remixes </p>
-    <% @originals.take(5).each do |song| %>
-      <%= render 'songs/card', song: song, crate_song: false %>
-    <% end %>
-  </div>
-  <div class='col'>
-    <h3>LATEST TRACKS</h3>
-    <p>Explore our most recent uploaded songs </p>
-    <% @songs.take(5).each do |song| %>
-      <%= render 'songs/card', song: song, crate_song: false   %>
-    <% end %>
+
+<%# ── Fan Favorites & Latest Tracks ──────────────────────────────────────── %>
+<div class="container mt-5 mb-5">
+  <div class="row g-4">
+    <div class="col-12 col-lg-6">
+      <h3 class="section-title">FAN FAVORITES</h3>
+      <p class="section-subtitle">Find inspiration for your next remix</p>
+      <% @originals.take(5).each do |song| %>
+        <%= render 'songs/card', song: song, crate_song: false %>
+      <% end %>
+    </div>
+    <div class="col-12 col-lg-6">
+      <h3 class="section-title">LATEST TRACKS</h3>
+      <p class="section-subtitle">Explore our most recently uploaded songs</p>
+      <% @songs.take(5).each do |song| %>
+        <%= render 'songs/card', song: song, crate_song: false %>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -1,29 +1,82 @@
-body {
-  // background: linear-gradient(to bottom , $off-white, $faded-mild-black);
-  //   background: linear-gradient(
-  //     to bottom,
-  //     rgba(43, 11, 83, 0.8),
-  //     rgba(43, 11, 83, 0.5)
+// ─── Global Body & Typography ─────────────────────────────────────────────────
 
-  //   );
-  // background: linear-gradient(
-  //   to bottom,
-  //   rgba(0, 0, 0, 0.8),
-  //   rgba(43, 11, 83, 0.5)
-  // );
-  background: linear-gradient(
-    rgba(237, 121, 250, 0.171),
-    rgba(148, 94, 241, 0.572)
-  );
+body {
+  background: $bg-dark;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(61, 18, 112, 0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(43, 11, 83, 0.25) 0%, transparent 60%);
+  background-attachment: fixed;
   min-height: 100vh;
-  display:flex;
+  display: flex;
   flex-direction: column;
+  color: $off-white;
+  font-family: $body-font;
+  -webkit-font-smoothing: antialiased;
 }
 
-h1,
-h2,
-h3,
-p {
-  color: white;
+// ─── Headings ─────────────────────────────────────────────────────────────────
+
+h1, h2, h3 {
+  color: $white;
   font-family: $navbar-font;
+  letter-spacing: 0.03em;
+}
+
+h4, h5, h6 {
+  color: $off-white;
+  font-family: $headers-font;
+  font-weight: 600;
+}
+
+p {
+  color: rgba(245, 245, 247, 0.75);
+  font-family: $body-font;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+// ─── Links ────────────────────────────────────────────────────────────────────
+
+a {
+  color: $gold;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+a:hover,
+a:active {
+  color: lighten(#FFC65A, 15%);
+  opacity: 0.9;
+}
+
+.no-decoration {
+  text-decoration: none;
+  color: inherit;
+}
+
+.hover-effect:hover {
+  color: $gold;
+  transition: color 0.2s ease;
+}
+
+// ─── Section spacing ──────────────────────────────────────────────────────────
+
+.section-title {
+  font-family: $navbar-font;
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  color: $white;
+  margin-bottom: 0.25rem;
+}
+
+.section-subtitle {
+  font-size: 0.875rem;
+  color: rgba(245, 245, 247, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+// ─── Utility ──────────────────────────────────────────────────────────────────
+
+body:not(:has(.banner)) > :nth-child(2) {
+  display: block;
+  margin-top: 90px;
 }

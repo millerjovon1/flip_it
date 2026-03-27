@@ -1,61 +1,78 @@
-.result-container{
-  display:flex !important;
-  gap:50px;
+// ─── Search & Filter ──────────────────────────────────────────────────────────
+
+.result-container {
+  display: flex !important;
+  gap: 40px;
 }
 
-.crates-category {
-  background-size: cover;
-  background-position: center;
-  height: 270px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width:270px;
+.filter-container {
+  width: 240px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  margin-right: 32px;
+  margin-top: 32px;
+  margin-left: 24px;
+  padding: 20px;
 
+  label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+  }
+
+  fieldset {
+    border: none;
+    padding: 0;
+  }
 }
+
+.filter-section-title {
+  font-family: $navbar-font;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
+
 .crate-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 26px;
-  margin-left:50px ;
-  margin-bottom: 50px;
+  gap: 20px;
+  margin-left: 32px;
+  margin-bottom: 40px;
 }
 
 .artist-container {
   display: grid;
   grid-template-rows: auto;
-  grid-gap: 46px;
+  gap: 32px;
 }
 
-.artist-category{
+.artist-category {
   background-size: cover;
   background-position: center;
-  height: 200px;
+  height: 180px;
+  width: 180px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  align-items: flex-end;
+  padding-bottom: 14px;
+  color: $white;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: $navbar-font;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
   border-radius: 50%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width:200px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-}
-
-.filter-container{
-  width:250px;
-  border-radius: 10px;
-  margin-right:50px;
-  margin-top:50px;
-  margin-left: 50px;
-  padding: 20px;
-
+  &:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
   }
+}

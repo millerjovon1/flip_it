@@ -1,15 +1,36 @@
-// Define variables for your color scheme
+// ─── FLIP IT! Design System — Color Palette ───────────────────────────────────
 
-// For example:
-$red: #FD1015;
-$blue: #0553c96f;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #1EDD88;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
-$mild-black: rgb(33, 34, 36);
-$faded-mild-black: rgba(33, 34, 36, 0.827);
-$purple-haze: rgba(43, 11, 83, 0.16);
-$purple: rgb(43,11,83);
-$off-white: rgb(245, 245, 245);
+// Core Brand
+$purple:        #2B0B53;
+$purple-mid:    #3D1270;
+$purple-light:  rgba(43, 11, 83, 0.55);
+$purple-haze:   rgba(43, 11, 83, 0.18);
+
+// Accent
+$gold:          #FFC65A;
+$yellow:        #FFC65A;  // alias
+$gold-dark:     #E0A830;
+$neon-green:    #1EDD88;
+$green:         #1EDD88;  // alias
+$red:           #FD1015;
+$orange:        #E67E22;
+
+// Neutrals
+$gray:          #0E0E12;
+$gray-dark:     #0E0E12;
+$gray-mid:      #1C1C24;
+$gray-soft:     #2A2A36;
+$gray-border:   rgba(255, 255, 255, 0.12);
+$off-white:     #F5F5F7;
+$white:         #FFFFFF;
+$light-gray:    #F4F4F4;
+
+// Backgrounds
+$bg-dark:       #0D0B14;
+$bg-card:       rgba(255, 255, 255, 0.06);
+$bg-card-hover: rgba(255, 255, 255, 0.10);
+
+// Utility
+$mild-black:       rgb(33, 34, 36);
+$faded-mild-black: rgba(33, 34, 36, 0.85);
+$blue:             #0553c96f;

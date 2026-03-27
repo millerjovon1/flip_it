@@ -1,3 +1,5 @@
+// ─── Pill Tag Selectors ───────────────────────────────────────────────────────
+
 .tag-item {
   display: inline-block;
 }
@@ -10,25 +12,43 @@
 .tag-selector + label {
   cursor: pointer;
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   border-radius: 50rem;
-  padding: 0.1rem 0.5rem;
-  background-color: #ECEAFF;
-  color: rgb(43,11,83);
-  border: 1px solid rgb(43,11,83);
-  margin-right: 0.6rem;
-  margin-bottom: 0.4rem;
+  padding: 3px 10px;
+  background: rgba(43, 11, 83, 0.25);
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(43, 11, 83, 0.6);
+  margin-right: 5px;
+  margin-bottom: 5px;
+  transition: background 0.15s ease, color 0.15s ease;
+  font-family: $body-font;
+
+  &:hover {
+    background: rgba(43, 11, 83, 0.5);
+    color: $white;
+  }
 }
 
 .tag-selector:checked + label {
-  background-color: rgb(43,11,83);
-  color: white;
+  background: $purple;
+  color: $white;
+  border-color: $purple-mid;
 }
 
-.filter-button{
-  color:white;
-  background-color:rgb(43,11,83);
-  border-color:rgb(43,11,83) ;
-  border-radius: 10px;
-  width:100px;
+.filter-button {
+  color: $white;
+  background: $purple;
+  border: 1px solid $purple-mid;
+  border-radius: 8px;
+  width: 100%;
+  padding: 8px 0;
+  font-family: $navbar-font;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  margin-top: 8px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: $purple-mid;
+  }
 }

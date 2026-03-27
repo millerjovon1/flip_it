@@ -1,25 +1,56 @@
-#play-slider::-webkit-slider-runnable-track {
-  background-color: black;
-  height: 6px;
-  width: 80%;
-}
+// ─── Audio Progress Slider ────────────────────────────────────────────────────
 
 #play-slider {
-margin: 0px;  // width: 50%;
+  margin: 0;
+  width: 100%;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
-/* For Mozilla Firefox */
+
+#play-slider::-webkit-slider-runnable-track {
+  background: rgba(255, 255, 255, 0.15);
+  height: 4px;
+  border-radius: 4px;
+}
+
+#play-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: $gold;
+  cursor: pointer;
+  margin-top: -5px;
+  box-shadow: 0 0 4px rgba(255, 198, 90, 0.5);
+}
+
 #play-slider::-moz-range-track {
-  background-color: black;
-  height: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  height: 4px;
+  border-radius: 4px;
 }
 
-/* For Microsoft Edge and IE */
+#play-slider::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: $gold;
+  cursor: pointer;
+  border: none;
+}
+
 #play-slider::-ms-track {
-  background-color: black;
-  height: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  height: 4px;
 }
-
 
 .remix-slider {
-  width: 70%
+  width: 70%;
 }

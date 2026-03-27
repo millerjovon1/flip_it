@@ -1,20 +1,35 @@
+// ─── Profile Tabs ─────────────────────────────────────────────────────────────
+
 .tabs-underlined {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  gap: 4px;
+  padding: 0 8px;
+
   .tab-underlined {
-    color: white;
-    padding: 8px;
-    margin: 8px 16px;
-    opacity: .4;
-    text-decoration: none;
-    border-bottom: 4px solid transparent;
-    display: block;
-  }
-  .tab-underlined:hover {
-    opacity: 0.5;
-  }
-  .tab-underlined.active {
+    color: rgba(255, 255, 255, 0.5);
+    padding: 10px 16px;
+    margin: 0;
     opacity: 1;
-    border-bottom: 3px solid #555555;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    font-family: $navbar-font;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    display: block;
+    transition: color 0.2s ease, border-color 0.2s ease;
   }
+
+  .tab-underlined:hover {
+    color: rgba(255, 255, 255, 0.8);
+    border-bottom-color: rgba(255, 198, 90, 0.4);
+  }
+
+  .tab-underlined.active {
+    color: $white;
+    border-bottom: 2px solid $gold;
+  }
+
   .nav-link:hover {
     cursor: pointer;
   }

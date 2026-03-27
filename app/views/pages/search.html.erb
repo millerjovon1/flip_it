@@ -1,60 +1,85 @@
-<div class="row d-flex">
-  <div class="col-9">
-    <div class="row">
-      <div class="col-4">
-        <div class="filter-container bg-white">
-          <%= form_with url: search_path, method: :get do %>
-            GENRE
-            <fieldset class="form-group check_boxes optional snippet_tags mt-1 mb-2">
-              <% Song::GENRES.each do |genre| %>
-                <div class="tag-item">
-                  <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="<%=genre%>" name="query[]" id="snippet_tag_ids_<%= genre %>">
-                  <label class="form-check-label collection_check_boxes" for="snippet_tag_ids_<%= genre %>"><%= genre %></label>
-                </div>
-              <% end %>
-            </fieldset>
-            INSTRUMENTS
-            <fieldset class="form-group check_boxes optional snippet_tags mt-1 mb-2">
-              <% Song::INSTRUMENTS.each do |instrument| %>
-                <div class="tag-item">
-                  <input class="form-check-input check_boxes optional tag-selector" type="checkbox" value="<%=instrument%>" name="query[]" id="snippet_tag_ids_<%= instrument %>">
-                  <label class="form-check-label collection_check_boxes" for="snippet_tag_ids_<%= instrument %>"><%= instrument %></label>
-                </div>
-              <% end %>
-            </fieldset>
-            <%= submit_tag "DIG", name: "", class: "filter-button" %>
-          <% end %>
-        </div>
-      </div>
-      <div class="col-8">
-        <div class= "song-container flex-grow-2 mt-5">
-          <% if @sorted_results[Song].present? %>
-            <% @sorted_results[Song].each do |song| %>
-              <%= render partial: "songs/card", locals: { song: song, crate_song: false} %>
+<div class="container py-5">
+  <div class="row g-4">
+
+    <%# ── Filter Sidebar %>
+    <div class="col-12 col-md-3">
+      <div class="filter-container">
+        <%= form_with url: search_path, method: :get do %>
+          <p class="filter-section-title">GENRE</p>
+          <fieldset class="form-group check_boxes optional snippet_tags mb-3" style="border:none; padding:0;">
+            <% Song::GENRES.each do |genre| %>
+              <div class="tag-item">
+                <input class="form-check-input check_boxes optional tag-selector" type="checkbox"
+                       value="<%= genre %>" name="query[]" id="snippet_tag_ids_<%= genre %>"
+                       <%= params[:query]&.include?(genre) ? 'checked' : '' %>>
+                <label class="form-check-label collection_check_boxes" for="snippet_tag_ids_<%= genre %>"><%= genre %></label>
+              </div>
             <% end %>
-          <% end %>
-        </div>
+          </fieldset>
+          <p class="filter-section-title">INSTRUMENTS</p>
+          <fieldset class="form-group check_boxes optional snippet_tags mb-3" style="border:none; padding:0;">
+            <% Song::INSTRUMENTS.each do |instrument| %>
+              <div class="tag-item">
+                <input class="form-check-input check_boxes optional tag-selector" type="checkbox"
+                       value="<%= instrument %>" name="query[]" id="snippet_tag_ids_<%= instrument %>"
+                       <%= params[:query]&.include?(instrument) ? 'checked' : '' %>>
+                <label class="form-check-label collection_check_boxes" for="snippet_tag_ids_<%= instrument %>"><%= instrument %></label>
+              </div>
+            <% end %>
+          </fieldset>
+          <%= submit_tag "DIG", name: "", class: "filter-button" %>
+        <% end %>
       </div>
     </div>
-    <div class ="row">
-      <div class="col">
-        <div class="crate-container mt-5">
-          <%  @sorted_results[Crate]&.each do |crate|%>
-            <div class="crates-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= crate.photo.attached? ? cl_image_path(crate.photo.key) : "https://source.unsplash.com/random/?#{crate.name.gsub(" ", " ")}" %>)" alt="" class="songs-image">
-              <%= link_to crate.name, crate_path(crate), class: "text-decoration-none text-white"%>
+
+    <%# ── Results Area %>
+    <div class="col-12 col-md-9">
+
+      <%# Songs %>
+      <% if @sorted_results[Song].present? %>
+        <h3 class="section-title mb-1">TRACKS</h3>
+        <p class="section-subtitle"><%= @sorted_results[Song].count %> result<%= @sorted_results[Song].count == 1 ? '' : 's' %></p>
+        <div class="mb-5">
+          <% @sorted_results[Song].each do |song| %>
+            <%= render partial: "songs/card", locals: { song: song, crate_song: false } %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <%# Crates %>
+      <% if @sorted_results[Crate].present? %>
+        <h3 class="section-title mb-1">CRATES</h3>
+        <p class="section-subtitle"><%= @sorted_results[Crate].count %> crate<%= @sorted_results[Crate].count == 1 ? '' : 's' %></p>
+        <div class="crate-grid mb-5">
+          <% @sorted_results[Crate].each do |crate| %>
+            <div class="crates-category"
+                 style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(43,11,83,0.5)), url(<%= crate.photo.attached? ? cl_image_path(crate.photo.key) : 'https://source.unsplash.com/random/?music' %>)">
+              <%= link_to crate.name, crate_path(crate), class: "crate-title text-decoration-none text-white" %>
             </div>
           <% end %>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-3">
-    <div class="artist-container mt-5">
-      <%  @sorted_results[User]&.each do |user|%>
-        <div class="artist-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= user.photo.attached? ? cl_image_path(user.photo.key) : "https://source.unsplash.com/random/?#{user.artist_name.gsub(" ", " ")}" %>)" alt="" class="songs-image">
-          <%= link_to user.artist_name, user_path(user), class: "text-decoration-none text-white"%>
+      <% end %>
+
+      <%# Artists %>
+      <% if @sorted_results[User].present? %>
+        <h3 class="section-title mb-1">ARTISTS</h3>
+        <p class="section-subtitle"><%= @sorted_results[User].count %> artist<%= @sorted_results[User].count == 1 ? '' : 's' %></p>
+        <div class="artist-container">
+          <% @sorted_results[User].each do |user| %>
+            <div class="artist-category"
+                 style="background-image: linear-gradient(rgba(0,0,0,0.45), rgba(43,11,83,0.5)), url(<%= user.photo.attached? ? cl_image_path(user.photo.key) : 'https://source.unsplash.com/random/?portrait,music' %>)">
+              <%= link_to user.artist_name, user_path(user), class: "text-decoration-none text-white" %>
+            </div>
+          <% end %>
         </div>
       <% end %>
+
+      <% if @sorted_results.values.all?(&:blank?) %>
+        <div class="text-center py-5">
+          <p style="opacity:0.5; font-size:1.1rem;">No results found. Try a different genre or instrument.</p>
+        </div>
+      <% end %>
+
     </div>
   </div>
 </div>

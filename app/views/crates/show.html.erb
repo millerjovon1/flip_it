@@ -1,17 +1,26 @@
-<div class="text-center p-5">
-  <h1><%= @crate.name %></h1>
-  <div class="d-flex justify-content-around">
-    <%= link_to user_path(current_user) do %>
-      <i class="fas fa-arrow-left go-back-button"></i>
-    <% end %>
-    <p class="mt-3"><%= pluralize(@crate.crate_songs.count, 'song') %></p>
-    <%= link_to songs_path do %>
-      <i class="fa-solid fa-circle-plus add-music" style="color: #ffffff;"></i>
+<div class="container py-5">
+
+  <%# ── Crate Header %>
+  <div class="d-flex align-items-center justify-content-between mb-4">
+    <div class="d-flex align-items-center gap-3">
+      <%= link_to user_path(current_user), class: "text-decoration-none" do %>
+        <i class="fas fa-arrow-left go-back-button" style="font-size:1.5rem;"></i>
+      <% end %>
+      <div>
+        <h1 style="font-size:2rem; margin:0;"><%= @crate.name %></h1>
+        <p class="section-subtitle mb-0"><%= pluralize(@crate.crate_songs.count, 'track') %></p>
+      </div>
+    </div>
+    <%= link_to songs_path, class: "text-decoration-none" do %>
+      <i class="fa-solid fa-circle-plus add-music"></i>
     <% end %>
   </div>
-</div>
-<div class="d-flex flex-column align-items-center">
-  <% @crate.crate_songs.each do |crate_song| %>
-    <%= render 'songs/card', song: crate_song.song, crate_song: crate_song  %>
-  <% end %>
+
+  <%# ── Crate Tracks %>
+  <div class="d-flex flex-column align-items-center">
+    <% @crate.crate_songs.each do |crate_song| %>
+      <%= render 'songs/card', song: crate_song.song, crate_song: crate_song %>
+    <% end %>
+  </div>
+
 </div>

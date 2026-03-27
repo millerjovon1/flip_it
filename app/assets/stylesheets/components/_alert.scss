@@ -1,6 +1,33 @@
 .alert {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
-  z-index: 1000;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  max-width: 360px;
+  border-radius: 12px;
+  font-family: $body-font;
+  font-size: 0.875rem;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.alert-info {
+  background: rgba(43, 11, 83, 0.88);
+  color: $white;
+}
+
+.alert-warning {
+  background: rgba(224, 168, 48, 0.88);
+  color: $gray-dark;
+}
+
+.alert-success {
+  background: rgba(30, 221, 136, 0.88);
+  color: $gray-dark;
+}
+
+.alert-danger {
+  background: rgba(253, 16, 21, 0.88);
+  color: $white;
 }

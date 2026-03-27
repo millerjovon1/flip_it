@@ -1,38 +1,76 @@
+// ─── Avatars ──────────────────────────────────────────────────────────────────
+
 .avatar {
-  width: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
+  border: 2px solid rgba(255, 198, 90, 0.45);
+  object-fit: cover;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+
+  img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &:hover {
+    border-color: $gold;
+    transform: scale(1.05);
+    opacity: 1;
+  }
 }
+
 .avatar-large {
   width: 56px;
+  height: 56px;
   border-radius: 50%;
+  object-fit: cover;
 }
+
 .avatar-bordered {
   width: 40px;
+  height: 40px;
   border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
 }
+
 .avatar-square {
   width: 40px;
-  border-radius: 0px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
 }
 
-.user-avatar img{
-  width: 140px;
+.user-avatar img {
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
-  margin-top: 50px;
-  margin-bottom: 20px;
-  margin-left: 40px;
+  object-fit: cover;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  margin-left: 32px;
+  border: 3px solid rgba(255, 198, 90, 0.5);
+  box-shadow: 0 4px 24px rgba(43, 11, 83, 0.5);
 }
 
-.avatar img{
-  width: 40px;
+.avatar img {
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
-.user-bio{
+.user-bio {
   width: 300px;
-  font-family: "Koulen", cursive;
+  font-family: $body-font;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
 }

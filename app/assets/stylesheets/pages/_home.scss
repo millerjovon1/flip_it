@@ -1,55 +1,87 @@
+// ─── Home Banner ──────────────────────────────────────────────────────────────
+
 .banner {
-  background-image: linear-gradient(
-      rgba(237, 121, 250, 0.171),
-      rgba(148, 94, 241, 0.572)
+  background-image:
+    linear-gradient(
+      160deg,
+      rgba(13, 11, 20, 0.55) 0%,
+      rgba(43, 11, 83, 0.7) 50%,
+      rgba(13, 11, 20, 0.85) 100%
     ),
     asset-url("BL4A8507.JPG");
   background-size: cover;
-  background-position: center;
-  padding: 230px 0;
+  background-position: center 30%;
+  padding: 180px 0 120px;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, $bg-dark);
+  }
 }
 
 .banner h1 {
-  margin: 0;
-  color: white;
-  filter: drop-shadow(0 0 0.1rem grey);
-  font-size: 32px;
-  font-weight: bold;
+  margin: 0 0 16px;
+  color: $white;
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: $navbar-font;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
 }
 
 .banner p {
-  font-size: 20px;
-  color: white;
-  filter: drop-shadow(0 0 0.1rem grey);
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 32px;
+  font-family: $body-font;
+  font-weight: 400;
 }
 
 .card-category-home {
-  color: white;
-  background-color: rgba(43, 11, 83, 0.7);
+  display: inline-block;
+  color: $white;
+  background: $purple;
+  border: 1.5px solid rgba(255, 198, 90, 0.4);
   text-decoration: none;
-  padding-right: 30px;
-  padding-left: 30px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  border-radius: 5px;
-  font-style: bold;
-  width: 100px;
-  font-size: 40px;
-  font-family: "Koulen", cursive;
-  filter: drop-shadow(0 0 0.1rem grey);
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-family: $navbar-font;
+  font-size: 1.3rem;
+  letter-spacing: 0.08em;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+  box-shadow: 0 4px 20px rgba(43, 11, 83, 0.5);
+
+  &:hover {
+    background: $purple-mid;
+    border-color: $gold;
+    transform: translateY(-2px);
+    color: $white;
+    opacity: 1;
+  }
 }
+
+// ─── Home Sections ────────────────────────────────────────────────────────────
 
 .row h3 {
-  font-family: "Koulen", cursive;
-  margin-bottom:0px;
-  filter: drop-shadow(0 0 0.1rem grey);
+  font-family: $navbar-font;
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+  color: $white;
 }
 
-.remixes{
-  border-style: solid;
-  border-color: rgba(255,255,255, 0.7);
-  border-width: medium;;
-  border-radius: 10px;
-  padding:15px;
-  margin-top: 5px;
+.remixes {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 14px;
+  padding: 20px;
+  margin-top: 8px;
 }

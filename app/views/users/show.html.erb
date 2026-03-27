@@ -1,23 +1,29 @@
-<div class="container">
-  <div class="row">
-    <div class="col-4">
-      <%= render 'user_avatar', user: @user %>
-      <h3> <%= @user.artist_name%></h3>
-      <div class="user-bio">
-        <h5>Bio:</h5>
-        <p> Hey there! I'm all about those cosmic vibes and electric beats. You'll find me creating music that'll make you groove.</p>
+<div class="container py-5">
+  <div class="row g-4">
+
+    <%# ── Profile Sidebar %>
+    <div class="col-12 col-md-3">
+      <div class="text-center text-md-start">
+        <%= render 'user_avatar', user: @user %>
+        <h3 style="font-size:1.4rem; margin-top:8px;"><%= @user.artist_name %></h3>
+        <% if @user.bio.present? %>
+          <div class="user-bio mt-2">
+            <p><%= @user.bio %></p>
+          </div>
+        <% end %>
+        <div class="d-flex flex-column gap-2 mt-3">
+          <% if policy(@user).edit? %>
+            <%= link_to 'Upload Track', new_song_path, class: 'download-pill-button text-center' %>
+            <%= link_to 'Edit Profile', edit_user_registration_path, class: 'download-pill-button text-center' %>
+          <% end %>
+        </div>
       </div>
-      <% if policy(@user).edit? %>
-        <%= link_to'Upload original work', new_song_path, :class => "btn btn-primary" %>
-      <% end %>
-      <% if policy(@user).edit? %>
-        <%= link_to 'Edit user', edit_user_registration_path, :class => "btn btn-warning" %>
-      <% end %>
     </div>
-    <div class="col-8 mt-5">
-      <div class="mb-5">
-        <%= render 'tabs', users: @users  %>
-      </div>
+
+    <%# ── Profile Content %>
+    <div class="col-12 col-md-9">
+      <%= render 'tabs', users: @users %>
     </div>
+
   </div>
 </div>
